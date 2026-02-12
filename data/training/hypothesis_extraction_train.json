@@ -1,0 +1,2710 @@
+{
+  "examples": [
+    {
+      "input": "55yo M pt c/o sudden onset substernal chest pressure, 9/10, radiating to L arm. Pt is diaphoretic and nauseated. Hx of HTN, smoking (30 pack-years). BP 150/90, HR 105. ECG: ST elevation in V2-V4. Assessment: Acute STEMI. Plan: Activate cath lab, start ASA/Heparin.",
+      "output": {
+        "primary_hypothesis": "Acute Anteroseptal ST-Elevation Myocardial Infarction (STEMI)",
+        "differential_diagnoses": [
+          "Aortic Dissection",
+          "Acute Pericarditis",
+          "Pulmonary Embolism"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "substernal chest pressure",
+          "diaphoresis",
+          "radiation to left arm"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "12-lead ECG",
+          "Cardiac Troponins",
+          "Emergent Coronary Angiography"
+        ],
+        "reasoning": "Classic presentation of ischemic chest pain combined with diagnostic ST elevations in the precordial leads V2-V4 indicate an acute LAD occlusion."
+      }
+    },
+    {
+      "input": "62yo F hx of DM2 c/o 3 days of epigastric discomfort, nausea, and mild fatigue. Denies classic substernal CP. Pt appears pale and clammy. Trop T: 0.85 ng/mL (elevated). ECG: T-wave inversions in II, III, aVF. Assessment: Inferior wall NSTEMI.",
+      "output": {
+        "primary_hypothesis": "Non-ST-Elevation Myocardial Infarction (NSTEMI)",
+        "differential_diagnoses": [
+          "Gastroesophageal Reflux Disease (GERD)",
+          "Biliary Colic",
+          "Unstable Angina"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "epigastric discomfort",
+          "nausea",
+          "diaphoresis"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Serial Troponins",
+          "ECG",
+          "Echocardiogram"
+        ],
+        "reasoning": "Diabetic patients often present with atypical 'anginal equivalents' such as epigastric pain. Elevated troponins and ECG changes confirm myocardial necrosis without ST elevation."
+      }
+    },
+    {
+      "input": "34yo F c/o sharp pleuritic CP and mild SOB. Pt on OCPs. Hx of recent long-haul flight 2 days ago. HR 102. Pt appears anxious but lungs are clear. Assessment: Pleurisy vs Anxiety. Plan: Ibuprofen and follow up in 1 week if no improvement. No D-dimer or CTPA ordered.",
+      "output": {
+        "primary_hypothesis": "Anxiety-related Chest Pain",
+        "differential_diagnoses": [
+          "Pulmonary Embolism",
+          "Pleurisy",
+          "Pneumothorax"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "pleuritic chest pain",
+          "shortness of breath",
+          "tachycardia"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "None"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: The patient has significant risk factors for Pulmonary Embolism (OCPs, recent immobilization/travel) and presenting tachycardia. Dismissing as anxiety without a D-dimer or Wells Score calculation is a high-risk omission."
+      }
+    },
+    {
+      "input": "68yo M hx CAD s/p PCI in 2018. Pt reports CP occurring at rest and increasing frequency over 48h. Pain lasts 20 mins. Trop negative x2. ECG: Non-specific ST changes. Assessment: Unstable Angina. Plan: Admit for observation and cardiology consult for possible cath.",
+      "output": {
+        "primary_hypothesis": "Unstable Angina",
+        "differential_diagnoses": [
+          "NSTEMI",
+          "Stable Angina",
+          "Esophageal Spasm"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "rest pain",
+          "crescendo pattern of symptoms"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Serial Troponins",
+          "Continuous Cardiac Monitoring",
+          "Stress Test or Angiography"
+        ],
+        "reasoning": "The crescendo pattern and pain at rest in a patient with known CAD suggests high-risk ACS despite negative initial biomarkers."
+      }
+    },
+    {
+      "input": "75yo F hx CHF (EF 40%) c/o weight gain of 8lbs over 4 days and severe orthopnea. Objective: 2+ pitting edema to mid-calf, JVD, bibasilar crackles. BNP 1450. Assessment: Acute Decompensated Heart Failure (ADHF). Plan: IV Furosemide, salt restriction, monitor I/Os.",
+      "output": {
+        "primary_hypothesis": "Acute Decompensated Heart Failure (ADHF)",
+        "differential_diagnoses": [
+          "Pneumonia",
+          "Acute Renal Failure",
+          "COPD Exacerbation"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "orthopnea",
+          "peripheral edema",
+          "weight gain",
+          "rales"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "BNP",
+          "Chest X-ray",
+          "Basic Metabolic Panel"
+        ],
+        "reasoning": "Volume overload is clinically evident through JVD, edema, and rales, supported by significantly elevated BNP and hx of reduced EF."
+      }
+    },
+    {
+      "input": "70yo M c/o progressive DOE and fatigue over 6 months. Pt sleeps on 3 pillows to breathe. Hx of MI in 2015. Objective: Displaced PMI. Echo: EF 35%, dilated LV. Plan: Initiate Entresto and Beta-blocker titration.",
+      "output": {
+        "primary_hypothesis": "Chronic Heart Failure with reduced Ejection Fraction (HFrEF)",
+        "differential_diagnoses": [
+          "HFpEF",
+          "Chronic Obstructive Pulmonary Disease",
+          "Anemia"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "dyspnea on exertion",
+          "orthopnea",
+          "fatigue"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Echocardiogram",
+          "BNP",
+          "EKG"
+        ],
+        "reasoning": "History of prior MI and current echo findings confirm HFrEF. Symptoms of orthopnea and DOE are classic for chronic left-sided heart failure."
+      }
+    },
+    {
+      "input": "65yo F c/o intermittent palpitations and lightheadedness for 2 weeks. Pulse is irregularly irregular at 110 bpm. ECG: Absent P waves, narrow QRS complexes. Assessment: New-onset Atrial Fibrillation. Plan: Rate control (Metoprolol), start Warfarin (CHA2DS2-VASc: 3).",
+      "output": {
+        "primary_hypothesis": "Atrial Fibrillation (AFib)",
+        "differential_diagnoses": [
+          "Atrial Flutter",
+          "Multifocal Atrial Tachycardia",
+          "Frequent PACs"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "palpitations",
+          "irregular pulse",
+          "lightheadedness"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "12-lead ECG",
+          "TSH",
+          "Echocardiogram"
+        ],
+        "reasoning": "The 'irregularly irregular' rhythm on exam and lack of P waves on ECG are pathognomonic for AFib."
+      }
+    },
+    {
+      "input": "82yo M c/o occasional lightheadedness when walking up stairs. Objective: S2 is soft, Grade 3/6 systolic crescendo-decrescendo murmur at RUSB radiating to carotids. Assessment: Benign age-related changes. Plan: Monitor. No Echo ordered.",
+      "output": {
+        "primary_hypothesis": "Age-related Benign Dizziness",
+        "differential_diagnoses": [
+          "Aortic Stenosis",
+          "Orthostatic Hypotension",
+          "Hypertrophic Cardiomyopathy"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "exertional lightheadedness",
+          "systolic murmur"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "None"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: The physical exam findings (S2 softening, murmur at RUSB radiating to carotids) in an elderly patient with exertional syncope/lightheadedness are highly suggestive of critical Aortic Stenosis. Failure to order an echocardiogram is a major oversight."
+      }
+    },
+    {
+      "input": "58yo M hx HTN, Dyslipidemia. c/o substernal CP only when mowing lawn, relieved by 5 mins of rest. Denies rest pain. ECG: NSR, no acute changes. Plan: Outpatient Stress Test and increase Aspirin.",
+      "output": {
+        "primary_hypothesis": "Stable Angina Pectoris",
+        "differential_diagnoses": [
+          "Unstable Angina",
+          "GERD",
+          "Musculoskeletal pain"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "exertional chest pain",
+          "relief with rest"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Exercise Stress Test",
+          "Lipid Panel",
+          "HbA1c"
+        ],
+        "reasoning": "Predictable chest pain triggered by exertion and relieved by rest is the hallmark of stable obstructive coronary artery disease."
+      }
+    },
+    {
+      "input": "64yo F, BMI 35, hx HTN. c/o SOB when climbing stairs. Pt told by previous MD it is due to weight. BNP borderline. Echo from 1yr ago showed EF 55%. Assessment: Obesity-related dyspnea. Plan: Weight loss and diet. No repeat echo or diastolic function testing.",
+      "output": {
+        "primary_hypothesis": "Obesity-related Dyspnea",
+        "differential_diagnoses": [
+          "Heart Failure with preserved Ejection Fraction (HFpEF)",
+          "Deconditioning",
+          "Obstructive Sleep Apnea"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "shortness of breath on exertion"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "None"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: HFpEF is common in older, hypertensive, obese female patients. A normal EF does not rule out heart failure; diastolic dysfunction must be evaluated via Echo or invasive hemodynamics given the clinical SOB."
+      }
+    },
+    {
+      "input": "S: 62yo F c/o sudden onset vision loss in L eye, described as a 'dark curtain' falling. Lasted 8 mins, then fully resolved. Hx HTN, HLD, Smoker. O: BP 155/92. Neuro exam intact. Carotid bruit noted on L side. A: Suspect TIA vs Amaurosis Fugax. P: Stat Carotid Duplex, MRI Brain w/ DWI, start ASA 81mg.",
+      "output": {
+        "primary_hypothesis": "Transient Ischemic Attack (TIA) / Amaurosis Fugax",
+        "differential_diagnoses": [
+          "Carotid Artery Stenosis",
+          "Retinal Artery Occlusion",
+          "Migraine Aura"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Transient monocular vision loss",
+          "Carotid bruit",
+          "Vascular risk factors"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Carotid Duplex Ultrasound",
+          "MRI Brain with DWI",
+          "Echocardiogram"
+        ],
+        "reasoning": "Classic presentation of amaurosis fugax in a patient with significant vascular risk factors and a carotid bruit suggests embolic TIA from carotid source."
+      }
+    },
+    {
+      "input": "S: 28yo F c/o 4 days of painful R eye movement and 'foggy' vision. Reports tingling in both hands when flexing neck. O: Visual acuity 20/50 R eye, 20/20 L. Afferent pupillary defect (RAPD) noted on R. Positive Lhermitte\u2019s sign. A: Optic neuritis; R/O Demyelinating disease. P: MRI Brain and Orbits w/ Gadolinium.",
+      "output": {
+        "primary_hypothesis": "Multiple Sclerosis (MS)",
+        "differential_diagnoses": [
+          "Optic Neuritis",
+          "Neuromyelitis Optica (NMO)",
+          "Systemic Lupus Erythematosus"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Optic neuritis",
+          "Lhermitte\u2019s sign",
+          "Painful eye movement"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "MRI Brain and Orbits with contrast",
+          "Lumbar puncture for Oligoclonal bands",
+          "Visual Evoked Potentials"
+        ],
+        "reasoning": "The combination of optic neuritis and Lhermitte\u2019s sign in a young woman is highly suggestive of multiple sclerosis."
+      }
+    },
+    {
+      "input": "S: 55yo M c/o sudden 'dizziness' and difficulty walking. States room is spinning. Nausea present. O: Pt leaning to the left. Mild dysmetria on L finger-to-nose. No facial droop, speech clear. A: Vertigo, likely BPPV. P: Meclizine 25mg, discharge home with f/u in 1 week.",
+      "output": {
+        "primary_hypothesis": "Cerebellar Stroke (MISSED)",
+        "differential_diagnoses": [
+          "Benign Paroxysmal Positional Vertigo (BPPV)",
+          "Vestibular Neuronitis",
+          "Wallenberg Syndrome"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Sudden gait instability",
+          "Dysmetria",
+          "Vertigo"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "None (Missed)"
+        ],
+        "reasoning": "Potential missed diagnosis: Acute onset of ataxia (dysmetria/leaning) in an older male should be treated as a posterior circulation stroke until proven otherwise via MRI. Attributing gait instability and limb dysmetria solely to BPPV is a clinical error."
+      }
+    },
+    {
+      "input": "S: 34yo M c/o intermittent 'heaviness' in R leg for 2 months, worse after hot showers. Reports occasional urinary urgency. O: Hyperreflexia in LE, 3+ patellar reflexes. Babinski sign positive on R. Strength 4/5 R iliopsoas. A: Upper Motor Neuron lesion; R/O MS. P: MRI Spine and Brain.",
+      "output": {
+        "primary_hypothesis": "Multiple Sclerosis (Relapsing-Remitting)",
+        "differential_diagnoses": [
+          "Transverse Myelitis",
+          "Spinal Cord Compression",
+          "Vitamin B12 Deficiency"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Uhthoff's phenomenon (heat sensitivity)",
+          "Upper motor neuron signs",
+          "Urinary urgency"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "MRI Brain and Spinal Cord",
+          "Vitamin B12 levels"
+        ],
+        "reasoning": "The patient exhibits Uhthoff's phenomenon and UMN signs (hyperreflexia, Babinski), which are classic indicators of demyelinating disease in a young adult."
+      }
+    },
+    {
+      "input": "S: 70yo F brought in by daughter. Pt was 'confused' and 'couldn't find words' for 15 mins this morning. Pt now back to baseline. Hx AFib (non-compliant with meds). O: BP 142/88. Exam normal, fluent speech. A: Episode of confusion, likely age-related fatigue. P: Reassured pt, encourage hydration, f/u in 1 month.",
+      "output": {
+        "primary_hypothesis": "TIA secondary to AFib (MISSED)",
+        "differential_diagnoses": [
+          "Transient Ischemic Attack",
+          "Complex Partial Seizure",
+          "Hypoglycemia"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Transient expressive aphasia",
+          "History of untreated AFib"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "None (Missed)"
+        ],
+        "reasoning": "Potential missed diagnosis: Sudden transient aphasia in an elderly patient with AFib is a TIA until proven otherwise. This patient is at high risk for a major embolic stroke and requires immediate neuroimaging and anticoagulation review."
+      }
+    },
+    {
+      "input": "S: 52yo M c/o sudden R arm weakness and inability to hold a pen. Started 45 mins ago. Hx DM, HTN. O: Strength 2/5 RUE, 5/5 RLE. Facial droop on R. Speech is slightly slurred (dysarthria). A: Acute Ischemic Stroke. P: Activate Stroke Code, Stat CT Head Non-con, CTA Head/Neck.",
+      "output": {
+        "primary_hypothesis": "Acute Ischemic Stroke",
+        "differential_diagnoses": [
+          "Intracerebral Hemorrhage",
+          "Todd's Paralysis",
+          "Hypoglycemic mimic"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Sudden focal weakness",
+          "Facial droop",
+          "Dysarthria"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CT Head (non-contrast)",
+          "CTA Head and Neck",
+          "Point of care glucose"
+        ],
+        "reasoning": "Acute focal neurological deficit in a patient with metabolic risk factors within the tPA window necessitates immediate stroke protocol."
+      }
+    },
+    {
+      "input": "S: 24yo F c/o numbness and 'tingling' starting in toes and moving up to her waist over the last 2 weeks. Feeling 'clumsy'. O: Decreased sensation to vibration/proprioception in LE. Gait is mildly wide-based. A: Sensory level at T10; R/O Transverse Myelitis vs MS. P: MRI Spine w/ contrast.",
+      "output": {
+        "primary_hypothesis": "Multiple Sclerosis / Transverse Myelitis",
+        "differential_diagnoses": [
+          "Guillain-Barr\u00e9 Syndrome",
+          "B12 deficiency",
+          "Spinal cord lesion"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Ascending paresthesia",
+          "Sensory ataxia",
+          "Sensory level"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "MRI Thoracic/Lumbar Spine",
+          "Lumbar puncture",
+          "Serum B12/Folate"
+        ],
+        "reasoning": "A subacute ascending sensory deficit with a clear dermatomal level (T10) points towards a spinal cord etiology, most commonly demyelination in this age group."
+      }
+    },
+    {
+      "input": "S: 48yo F c/o 'the worst headache of my life' that came on suddenly while lifting a box. Nauseated, vomited once. O: BP 168/104. Pt looks uncomfortable. Neurological exam is non-focal. No nuchal rigidity. A: Tension headache vs Migraine. P: IV Ketorolac and discharge.",
+      "output": {
+        "primary_hypothesis": "Subarachnoid Hemorrhage (MISSED)",
+        "differential_diagnoses": [
+          "Subarachnoid Hemorrhage (SAH)",
+          "Reversible Cerebral Vasoconstriction Syndrome",
+          "Thunderclap Migraine"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Thunderclap headache",
+          "Vomiting",
+          "Exertional onset"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "None (Missed)"
+        ],
+        "reasoning": "Potential missed diagnosis: Any 'worst headache of life' or thunderclap onset requires an emergent CT head and potentially a lumbar puncture to rule out SAH, regardless of a normal neuro exam. Dismissing this as a tension headache is life-threatening."
+      }
+    },
+    {
+      "input": "S: 65yo M c/o sudden weakness in R hand while shaving. Dropped the razor. Lasted 10 mins then returned to normal. O: BP 148/85. Strength 5/5 bilaterally. No pronator drift. A: Suspect TIA. P: Admit for TIA workup, MRI Brain, ASA + Clopidogrel.",
+      "output": {
+        "primary_hypothesis": "Transient Ischemic Attack (TIA)",
+        "differential_diagnoses": [
+          "Carpal Tunnel Syndrome (transient)",
+          "Partial Seizure",
+          "Hypoglycemia"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Sudden focal motor weakness",
+          "Spontaneous resolution"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "MRI Brain with DWI",
+          "MRA Head/Neck",
+          "Telemonitoring"
+        ],
+        "reasoning": "A focal motor deficit that resolves within minutes in an older adult is a classic TIA presentation, requiring urgent evaluation for stroke prevention."
+      }
+    },
+    {
+      "input": "S: 31yo F c/o double vision (diplopia) when looking to the right. No limb weakness. O: On rightward gaze, L eye fails to adduct, and R eye has nystagmus. Normal convergence. A: Internuclear Ophthalmoplegia (INO). P: MRI Brain w/ contrast.",
+      "output": {
+        "primary_hypothesis": "Multiple Sclerosis",
+        "differential_diagnoses": [
+          "Brainstem Stroke",
+          "Myasthenia Gravis",
+          "Lyme Disease"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Internuclear Ophthalmoplegia",
+          "Diplopia"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "MRI Brain with contrast",
+          "CSF analysis"
+        ],
+        "reasoning": "INO is a highly specific finding for a lesion in the Medial Longitudinal Fasciculus (MLF), and in a young patient, it is most frequently caused by MS."
+      }
+    },
+    {
+      "input": "S: 28yo F c/o 3-week hx of bloody diarrhea (6-8 episodes/day), tenesmus, and cramping LLQ pain. Reports low-grade fever and 5lb weight loss. O: T 100.1, HR 105, BP 110/72. Abdomen tender over LLQ without rebound. Hgb 9.8, ESR 45, CRP 22. Stool cx negative for C. diff. A: Likely inflammatory bowel disease flare. P: Schedule urgent colonoscopy, start oral prednisone 40mg.",
+      "output": {
+        "primary_hypothesis": "Ulcerative Colitis (UC)",
+        "differential_diagnoses": [
+          "Crohn's Disease",
+          "Infectious Colitis",
+          "Ischemic Colitis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "bloody diarrhea",
+          "tenesmus",
+          "LLQ pain",
+          "weight loss"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Colonoscopy",
+          "CBC",
+          "ESR/CRP",
+          "Stool culture"
+        ],
+        "reasoning": "Classic presentation of bloody diarrhea with tenesmus and systemic inflammatory markers in a young patient strongly suggests UC. Colonoscopy is required for definitive diagnosis and to rule out Crohn's."
+      }
+    },
+    {
+      "input": "S: 55yo M hx EtOH abuse c/o sudden onset hematemesis and lightheadedness. Pt reports hx of 'yellow skin' recently. O: BP 90/60, HR 120. Jaundiced, spider angiomata present on chest, moderate ascites. Hgb 7.1, PLT 65k. A: Acute upper GI bleed likely secondary to portal hypertension. P: Aggressive IVF, start Octreotide drip, urgent EGD.",
+      "output": {
+        "primary_hypothesis": "Esophageal Variceal Hemorrhage",
+        "differential_diagnoses": [
+          "Peptic Ulcer Disease",
+          "Mallory-Weiss Tear",
+          "Gastric Antral Vascular Ectasia"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "hematemesis",
+          "jaundice",
+          "hypotension",
+          "ascites"
+        ],
+        "urgency": "critical",
+        "tests_ordered": [
+          "Urgent EGD",
+          "CBC",
+          "PT/INR",
+          "Liver Function Tests"
+        ],
+        "reasoning": "Stigmata of chronic liver disease (jaundice, spider angiomata, ascites) combined with hemodynamic instability and hematemesis makes variceal bleeding the most likely and dangerous cause."
+      }
+    },
+    {
+      "input": "S: 72yo F hx of chronic NSAID use for OA, c/o recurrent melena and fatigue. Previous EGD/Colonoscopy 6 months ago were negative. Pt still requires transfusions. O: Pale conjunctiva. Hgb 7.5. Abd soft, non-tender. FOBT positive. A: Obscure overt GI bleed. P: Refer for capsule endoscopy.",
+      "output": {
+        "primary_hypothesis": "Small Bowel Angiodysplasia",
+        "differential_diagnoses": [
+          "NSAID-induced enteropathy",
+          "Small bowel malignancy",
+          "Meckel's diverticulum"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "melena",
+          "iron deficiency anemia",
+          "negative EGD/colonoscopy"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Video Capsule Endoscopy",
+          "Repeat Hgb",
+          "Iron studies"
+        ],
+        "reasoning": "When upper and lower endoscopies are negative in a patient with melena and chronic NSAID use, the small bowel must be evaluated. Angiodysplasia is common in this age group."
+      }
+    },
+    {
+      "input": "S: 42yo M hx of Ulcerative Colitis c/o worsening pruritus and fatigue. Pt notes RUQ discomfort. Denies alcohol. O: Scleral icterus. Alk Phos 520 (high), ALT 85, AST 72, Total Bili 2.4. A: Cholestatic liver injury pattern. P: MRCP ordered to evaluate biliary tree.",
+      "output": {
+        "primary_hypothesis": "Primary Sclerosing Cholangitis (PSC)",
+        "differential_diagnoses": [
+          "Choledocholithiasis",
+          "Autoimmune Hepatitis",
+          "Drug-induced liver injury"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "pruritus",
+          "elevated Alk Phos",
+          "history of UC",
+          "jaundice"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "MRCP",
+          "Liver Function Tests",
+          "p-ANCA"
+        ],
+        "reasoning": "There is a strong clinical association between UC and PSC. A cholestatic enzyme pattern in this patient profile necessitates imaging of the bile ducts."
+      }
+    },
+    {
+      "input": "S: 23yo M c/o chronic RLQ pain, non-bloody diarrhea, and 15lb weight loss over 4 months. Reports a painful lump near the anus. O: Palpable, tender mass in RLQ. Perianal exam shows an active draining fistula. WBC 13.5k, CRP 38. A: Suspect Crohn's disease with fistulizing disease. P: CT Abdomen/Pelvis, GI referral.",
+      "output": {
+        "primary_hypothesis": "Crohn's Disease",
+        "differential_diagnoses": [
+          "Appendiceal Abscess",
+          "Intestinal Tuberculosis",
+          "Yersinia enterocolitica infection"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "RLQ pain",
+          "weight loss",
+          "perianal fistula",
+          "RLQ mass"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CT Abdomen/Pelvis",
+          "Colonoscopy with ileoscopy",
+          "CRP"
+        ],
+        "reasoning": "The triad of RLQ mass, non-bloody diarrhea, and perianal fistula is highly specific for Crohn's disease involving the terminal ileum."
+      }
+    },
+    {
+      "input": "S: 34yo F c/o sudden onset fatigue, arthralgias, and dark urine. No hx of travel or new meds. O: Jaundiced. AST 1100, ALT 1250, Alk Phos 150, Bili 4.5. INR 1.2. A: Acute hepatitis. P: Order viral serologies and autoimmune markers (ANA, ASMA).",
+      "output": {
+        "primary_hypothesis": "Autoimmune Hepatitis (AIH)",
+        "differential_diagnoses": [
+          "Acute Viral Hepatitis (A, B, E)",
+          "Drug-Induced Liver Injury (DILI)",
+          "Wilson's Disease"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "markedly elevated transaminases",
+          "dark urine",
+          "arthralgias",
+          "jaundice"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "ANA",
+          "ASMA",
+          "Viral Hepatitis Panel",
+          "Liver biopsy"
+        ],
+        "reasoning": "Extreme transaminase elevation in a young female without drug exposure or viral risk factors warrants immediate investigation for AIH."
+      }
+    },
+    {
+      "input": "S: 68yo M c/o several months of weight loss, early satiety, and iron deficiency anemia. Hx of chronic H. pylori infection in the past. O: Hgb 9.1, Ferritin 8. Epigastric fullness on palpation. A: Malignancy vs severe PUD. P: Urgent EGD.",
+      "output": {
+        "primary_hypothesis": "Gastric Adenocarcinoma",
+        "differential_diagnoses": [
+          "Peptic Ulcer Disease",
+          "Gastric Lymphoma",
+          "Chronic Atrophic Gastritis"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "weight loss",
+          "early satiety",
+          "iron deficiency anemia"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "EGD",
+          "CT Abdomen",
+          "H. pylori testing"
+        ],
+        "reasoning": "In an older patient, weight loss and early satiety with IDA are 'red flags' for gastric cancer, especially with a history of H. pylori."
+      }
+    },
+    {
+      "input": "S: 31yo F c/o intermittent bloating, flatulence, and loose stools for 3 years. Previously dx with 'IBS' by PCP. Pt now reports unintentional 12lb weight loss and worsening fatigue. O: BMI 18.5. Mild diffuse tenderness. Hgb 10.5, Low Ferritin. A: Chronic diarrhea/malabsorption, reassessing previous IBS dx. P: Order tTG-IgA and CBC.",
+      "output": {
+        "primary_hypothesis": "Celiac Disease",
+        "differential_diagnoses": [
+          "Irritable Bowel Syndrome (IBS)",
+          "Microscopic Colitis",
+          "Small Intestinal Bacterial Overgrowth (SIBO)"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "weight loss",
+          "anemia",
+          "chronic bloating",
+          "loose stools"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "tTG-IgA",
+          "Total IgA",
+          "EGD with duodenal biopsy"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: Patient's symptoms were dismissed as IBS for 3 years despite red flags (weight loss, anemia). Malabsorption patterns suggest Celiac."
+      }
+    },
+    {
+      "input": "S: 36yo M c/o bright red blood per rectum (BRBPR) for 6 months. Pt was told it was 'internal hemorrhoids' during a phone triage 4 months ago; no exam was performed. Pt now reports 'pencil-thin' stools and tenesmus. O: DRE reveals a firm, fixed mass 4cm from the anal verge. A: Rectal mass. P: Immediate colonoscopy and biopsy.",
+      "output": {
+        "primary_hypothesis": "Rectal Cancer",
+        "differential_diagnoses": [
+          "Internal Hemorrhoids",
+          "Proctitis",
+          "Anal Fissure"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "hematochezia",
+          "tenesmus",
+          "change in stool caliber"
+        ],
+        "urgency": "critical",
+        "tests_ordered": [
+          "Colonoscopy",
+          "CEA level",
+          "CT Chest/Abdomen/Pelvis"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: Hemorrhoids were assumed due to age, but 'pencil-thin' stools and a palpable mass indicate colorectal malignancy."
+      }
+    },
+    {
+      "input": "S: 65yo M with refractory iron deficiency anemia (IDA). EGD and Colonoscopy performed 1 year ago were negative. Pt was started on oral iron but Hgb continues to drop from 10.2 to 8.4. Pt notes vague mid-abdominal aching. O: Pale, tachycardia. Abdomen soft. A: Chronic occult GI bleed. P: Order Video Capsule Endoscopy (VCE).",
+      "output": {
+        "primary_hypothesis": "Small Bowel Malignancy (e.g., Adenocarcinoma or GIST)",
+        "differential_diagnoses": [
+          "Small bowel angiodysplasia",
+          "Dieulafoy lesion",
+          "Celiac Disease"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "refractory iron deficiency anemia",
+          "negative bidirectional endoscopy",
+          "vague abdominal pain"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Video Capsule Endoscopy",
+          "CT Enterography"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: Failure to pursue the 'middle GI tract' after negative EGD/Colonoscopy in the setting of progressive anemia and pain."
+      }
+    },
+    {
+      "input": "S: 68yo F hx HTN, DM2 c/o 3 days productive cough with rust-colored sputum, chills, and pleuritic R-sided chest pain. O: T 101.4F, HR 105, BP 118/72, RR 22, SpO2 91% on RA. Crackles noted in RLL on auscultation. A: Likely community-acquired pneumonia. P: Order CXR, CBC, BMP, start empiric Ceftriaxone/Azithromycin.",
+      "output": {
+        "primary_hypothesis": "Community-Acquired Pneumonia (CAP)",
+        "differential_diagnoses": [
+          "Pulmonary Embolism",
+          "Pleurisy",
+          "Acute Bronchitis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Productive cough",
+          "Rust-colored sputum",
+          "Fever",
+          "Pleuritic chest pain"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "CXR",
+          "CBC",
+          "BMP"
+        ],
+        "reasoning": "Classic presentation of lobar pneumonia with fever, productive cough, and localized crackles; rust-colored sputum is highly suggestive of S. pneumoniae."
+      }
+    },
+    {
+      "input": "S: 32yo M c/o sudden onset sharp pleuritic CP and dyspnea after returning from 12-hour flight. No hx of lung disease. O: HR 114, RR 26, SpO2 89% RA. Lungs clear to auscultation. R calf slightly edematous. A: Acute SOB, r/o PE. P: CTPE protocol, D-dimer, EKG, start IV fluids.",
+      "output": {
+        "primary_hypothesis": "Pulmonary Embolism (PE)",
+        "differential_diagnoses": [
+          "Pneumothorax",
+          "Pleuritis",
+          "Myocardial Infarction"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Sudden dyspnea",
+          "Pleuritic chest pain",
+          "Hypoxia",
+          "Tachycardia",
+          "Unilateral leg swelling"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CTPE",
+          "D-dimer",
+          "EKG"
+        ],
+        "reasoning": "High Wells score due to recent immobilization (long flight), tachycardia, and clinical signs of DVT."
+      }
+    },
+    {
+      "input": "S: 72yo M hx 40-pack-year smoking, COPD c/o increased SOB and increased greenish sputum production x4 days. Using rescue inhaler q2h without relief. O: Barrel chest, diffuse expiratory wheezing, diminished breath sounds. SpO2 88% on RA. A: COPD exacerbation. P: Nebulized albuterol/ipratropium, IV methylprednisolone, start Azithromycin.",
+      "output": {
+        "primary_hypothesis": "Acute COPD Exacerbation",
+        "differential_diagnoses": [
+          "Pneumonia",
+          "Congestive Heart Failure",
+          "PE"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Increased dyspnea",
+          "Increased sputum purulence",
+          "Expiratory wheezing"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "CXR",
+          "ABG",
+          "Sputum culture"
+        ],
+        "reasoning": "Patient meets Anthonisen criteria for COPD exacerbation (increased SOB and sputum purulence) in the setting of significant smoking history."
+      }
+    },
+    {
+      "input": "S: 28yo F on OCPs c/o 'anxiety' and 'racing heart'. Pt feels some chest tightness but denies cough. O: HR 108, RR 20, SpO2 96%. Lung sounds clear. Pt appears distressed. MD Note: Pt has stressful job, likely panic attack. P: Discharge with Lorazepam Rx and f/u with PCP.",
+      "output": {
+        "primary_hypothesis": "Panic Attack",
+        "differential_diagnoses": [
+          "Pulmonary Embolism",
+          "Hyperthyroidism",
+          "Arrhythmia"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Tachycardia",
+          "Chest tightness",
+          "Anxiety"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "None"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: Pt is at high risk for PE (OCP use, tachycardia, chest tightness). Dismissing as anxiety without D-dimer or r/o PE protocol is a clinical risk."
+      }
+    },
+    {
+      "input": "S: 55yo F post-op Day 2 s/p total hip replacement. Pt c/o mild SOB and lightheadedness when sitting up. O: HR 112, BP 128/84, SpO2 92% on 2L NC. No fever. A: Post-op tachycardia, r/o PE. P: CTA Chest, EKG, check D-dimer, lower extremity doppler.",
+      "output": {
+        "primary_hypothesis": "Pulmonary Embolism (PE)",
+        "differential_diagnoses": [
+          "Post-operative Atelectasis",
+          "Anemia",
+          "Pneumonia"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Post-operative status",
+          "Tachycardia",
+          "Hypoxia"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CTA Chest",
+          "EKG",
+          "D-dimer",
+          "Lower extremity doppler"
+        ],
+        "reasoning": "Recent major orthopedic surgery is a massive risk factor for VTE/PE; tachycardia and hypoxia post-op must be treated as PE until proven otherwise."
+      }
+    },
+    {
+      "input": "S: 65yo M hx COPD and HF c/o worsening dyspnea on exertion. States 'I just can't catch my breath.' O: HR 95, RR 18, SpO2 91%. Lung sounds show chronic wheeze. No new infiltrates on CXR. Treated for COPD flare with steroids. P: Discharged to home. (Note: Pt returned 24 hours later with massive PE).",
+      "output": {
+        "primary_hypothesis": "COPD Exacerbation",
+        "differential_diagnoses": [
+          "Pulmonary Embolism",
+          "CHF Exacerbation",
+          "Pneumonia"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Dyspnea on exertion",
+          "Chronic wheezing",
+          "Hypoxia"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CXR"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: Anchoring bias on COPD. Worsening SOB in a patient with multiple comorbidities should prompt a PE workup (D-dimer/CTA), especially if the 'flare' doesn't fit the typical pattern."
+      }
+    },
+    {
+      "input": "S: 82yo F from SNF hx dementia/dysphagia c/o low-grade fever and 'not acting right'. O: T 100.2F, HR 98, SpO2 93% on RA. Lung exam: occasional rhonchi. CXR: 'Indeterminate' per radiology. A: Dehydration/UTI. P: IV fluids, UA/Culture.",
+      "output": {
+        "primary_hypothesis": "Urinary Tract Infection",
+        "differential_diagnoses": [
+          "Aspiration Pneumonia",
+          "Sepsis",
+          "Pneumonitis"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Altered mental status",
+          "Low-grade fever",
+          "Hx dysphagia"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "UA",
+          "Urine Culture",
+          "IV Fluids"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: Hx of dysphagia and indeterminate CXR in an elderly patient with AMS strongly suggests Aspiration Pneumonia. Focusing only on UTI may delay necessary antibiotics."
+      }
+    },
+    {
+      "input": "S: 44yo M hx asthma c/o 1 week cough, low-grade fever, and R-sided chest soreness. O: T 99.8F, SpO2 95% RA. Diminished breath sounds at R base. A: Bronchitis vs PNA. P: Order CXR, start Albuterol, PO Amoxicillin.",
+      "output": {
+        "primary_hypothesis": "Pneumonia",
+        "differential_diagnoses": [
+          "Acute Bronchitis",
+          "Asthma Exacerbation",
+          "Pleurisy"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Cough",
+          "Low-grade fever",
+          "Diminished breath sounds"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "CXR"
+        ],
+        "reasoning": "Focal lung findings (diminished sounds) and fever necessitate imaging to differentiate PNA from simple bronchitis."
+      }
+    },
+    {
+      "input": "S: 50yo F hx breast cancer c/o progressive dyspnea and dry cough over 2 weeks. O: HR 110, SpO2 90%. CXR shows large R-sided pleural effusion. A: Effusion, r/o PE vs Malignancy. P: Thoracentesis, CT Chest with contrast, Cytology.",
+      "output": {
+        "primary_hypothesis": "Malignant Pleural Effusion",
+        "differential_diagnoses": [
+          "Pulmonary Embolism",
+          "Pneumonia",
+          "CHF"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Progressive dyspnea",
+          "Dry cough",
+          "Tachycardia",
+          "Pleural effusion"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Thoracentesis",
+          "CT Chest",
+          "Cytology"
+        ],
+        "reasoning": "In a patient with known malignancy, new pleural effusion and dyspnea are highly suspicious for metastatic spread or associated PE."
+      }
+    },
+    {
+      "input": "S: 19yo M c/o sudden R-sided chest pain and SOB while playing basketball. No prior med hx. O: Tall, thin build. RR 24, SpO2 94% RA. Absent breath sounds on R side. A: Suspect spontaneous pneumothorax. P: Urgent CXR, possible needle decompression/chest tube.",
+      "output": {
+        "primary_hypothesis": "Spontaneous Pneumothorax",
+        "differential_diagnoses": [
+          "Pulmonary Embolism",
+          "Pneumonia",
+          "Pericarditis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Sudden chest pain",
+          "Dyspnea",
+          "Tall/thin habitus",
+          "Absent breath sounds"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CXR"
+        ],
+        "reasoning": "Classic presentation: tall thin young male with sudden onset pain and absent breath sounds during physical activity."
+      }
+    },
+    {
+      "input": "32yo F c/o palpitations, 10lb weight loss in 1 mo despite increased appetite, and heat intolerance. Pt hx significant for anxiety. PE: tachycardia (HR 115), fine tremor in hands, and mild exophthalmos. Thyroid diffusely enlarged and non-tender on palpation.",
+      "output": {
+        "primary_hypothesis": "Graves' Disease",
+        "differential_diagnoses": [
+          "Toxic Multinodular Goiter",
+          "Subacute Thyroiditis",
+          "Pheochromocytoma"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Palpitations",
+          "Weight loss",
+          "Heat intolerance",
+          "Exophthalmos",
+          "Goiter"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "TSH",
+          "Free T4",
+          "TSI (Thyroid Stimulating Immunoglobulin)",
+          "Radioactive Iodine Uptake Scan"
+        ],
+        "reasoning": "Classic triad of hyperthyroidism symptoms, goiter, and pathognomonic exophthalmos strongly suggests Graves' disease."
+      }
+    },
+    {
+      "input": "19yo M presents to ED with 3-day hx of nausea, vomiting, and severe abdominal pain. Pt reports significant polyuria and polydipsia over the last 2 weeks. PE: Pt appears dehydrated, tachypneic (Kussmaul breathing), with a fruity odor on breath. BP 90/60, HR 125.",
+      "output": {
+        "primary_hypothesis": "Diabetic Ketoacidosis (DKA)",
+        "differential_diagnoses": [
+          "New-onset Type 1 Diabetes Mellitus",
+          "Sepsis",
+          "Acute Abdomen",
+          "Alcoholic Ketoacidosis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Polyuria",
+          "Polydipsia",
+          "Abdominal pain",
+          "Kussmaul breathing",
+          "Fruity breath"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Capillary blood glucose",
+          "Basic Metabolic Panel",
+          "Arterial Blood Gas",
+          "Urinalysis for ketones"
+        ],
+        "reasoning": "Acute presentation of metabolic acidosis, dehydration, and osmotic symptoms in a young patient is highly indicative of DKA, likely secondary to undiagnosed T1DM."
+      }
+    },
+    {
+      "input": "40yo F c/o progressive weight gain concentrated in the midsection and 'rounding' of her face. Hx of HTN and newly diagnosed DM2. PE: Centripetal obesity, supraclavicular fat pads, and wide purple striae on the abdomen. Pt denies exogenous steroid use.",
+      "output": {
+        "primary_hypothesis": "Cushing's Syndrome",
+        "differential_diagnoses": [
+          "Cushing's Disease (Pituitary Adenoma)",
+          "Ectopic ACTH Production",
+          "Adrenal Adenoma",
+          "Polycystic Ovary Syndrome"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Centripetal obesity",
+          "Moon facies",
+          "Purple striae",
+          "Hypertension",
+          "Hyperglycemia"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "24-hour urinary free cortisol",
+          "Late-night salivary cortisol",
+          "Low-dose dexamethasone suppression test"
+        ],
+        "reasoning": "Physical findings of fat redistribution and striae, combined with systemic metabolic issues (HTN, DM), require investigation for hypercortisolism."
+      }
+    },
+    {
+      "input": "55yo F presents with 6-mo hx of worsening fatigue, constipation, and cold intolerance. Pt notes hair thinning and brittle nails. PE: Bradycardia (HR 58), delayed relaxation phase of deep tendon reflexes, and non-pitting edema of the lower extremities (myxedema).",
+      "output": {
+        "primary_hypothesis": "Hashimoto's Thyroiditis",
+        "differential_diagnoses": [
+          "Secondary Hypothyroidism",
+          "Major Depressive Disorder",
+          "Anemia"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Fatigue",
+          "Cold intolerance",
+          "Bradycardia",
+          "Delayed reflexes",
+          "Constipation"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "TSH",
+          "Free T4",
+          "Anti-TPO antibodies"
+        ],
+        "reasoning": "Classic hypothyroid symptoms and physical signs like delayed reflex relaxation point toward primary thyroid failure, most commonly Hashimoto's."
+      }
+    },
+    {
+      "input": "60yo M with 20-yr hx of DM2 and HTN presents for routine follow-up. Pt c/o 'foamy' urine and bilateral 1+ pedal edema. Labs from last week show Cr 1.8 (baseline 1.1) and an A1c of 8.5%. Pt is currently on Metformin and Amlodipine.",
+      "output": {
+        "primary_hypothesis": "Diabetic Nephropathy",
+        "differential_diagnoses": [
+          "Hypertensive Nephrosclerosis",
+          "Congestive Heart Failure",
+          "Glomerulonephritis"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Foamy urine",
+          "Pedal edema",
+          "Elevated creatinine"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Urine albumin-to-creatinine ratio (UACR)",
+          "Renal Ultrasound",
+          "Repeat BMP"
+        ],
+        "reasoning": "Longstanding DM with poor control and new-onset proteinuria (suggested by foamy urine) and rising Cr indicates progression to chronic kidney disease."
+      }
+    },
+    {
+      "input": "28yo F c/o chronic fatigue, salt cravings, and dizziness when standing. Pt has been treated for 'treatment-resistant depression' for 1 year. PE: Pt appears thin, hyperpigmentation noted on palmar creases and buccal mucosa. BP 95/60. Note: Provider initially considered only psych evaluation due to 'vague' fatigue.",
+      "output": {
+        "primary_hypothesis": "Primary Adrenal Insufficiency (Addison's Disease)",
+        "differential_diagnoses": [
+          "Secondary Adrenal Insufficiency",
+          "Major Depressive Disorder",
+          "Anorexia Nervosa",
+          "Hypothyroidism"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Hyperpigmentation",
+          "Salt craving",
+          "Orthostatic hypotension",
+          "Fatigue"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "8 AM Serum Cortisol",
+          "ACTH level",
+          "ACTH Stimulation Test",
+          "Basic Metabolic Panel (Electrolytes)"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS. Hyperpigmentation and salt craving are specific indicators for Addison's that were overlooked by attributing symptoms solely to psychiatric causes."
+      }
+    },
+    {
+      "input": "82yo M with hx of mild dementia and AFib brought in by family for 'failure to thrive.' Pt has lost 15lbs and is increasingly agitated. PE: Tachycardia, fine resting tremor, and skin feels warm/moist. No obvious goiter. Previous visit documented as 'dementia-related agitation' without labs.",
+      "output": {
+        "primary_hypothesis": "Apathetic Hyperthyroidism",
+        "differential_diagnoses": [
+          "Worsening Dementia",
+          "Occult Malignancy",
+          "Congestive Heart Failure"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Weight loss",
+          "Agitation",
+          "Tachycardia",
+          "Tremor"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "TSH",
+          "Free T4",
+          "Free T3",
+          "EKG"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS. In elderly patients, hyperthyroidism often lacks classic 'hyper' symptoms, presenting instead as failure to thrive or cardiac issues (apathetic hyperthyroidism)."
+      }
+    },
+    {
+      "input": "45yo F with DM2 on SGLT2 inhibitor (Empagliflozin) presents with nausea, malaise, and shortness of breath. Bedside glucose is 145 mg/dL. Pt was advised by urgent care to 'monitor sugars at home' as levels were not high. Pt now presents to ED with tachypnea.",
+      "output": {
+        "primary_hypothesis": "Euglycemic Diabetic Ketoacidosis (EDKA)",
+        "differential_diagnoses": [
+          "Viral Gastritis",
+          "Pancreatitis",
+          "Lactic Acidosis"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Nausea",
+          "Shortness of breath",
+          "Normal/near-normal blood glucose"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Arterial Blood Gas",
+          "Serum Ketones (Beta-hydroxybutyrate)",
+          "Anion Gap (BMP)"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS. SGLT2 inhibitors can cause DKA with relatively normal glucose levels, leading to dangerous delays in diagnosis if only glucose is checked."
+      }
+    },
+    {
+      "input": "35yo M c/o 'attacks' of pounding headaches, profuse sweating, and palpitations that last 20 mins. Hx significant for difficult-to-control HTN despite three medications. PE: BP 180/110 during episode, HR 110. Adrenal mass noted incidentally on recent CT abdomen for trauma.",
+      "output": {
+        "primary_hypothesis": "Pheochromocytoma",
+        "differential_diagnoses": [
+          "Essential Hypertension",
+          "Panic Attacks",
+          "Hyperthyroidism",
+          "Renovascular Hypertension"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Paroxysmal Hypertension",
+          "Headache",
+          "Diaphoresis",
+          "Palpitations"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Plasma free metanephrines",
+          "24-hour urinary fractionated metanephrines",
+          "Adrenal MRI"
+        ],
+        "reasoning": "The classic triad of headache, sweating, and palpitations in the setting of an adrenal incidentaloma and refractory HTN is highly suggestive of a catecholamine-secreting tumor."
+      }
+    },
+    {
+      "input": "50yo F c/o a firm, painless lump in the front of her neck discovered while applying lotion. No hx of radiation exposure. PE: 2cm hard, fixed nodule on the right lobe of the thyroid. No cervical lymphadenopathy noted. TSH is within normal limits.",
+      "output": {
+        "primary_hypothesis": "Thyroid Nodule (Evaluate for Malignancy)",
+        "differential_diagnoses": [
+          "Papillary Thyroid Carcinoma",
+          "Benign Multinodular Goiter",
+          "Follicular Adenoma",
+          "Thyroid Cyst"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Painless neck mass",
+          "Fixed nodule"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Thyroid Ultrasound",
+          "Fine Needle Aspiration (FNA) Biopsy"
+        ],
+        "reasoning": "A cold/euthyroid solitary hard nodule in a middle-aged female must be evaluated via ultrasound and biopsy to rule out thyroid cancer."
+      }
+    },
+    {
+      "input": "S: 72yo F hx HTN, DM2 presents with increased confusion per family. Pt c/o 'feeling off' for 2 days. No dysuria reported. O: T 101.4F, HR 108, BP 102/64, SpO2 94% on RA. Lungs CTA. Abd soft, mild suprapubic tenderness. Skin warm. A: Altered mental status and tachycardia in elderly pt, likely infectious. P: Labs, UA, CXR, IVF.",
+      "output": {
+        "primary_hypothesis": "Early Sepsis secondary to Urinary Tract Infection (UTI)",
+        "differential_diagnoses": [
+          "Urosepsis",
+          "Pneumonia",
+          "Dehydration",
+          "Delirium secondary to metabolic imbalance"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Altered mental status",
+          "Tachycardia",
+          "Fever",
+          "Suprapubic tenderness"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Urinalysis with culture",
+          "Blood cultures x2",
+          "Serum Lactate",
+          "CBC with differential",
+          "BMP"
+        ],
+        "reasoning": "Elderly patient with fever, tachycardia, and altered mental status meets qSOFA criteria for sepsis. Suprapubic tenderness points to a urinary source."
+      }
+    },
+    {
+      "input": "S: 34yo M known HIV+ (non-compliant with ART) c/o persistent headache x 1 week, worsening. Nausea, no vomiting. Photophobia present. O: T 100.2F, BP 120/80. Neck stiffness noted on exam (positive Kernig's). No focal neuro deficits. A: HIV+ with meningismus. Concern for opportunistic infection. P: Head CT then LP.",
+      "output": {
+        "primary_hypothesis": "Cryptococcal Meningitis",
+        "differential_diagnoses": [
+          "Toxoplasmosis",
+          "Tuberculous meningitis",
+          "Primary CNS Lymphoma",
+          "Viral Meningitis"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Persistent headache",
+          "Photophobia",
+          "Neck stiffness",
+          "Immunocompromised status"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Lumbar puncture (opening pressure, CSF analysis)",
+          "Cryptococcal antigen (Serum and CSF)",
+          "India Ink stain",
+          "CT Brain"
+        ],
+        "reasoning": "In a non-compliant HIV patient with subacute headache and meningeal signs, fungal pathogens like Cryptococcus are the most likely cause of meningitis."
+      }
+    },
+    {
+      "input": "S: 28yo F c/o chronic fatigue and migratory joint pain x 3 weeks. States she had a 'weird rash' on her leg 1 month ago after hiking in CT, which her PCP said was probably a 'spider bite' and told her to use hydrocortisone. O: T 98.9F. Left knee is mildly swollen and erythematous. Heart sounds normal. A: Polyarthralgia and fatigue, hx of possible erythema migrans. P: Evaluate for tick-borne illness.",
+      "output": {
+        "primary_hypothesis": "Disseminated Lyme Disease",
+        "differential_diagnoses": [
+          "Rheumatoid Arthritis",
+          "Systemic Lupus Erythematosus",
+          "Fibromyalgia",
+          "Babesiosis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Migratory joint pain",
+          "Chronic fatigue",
+          "History of circular rash (Erythema migrans)",
+          "Joint effusion"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Lyme Serology (ELISA with reflex to Western Blot)",
+          "ESR/CRP",
+          "Arthrocentesis of knee"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: The initial rash was likely Erythema Migrans, which was misidentified as an insect bite. The progression to joint swelling and fatigue is classic for Stage 2/3 Lyme disease."
+      }
+    },
+    {
+      "input": "S: 50yo M, 3 months post-renal transplant. c/o low-grade fever, malaise, and dry cough x 4 days. No sick contacts. O: T 100.8F, SpO2 92% RA. Crackles at lung bases. A: Immunosuppressed pt with febrile respiratory illness. P: CBC, viral loads, imaging.",
+      "output": {
+        "primary_hypothesis": "Cytomegalovirus (CMV) Pneumonitis",
+        "differential_diagnoses": [
+          "Pneumocystis jirovecii pneumonia (PJP)",
+          "Community-acquired pneumonia",
+          "Transplant rejection",
+          "Influenza"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Fever",
+          "Hypoxia",
+          "Dry cough",
+          "Post-transplant status"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CMV PCR (Quantitative blood)",
+          "Chest CT (High resolution)",
+          "Induced sputum for PJP",
+          "Bronchoalveolar lavage (BAL)"
+        ],
+        "reasoning": "CMV is a common opportunistic infection in the 1-6 month post-transplant window. The clinical picture of pneumonitis in this window highly suggests CMV reactivation."
+      }
+    },
+    {
+      "input": "S: 65yo M hx DM2, PAD, c/o R foot pain. Pt noticed a 'sore' 2 weeks ago, now foot is dark and smelly. Pt feels 'very weak' and chilly. O: T 102.5F, HR 118, BP 85/52. R foot shows 4cm necrotic ulcer, surrounding cellulitis to ankle, crepitus felt on palpation. A: Septic shock secondary to necrotizing skin/soft tissue infection. P: Aggressive IVF, broad-spec antibiotics, urgent surgical consult.",
+      "output": {
+        "primary_hypothesis": "Septic Shock secondary to Necrotizing Fasciitis",
+        "differential_diagnoses": [
+          "Gas Gangrene",
+          "Severe Cellulitis",
+          "Diabetic Foot Osteomyelitis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Hypotension",
+          "Crepitus on palpation",
+          "Foul-smelling necrotic ulcer",
+          "High fever and tachycardia"
+        ],
+        "urgency": "critical",
+        "tests_ordered": [
+          "Stat surgical debridement (consult)",
+          "Blood cultures",
+          "X-ray foot (assess for gas)",
+          "Lactate",
+          "CBC/CMP"
+        ],
+        "reasoning": "Patient is in decompensated shock with evidence of necrotizing infection (crepitus and necrosis). This is a surgical emergency."
+      }
+    },
+    {
+      "input": "S: 40yo M c/o sudden onset high fever, myalgia, and severe headache. Pt recently spent 2 weeks cleaning out an old barn in rural New Mexico. O: T 103.1F, BP 110/70, SpO2 88% on RA. Lungs with diffuse rales. CBC shows thrombocytopenia and hemoconcentration. A: Acute respiratory distress in previously healthy male. P: ICU admission, supplemental O2.",
+      "output": {
+        "primary_hypothesis": "Hantavirus Pulmonary Syndrome (HPS)",
+        "differential_diagnoses": [
+          "Plague (Yersinia pestis)",
+          "Coccidioidomycosis",
+          "Influenza pneumonia",
+          "Tularemia"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Acute respiratory distress",
+          "Thrombocytopenia",
+          "Exposure to rodent droppings (barn cleaning)",
+          "Hemoconcentration"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Hantavirus IgM/IgG",
+          "Chest X-ray",
+          "Peripheral blood smear (Immunoblasts)",
+          "Viral PCR"
+        ],
+        "reasoning": "The combination of rodent exposure in the Southwest US, rapid progression to respiratory failure, and thrombocytopenia is highly characteristic of Hantavirus."
+      }
+    },
+    {
+      "input": "S: 55yo M (undomiciled, stays in shelters) c/o productive cough x 3 months, weight loss (approx 15 lbs), and night sweats. Has been to Urgent Care 2x; treated with Amoxicillin then Azithromycin for 'bronchitis' without relief. O: T 100.4F, thin appearing. Lungs: decreased breath sounds in R upper lobe. A: Chronic cough and constitutional symptoms in high-risk pt. P: Sputum studies and isolation.",
+      "output": {
+        "primary_hypothesis": "Active Pulmonary Tuberculosis (TB)",
+        "differential_diagnoses": [
+          "Lung Cancer",
+          "Fungal Pneumonia (Histoplasmosis)",
+          "Sarcoidosis",
+          "Chronic Bronchitis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Chronic cough > 3 weeks",
+          "Night sweats",
+          "Unintentional weight loss",
+          "Upper lobe lung involvement"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Sputum Acid-Fast Bacilli (AFB) smear and culture",
+          "NAAT for M. tuberculosis",
+          "Chest X-ray",
+          "HIV screening"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: Failure to recognize TB in a high-risk individual (homeless) despite multiple visits for the same cough. Antibiotics for bronchitis were inappropriate without ruling out TB."
+      }
+    },
+    {
+      "input": "S: 29yo M, outdoor worker in Wisconsin, c/o non-healing 'wart-like' skin lesion on his forearm and a mild cough. No fever. O: 2cm verrucous, well-circumscribed plaque on R forearm with small microabscesses at the border. Lungs have scattered wheezes. A: Chronic skin lesion and pulmonary symptoms in the Midwest. P: Biopsy and imaging.",
+      "output": {
+        "primary_hypothesis": "Blastomycosis",
+        "differential_diagnoses": [
+          "Squamous Cell Carcinoma",
+          "Sarcoidosis",
+          "Histoplasmosis",
+          "Coccidioidomycosis"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Verrucous skin lesion",
+          "Respiratory symptoms",
+          "Geographic exposure (Midwest/Wisconsin)"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Skin biopsy (KOH prep and fungal culture)",
+          "Chest X-ray",
+          "Blastomyces antigen (Urine/Serum)"
+        ],
+        "reasoning": "Blastomycosis often presents with characteristic verrucous skin lesions and pulmonary involvement. It is endemic to the Great Lakes region and Ohio/Mississippi River valleys."
+      }
+    },
+    {
+      "input": "S: 19yo F college student c/o severe sore throat and fatigue x 10 days. PCP diagnosed 'viral pharyngitis' 5 days ago. Now c/o sudden, sharp Left Upper Quadrant (LUQ) pain after moving boxes in her dorm. O: T 99.8F, BP 95/60, HR 115. Pale, diaphoretic. Abdomen: Guarding in LUQ, fullness noted. A: Acute abdominal pain and hypotension in pt with recent pharyngitis. P: Emergency imaging and surgical consult.",
+      "output": {
+        "primary_hypothesis": "Splenic Rupture secondary to Infectious Mononucleosis",
+        "differential_diagnoses": [
+          "Ruptured Ectopic Pregnancy",
+          "Perforated Viscus",
+          "Acute Pancreatitis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "LUQ pain",
+          "Hypotension/Tachycardia",
+          "History of sore throat and fatigue",
+          "Kehr's sign (referred shoulder pain)"
+        ],
+        "urgency": "critical",
+        "tests_ordered": [
+          "CT Abdomen/Pelvis with contrast",
+          "Monospot test (heterophile antibody)",
+          "CBC (looking for atypical lymphocytes/anemia)",
+          "FAST exam (ultrasound)"
+        ],
+        "reasoning": "POTENTIAL MISSED DIAGNOSIS: The initial pharyngitis was likely Infectious Mononucleosis. Failure to advise the patient on activity restrictions led to a traumatic/spontaneous splenic rupture, now presenting as hemorrhagic shock."
+      }
+    },
+    {
+      "input": "S: 31yo F recently returned from vacation in Thailand (1 week ago). c/o sudden high fever (104F), intense 'bone-crushing' muscle/joint pain, and retro-orbital headache. O: T 103.8F, HR 110. Generalized maculopapular rash. Petechiae noted on legs. A: Febrile illness in a returning traveler. P: Supportive care, monitor labs.",
+      "output": {
+        "primary_hypothesis": "Dengue Fever",
+        "differential_diagnoses": [
+          "Malaria",
+          "Zika Virus",
+          "Chikungunya",
+          "Typhoid Fever"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "High fever",
+          "Retro-orbital pain",
+          "Severe myalgia (breakbone fever)",
+          "Petechiae/Rash"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Dengue NS1 antigen and IgM/IgG",
+          "CBC (monitor for thrombocytopenia)",
+          "Malaria smear (thick and thin)",
+          "LFTs"
+        ],
+        "reasoning": "Classic presentation of 'Breakbone fever' (Dengue) following travel to an endemic area. The petechiae and high fever require close monitoring for progression to Dengue Hemorrhagic Fever."
+      }
+    },
+    {
+      "input": "S: 54yo F pt c/o 3 mo persistent fatigue, generalized weakness. Reports 12lb unintentional weight loss over 4 months. No cough, fever, or night sweats. O: Vitals stable. BMI 22 (was 24). Abd soft, non-tender. No lymphadenopathy. A: Fatigue and weight loss of unknown etiology. P: Order CBC, CMP, TSH, ESR, A1c. Schedule f/u 2 wks.",
+      "output": {
+        "primary_hypothesis": "Occult malignancy",
+        "differential_diagnoses": [
+          "Hyperthyroidism",
+          "Major Depressive Disorder",
+          "Diabetes Mellitus",
+          "Malabsorption syndrome"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Fatigue",
+          "Unintentional weight loss"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "CBC",
+          "CMP",
+          "TSH",
+          "ESR",
+          "A1c"
+        ],
+        "reasoning": "Significant weight loss in a middle-aged patient without a clear psychiatric or metabolic cause warrants screening for systemic disease and malignancy."
+      }
+    },
+    {
+      "input": "S: 32yo M c/o daytime somnolence and lack of energy for 6 months. Pt reports 'sleeping 8 hours but waking up tired.' Spouse notes loud snoring. O: BMI 34. Neck circ 17.5in. Oropharynx: Mallampati IV. A: Excessive daytime sleepiness. P: Order Polysomnogram (Sleep Study). Check TSH.",
+      "output": {
+        "primary_hypothesis": "Obstructive Sleep Apnea (OSA)",
+        "differential_diagnoses": [
+          "Hypothyroidism",
+          "Shift work sleep disorder",
+          "Depression"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Daytime somnolence",
+          "Loud snoring",
+          "Non-restorative sleep"
+        ],
+        "urgency": "low",
+        "tests_ordered": [
+          "Polysomnogram",
+          "TSH"
+        ],
+        "reasoning": "High BMI, large neck circumference, and Mallampati score combined with spouse-reported snoring strongly suggest OSA."
+      }
+    },
+    {
+      "input": "S: 62yo M c/o worsening fatigue and 'just not feeling right.' Hx of HTN. Pt notes slight change in bowel habits but attributes it to diet. O: Pale conjunctiva. Vitals stable. Rectal exam: Trace heme-positive stool. A: Fatigue, possible iron deficiency. P: Start iron supplement. F/u in 3 months. No GI referral made at this time.",
+      "output": {
+        "primary_hypothesis": "Colorectal Malignancy (MISSED DIAGNOSIS POTENTIAL)",
+        "differential_diagnoses": [
+          "Iron deficiency anemia",
+          "Hemorrhoids",
+          "Chronic Kidney Disease"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Fatigue",
+          "Pale conjunctiva",
+          "Heme-positive stool"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Iron supplements (No imaging or scope ordered)"
+        ],
+        "reasoning": "FAILURE MODE: Patient is 62 with heme-positive stool and fatigue. Treating with iron without a colonoscopy ignores the high risk of GI malignancy."
+      }
+    },
+    {
+      "input": "S: 28yo F c/o heavy fatigue, brain fog, and thinning hair. Pt has heavy menses (menorrhagia). O: Tachycardia (HR 102). Skin dry. No thyromegaly. A: Fatigue in reproductive age female. P: CBC, Ferritin, TSH.",
+      "output": {
+        "primary_hypothesis": "Iron Deficiency Anemia",
+        "differential_diagnoses": [
+          "Hypothyroidism",
+          "Vitamin B12 deficiency",
+          "Generalized Anxiety Disorder"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Fatigue",
+          "Brain fog",
+          "Thinning hair",
+          "Menorrhagia"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "CBC",
+          "Ferritin",
+          "TSH"
+        ],
+        "reasoning": "Heavy menstrual bleeding combined with fatigue and hair thinning is classic for iron deficiency, though thyroid issues must be ruled out."
+      }
+    },
+    {
+      "input": "S: 45yo M c/o vague epigastric discomfort and 'low energy.' Pt has lost 5lbs in 2 months. History of alcohol use (social). O: Mild epigastric tenderness. Otherwise unremarkable. A: Dyspepsia. P: Start Omeprazole 20mg daily. Reassess in 4 wks.",
+      "output": {
+        "primary_hypothesis": "Gastric Malignancy or Pancreatic Insufficiency (MISSED DIAGNOSIS POTENTIAL)",
+        "differential_diagnoses": [
+          "GERD",
+          "Peptic Ulcer Disease",
+          "Gastritis"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Epigastric discomfort",
+          "Fatigue",
+          "Unintentional weight loss"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Omeprazole trial (No imaging or labs ordered)"
+        ],
+        "reasoning": "FAILURE MODE: Unintentional weight loss in a 45yo with epigastric pain should trigger imaging (US or CT) or endoscopy to rule out malignancy rather than just symptomatic treatment with a PPI."
+      }
+    },
+    {
+      "input": "S: 72yo M c/o fatigue, decreased appetite, and 'feeling slowed down.' Pt lost his wife 6 months ago. O: Flat affect. Poor eye contact. Minimal weight loss (2lbs). A: Vague constitutional symptoms in elderly. P: PHQ-9, CMP, TSH.",
+      "output": {
+        "primary_hypothesis": "Major Depressive Disorder (Bereavement related)",
+        "differential_diagnoses": [
+          "Dementia",
+          "Hypothyroidism",
+          "Occult malignancy"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Fatigue",
+          "Anorexia",
+          "Psychomotor retardation"
+        ],
+        "urgency": "low",
+        "tests_ordered": [
+          "PHQ-9",
+          "CMP",
+          "TSH"
+        ],
+        "reasoning": "Temporal relationship with wife's death and behavioral cues suggest depression, but metabolic/thyroid causes must be excluded in the elderly."
+      }
+    },
+    {
+      "input": "S: 39yo F c/o 'racing heart,' tremors, and losing 8lbs despite eating more. Feels fatigued but 'wired.' O: Mild exophthalmos noted. Fine tremor in hands. HR 110. A: Weight loss with hypermetabolic state. P: TSH, Free T4, EKG.",
+      "output": {
+        "primary_hypothesis": "Hyperthyroidism (Graves' Disease)",
+        "differential_diagnoses": [
+          "Anxiety disorder",
+          "Pheochromocytoma",
+          "Caffeine toxicity"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Weight loss with polyphagia",
+          "Tachycardia",
+          "Tremor",
+          "Fatigue"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "TSH",
+          "Free T4",
+          "EKG"
+        ],
+        "reasoning": "Classic presentation of hyperthyroidism: weight loss despite increased intake, sympathetic overactivity, and physical signs (exophthalmos)."
+      }
+    },
+    {
+      "input": "S: 51yo M c/o night sweats and fatigue for 1 month. Has had two courses of antibiotics for 'recurrent bronchitis' at urgent care. O: Vitals: T 99.1F. Non-productive cough. Lungs clear. Pt looks tired. A: Recurrent URI. P: Prescribe 3rd course of antibiotics (Levofloxacin). No labs ordered.",
+      "output": {
+        "primary_hypothesis": "Lymphoma or Tuberculosis (MISSED DIAGNOSIS POTENTIAL)",
+        "differential_diagnoses": [
+          "Chronic Bronchitis",
+          "HIV",
+          "Sarcoidosis"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Night sweats",
+          "Fatigue",
+          "Failed antibiotic response"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Levofloxacin (No CBC, CXR, or LDH ordered)"
+        ],
+        "reasoning": "FAILURE MODE: Night sweats and failure to respond to multiple antibiotic courses for 'vague' respiratory symptoms should prompt a workup for B-symptoms (lymphoma) or TB, not more antibiotics."
+      }
+    },
+    {
+      "input": "S: 41yo M c/o frequent urination, excessive thirst, and feeling 'wiped out.' No weight change. O: BMI 31. Skin: Acanthosis nigricans on neck. A: Fatigue and polyuria. P: A1c, Fasting glucose, UA.",
+      "output": {
+        "primary_hypothesis": "Type 2 Diabetes Mellitus",
+        "differential_diagnoses": [
+          "Diabetes Insipidus",
+          "Hypercalcemia",
+          "Prostatitis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Polyuria",
+          "Polydipsia",
+          "Fatigue",
+          "Acanthosis nigricans"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "A1c",
+          "Fasting glucose",
+          "UA"
+        ],
+        "reasoning": "Polyuria/polydipsia in an overweight patient with acanthosis nigricans is highly suggestive of insulin resistance and hyperglycemia."
+      }
+    },
+    {
+      "input": "S: 19yo F c/o extreme lethargy for 10 days. Sore throat and 'swollen glands.' O: Fever 100.8F. Posterior cervical lymphadenopathy. Splenomegaly on palpation. A: Fatigue and pharyngitis. P: Monospot test, CBC, LFTs. Advise no contact sports.",
+      "output": {
+        "primary_hypothesis": "Infectious Mononucleosis",
+        "differential_diagnoses": [
+          "Streptococcal pharyngitis",
+          "Acute HIV infection",
+          "CMV infection"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Extreme lethargy",
+          "Lymphadenopathy",
+          "Splenomegaly",
+          "Fever"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Monospot",
+          "CBC",
+          "LFTs"
+        ],
+        "reasoning": "The triad of fever, pharyngitis, and posterior lymphadenopathy in a young adult is classic for EBV. Splenomegaly confirms the need for activity restriction."
+      }
+    },
+    {
+      "input": "28yo F c/o lower abdominal cramping and spotting. LMP 7 weeks ago. Triage Upreg negative. Pt stable, VSS. Abdomen soft, mild RLQ tenderness, no rebound. A/P: Likely early miscarriage or pelvic inflammatory disease. Plan: D/C home, f/u with OBGYN in 48 hrs.",
+      "output": {
+        "primary_hypothesis": "Ruptured Ectopic Pregnancy",
+        "differential_diagnoses": [
+          "Appendicitis",
+          "Ovarian Torsion",
+          "Threatened Abortion"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "lower abdominal cramping",
+          "spotting",
+          "RLQ tenderness"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Serum quantitative hCG",
+          "Transvaginal Ultrasound",
+          "CBC"
+        ],
+        "reasoning": "Urine pregnancy tests can yield false negatives in early or ruptured ectopic pregnancies due to the hook effect or low hormone levels; a negative urine screen should not rule out ectopic in a symptomatic patient."
+      }
+    },
+    {
+      "input": "64yo M hx HTN, smoker, c/o sudden onset sharp back pain radiating between shoulder blades. BP 175/95. CXR shows no widened mediastinum. Pain improved after 30mg Toradol. A/P: Musculoskeletal thoracic strain. Plan: D/C home with NSAIDs.",
+      "output": {
+        "primary_hypothesis": "Acute Aortic Dissection",
+        "differential_diagnoses": [
+          "Myocardial Infarction",
+          "Pulmonary Embolism",
+          "Thoracic Spine Fracture"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "sudden onset sharp back pain",
+          "interscapular radiation",
+          "hypertension"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CT Angiography of the Chest/Abdomen",
+          "EKG",
+          "Troponin"
+        ],
+        "reasoning": "CXR is insensitive (up to 20% normal) for aortic dissection. Pain relief with NSAIDs does not rule out vascular catastrophe."
+      }
+    },
+    {
+      "input": "42yo F c/o severe lower back pain after lifting boxes. Pt reports difficulty voiding but attributes it to pain. Physical exam: decreased patellar reflex on L, sensation intact to light touch in perineum. A/P: Acute lumbar strain with sciatica. Plan: D/C home with muscle relaxants and Prednisone.",
+      "output": {
+        "primary_hypothesis": "Cauda Equina Syndrome",
+        "differential_diagnoses": [
+          "Herniated Nucleus Pulposus",
+          "Epidural Abscess",
+          "Spinal Stenosis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "severe back pain",
+          "difficulty voiding",
+          "decreased reflexes"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Emergent MRI Lumbar Spine",
+          "Post-void residual bladder scan"
+        ],
+        "reasoning": "Urinary hesitancy/retention in the setting of acute back pain is a red flag for Cauda Equina. Sensation may still be intact in early presentation."
+      }
+    },
+    {
+      "input": "72yo F hx AFib on Apixaban, c/o generalized weakness and 2 episodes of non-bilious emesis. No focal neuro deficits. Mentation slightly slower than baseline per daughter. A/P: Viral gastroenteritis vs dehydration. Plan: IV fluids and D/C home.",
+      "output": {
+        "primary_hypothesis": "Subdural Hematoma",
+        "differential_diagnoses": [
+          "Sepsis (UTI)",
+          "Ischemic Stroke",
+          "Electrolyte Imbalance"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "generalized weakness",
+          "emesis",
+          "altered mentation",
+          "anticoagulation use"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Non-contrast CT Head",
+          "BMP",
+          "CBC",
+          "UA/Culture"
+        ],
+        "reasoning": "Elderly patients on anticoagulants can develop 'spontaneous' or occult subdural hematomas with vague symptoms like vomiting and mild lethargy, even without known trauma."
+      }
+    },
+    {
+      "input": "19yo M c/o sore throat and 'fullness' in the neck. Febrile to 101.5. Exam: significant swelling of L peritonsillar area, uvula midline. Voice sounds 'muffled'. Pt able to swallow liquids. A/P: Peritonsillar cellulitis. Plan: PO Clindamycin and D/C.",
+      "output": {
+        "primary_hypothesis": "Peritonsillar Abscess",
+        "differential_diagnoses": [
+          "Lemierre's Syndrome",
+          "Epiglottitis",
+          "Retropharyngeal Abscess"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "muffled voice",
+          "unilateral neck fullness",
+          "fever"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CT Neck with IV contrast",
+          "Needle aspiration",
+          "Streptococcal screen"
+        ],
+        "reasoning": "Muffled voice ('hot potato voice') and visible swelling suggest an abscess requiring drainage, not just cellulitis treated with oral antibiotics."
+      }
+    },
+    {
+      "input": "55yo M hx DM2 c/o L calf pain and redness. Started yesterday after gardening. Exam: Diffuse erythema, mild swelling. Pain is severe, out of proportion to exam. T 100.2. A/P: Simple cellulitis. Plan: PO Cephalexin and D/C home.",
+      "output": {
+        "primary_hypothesis": "Necrotizing Fasciitis",
+        "differential_diagnoses": [
+          "Cellulitis",
+          "Deep Vein Thrombosis",
+          "Compartment Syndrome"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "pain out of proportion to exam",
+          "fever",
+          "diabetes mellitus",
+          "rapidly progressing erythema"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "LRINEC Score (CBC, CRP, Sodium, Glucose, Creatinine)",
+          "Surgical Consultation",
+          "X-ray for soft tissue gas"
+        ],
+        "reasoning": "Pain out of proportion to physical findings in a diabetic patient is the hallmark of necrotizing soft tissue infection. Waiting for skin breakdown or crepitus is often too late."
+      }
+    },
+    {
+      "input": "68yo M c/o diffuse abdominal pain. Hx AFib and HTN. Exam: Mildly distended, but soft and non-tender to palpation. WBC 11k, Lactate 2.1. A/P: Dyspepsia vs constipation. Plan: Dulcolax and D/C.",
+      "output": {
+        "primary_hypothesis": "Acute Mesenteric Ischemia",
+        "differential_diagnoses": [
+          "Small Bowel Obstruction",
+          "Aortic Aneurysm",
+          "Pancreatitis"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "diffuse abdominal pain",
+          "pain out of proportion to exam",
+          "history of AFib"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CT Angiogram (Abdomen/Pelvis)",
+          "Serial Lactate",
+          "General Surgery Consult"
+        ],
+        "reasoning": "AFib is a major risk factor for embolic mesenteric ischemia. A soft, non-tender abdomen in the presence of severe pain is the classic presentation."
+      }
+    },
+    {
+      "input": "5yo M brought by mom for 'limping' and refusing to walk. Low grade temp 99.8. Hip exam shows limited internal rotation. Recent URI 1 week ago. A/P: Transient synovitis. Plan: Ibuprofen and D/C home.",
+      "output": {
+        "primary_hypothesis": "Septic Arthritis of the Hip",
+        "differential_diagnoses": [
+          "Transient Synovitis",
+          "Slipped Capital Femoral Epiphysis (SCFE)",
+          "Osteomyelitis"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "refusal to weight-bear",
+          "limited internal rotation",
+          "low grade fever"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "ESR/CRP",
+          "CBC",
+          "Hip Ultrasound",
+          "Arthrocentesis if joint effusion present"
+        ],
+        "reasoning": "While transient synovitis is common after URI, Septic Arthritis is a surgical emergency. Kocher criteria should be formally evaluated to avoid missing a septic joint."
+      }
+    },
+    {
+      "input": "31yo F c/o 'worst headache of my life' that started abruptly while running. Currently 4/10 pain. CT Head non-contrast is negative. A/P: Tension headache. Plan: D/C home with Fioricet.",
+      "output": {
+        "primary_hypothesis": "Subarachnoid Hemorrhage (SAH)",
+        "differential_diagnoses": [
+          "Migraine",
+          "Reversible Cerebral Vasoconstriction Syndrome (RCVS)",
+          "Cervical Artery Dissection"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "thunderclap onset",
+          "exertional onset",
+          "worst headache of life"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Lumbar Puncture (for xanthochromia)",
+          "CT Angiography Head"
+        ],
+        "reasoning": "Non-contrast CT head can be negative for SAH if performed after the first 6 hours of symptom onset or due to small volume bleeds. LP or CTA is mandatory to rule out SAH in 'thunderclap' presentations."
+      }
+    },
+    {
+      "input": "59yo F hx IVDU and chronic back pain. c/o worsening midline spinal tenderness and fevers at home. No neuro deficits, gait stable. Labs: WBC 12k. A/P: Chronic back pain flare with viral syndrome. Plan: D/C home with NSAIDs.",
+      "output": {
+        "primary_hypothesis": "Spinal Epidural Abscess",
+        "differential_diagnoses": [
+          "Discitis",
+          "Vertebral Osteomyelitis",
+          "Pyelonephritis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "midline spinal tenderness",
+          "history of IVDU",
+          "fever",
+          "leukocytosis"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "MRI Spine with contrast",
+          "Blood cultures",
+          "ESR/CRP"
+        ],
+        "reasoning": "The triad of midline back pain, fever, and IV drug use is highly suspicious for spinal epidural abscess. Neurological deficits are a late finding; diagnosis must be made before they occur."
+      }
+    },
+    {
+      "input": "Pt: 82yo F. Hx: DM2, HTN. Subjective: Pt c/o nausea, vague epigastric discomfort, and 'feeling off' for 2 days. Denies chest pain (CP) or SOB. Objective: Vitals: BP 150/90, HR 92, SpO2 96%. Physical: Mild epigastric tenderness. EKG: Non-specific ST-T wave changes in inferior leads. Assessment: Epigastric pain, r/o Cardiac vs GI. Plan: Serial Trops, CBC, BMP, GI cocktail.",
+      "output": {
+        "primary_hypothesis": "Atypical Myocardial Infarction",
+        "differential_diagnoses": [
+          "Acute Coronary Syndrome",
+          "Gastroesophageal Reflux Disease",
+          "Biliary Colic"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Nausea",
+          "Epigastric discomfort",
+          "History of Diabetes"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Serial Troponins",
+          "EKG",
+          "BMP",
+          "CBC"
+        ],
+        "reasoning": "Geriatric patients, especially females with diabetes, frequently present with atypical symptoms of ACS such as nausea and epigastric pain instead of classic chest pressure."
+      }
+    },
+    {
+      "input": "Pt: 10mo M. Subjective: Parent reports pt is 'sleepy' and 'not acting like himself.' Decreased wet diapers (2 in 24hrs). Objective: Pt lethargic, tacky mucus membranes, delayed capillary refill (3-4 sec). T: 101.4F, HR 185. Assessment: Dehydration, febrile illness. Plan: IV fluid bolus, CBC, UA, blood culture.",
+      "output": {
+        "primary_hypothesis": "Sepsis secondary to unknown infection",
+        "differential_diagnoses": [
+          "Severe Dehydration",
+          "Meningitis",
+          "Urinary Tract Infection"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Lethargy",
+          "Tachycardia",
+          "Delayed capillary refill",
+          "Decreased urine output"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CBC",
+          "Blood Culture",
+          "Urinalysis",
+          "Lactate"
+        ],
+        "reasoning": "Tachycardia and lethargy in an infant with decreased output are red flags for compensated shock/sepsis."
+      }
+    },
+    {
+      "input": "Pt: 79yo M. Hx: R Hip Arthroplasty 10 days ago. Subjective: Pt c/o dry cough and 'feeling slightly winded' when walking to the bathroom. No fever. Objective: Lungs clear to auscultation. Calf non-tender. T 99.1F, HR 102, SpO2 93% on RA. Assessment: Upper Respiratory Infection (URI). Plan: Start Azithromycin, follow up in 3 days. [MISSED DIAGNOSIS CASE]",
+      "output": {
+        "primary_hypothesis": "Pulmonary Embolism",
+        "differential_diagnoses": [
+          "Bronchitis",
+          "Congestive Heart Failure Exacerbation",
+          "Pneumonia"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Post-operative status",
+          "Exertional dyspnea",
+          "Tachycardia",
+          "Borderline hypoxia"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Azithromycin (Inappropriate)"
+        ],
+        "reasoning": "Potential missed diagnosis. Pt has high Wells criteria for PE due to recent surgery, tachycardia, and hypoxia, but was misdiagnosed with URI without D-dimer or imaging."
+      }
+    },
+    {
+      "input": "Pt: 15mo F. Subjective: Parent reports 2-day hx of high fever (103F) and irritability. No cough, congestion, or diarrhea. Pt pulling at ears occasionally. Objective: T 102.8F. TMs appear mildly injected but mobile. Rest of exam negative. Assessment: Fever of Unknown Origin vs Otitis Media. Plan: UA/UClx, Ibuprofen.",
+      "output": {
+        "primary_hypothesis": "Urinary Tract Infection",
+        "differential_diagnoses": [
+          "Acute Otitis Media",
+          "Roseola",
+          "Occult Bacteremia"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "High fever",
+          "Irritability",
+          "Lack of localizing respiratory symptoms"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Urinalysis",
+          "Urine Culture"
+        ],
+        "reasoning": "In pre-verbal children, unexplained fever without a clear source is a high-risk indicator for UTI."
+      }
+    },
+    {
+      "input": "Pt: 85yo F. Subjective: Pt brought in by daughter for 'confusion' and 'talking to people who aren't there.' Started suddenly this morning. No dysuria or frequency. Objective: Pt disoriented to time and place. Vitals: BP 110/70, T 98.9F. Neuro: No focal deficits. Assessment: Acute Delirium. Plan: UA, BMP, RPR, B12, head CT.",
+      "output": {
+        "primary_hypothesis": "Urinary Tract Infection (presenting as Delirium)",
+        "differential_diagnoses": [
+          "Electrolyte Imbalance",
+          "Early Dementia with Acute Insult",
+          "Stroke"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Acute mental status change",
+          "Visual hallucinations",
+          "Advanced age"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Urinalysis",
+          "BMP",
+          "Head CT"
+        ],
+        "reasoning": "Geriatric patients often present with delirium/AMS as the primary symptom of infection, even in the absence of typical localized symptoms like dysuria."
+      }
+    },
+    {
+      "input": "Pt: 5yo M. Subjective: Pt c/o periumbilical pain and had 2 episodes of non-bloody diarrhea. Mild nausea. Objective: T 100.2F. Abd: Soft, diffuse tenderness, no rebound/guarding. Active bowel sounds. Assessment: Viral Gastroenteritis. Plan: Fluids, rest, BRAT diet. [MISSED DIAGNOSIS CASE]",
+      "output": {
+        "primary_hypothesis": "Early Appendicitis",
+        "differential_diagnoses": [
+          "Viral Gastroenteritis",
+          "Mesenteric Adenitis",
+          "Constipation"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Periumbilical pain",
+          "Low-grade fever",
+          "Vomiting/Diarrhea"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "None"
+        ],
+        "reasoning": "Potential missed diagnosis. Pediatric appendicitis often presents with diarrhea or vague midline pain initially; failure to perform serial exams or ultrasound may lead to rupture."
+      }
+    },
+    {
+      "input": "Pt: 74yo M. Hx: HTN, HLD. Subjective: Pt reports 'poor sleep' because he feels like he can't catch his breath while lying flat. Dry, hacking cough at night. No leg swelling. Objective: Lung base crackles bilaterally. S3 gallop noted on cardiac exam. Assessment: CHF exacerbation. Plan: CXR, BNP, Lasix 40mg IV.",
+      "output": {
+        "primary_hypothesis": "Congestive Heart Failure",
+        "differential_diagnoses": [
+          "COPD exacerbation",
+          "Nocturnal Asthma",
+          "Pneumonia"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Orthopnea",
+          "Paroxysmal nocturnal dyspnea",
+          "Pulmonary crackles"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CXR",
+          "BNP",
+          "IV Furosemide"
+        ],
+        "reasoning": "Orthopnea and nocturnal cough are classic signs of heart failure in the elderly, even if peripheral edema is absent."
+      }
+    },
+    {
+      "input": "Pt: 6mo F. Subjective: 'Spitting up' more than usual, very irritable, crying inconsolably. Objective: T 98.6F. Anterior fontanelle is noticeably tense and slightly bulging. Pt has poor gaze tracking. Assessment: Increased Intracranial Pressure. Plan: Stat Head CT, Neurosurgery consult.",
+      "output": {
+        "primary_hypothesis": "Subdural Hematoma / Non-Accidental Trauma",
+        "differential_diagnoses": [
+          "Meningitis",
+          "Hydrocephalus",
+          "Intracranial Hemorrhage"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Bulging fontanelle",
+          "Inconsolable crying",
+          "Vomiting",
+          "Neurological changes"
+        ],
+        "urgency": "emergency",
+        "tests_ordered": [
+          "Head CT",
+          "Skeletal Survey"
+        ],
+        "reasoning": "Bulging fontanelle and vomiting in an infant are critical signs of increased ICP, requiring immediate investigation for trauma or infection."
+      }
+    },
+    {
+      "input": "Pt: 72yo F. Subjective: 1-week hx of right-sided headache. Pt mentions she feels 'exhausted' and it 'hurts to brush her hair.' Objective: BP 145/88. Scalp tender to touch near temple. No focal neuro deficits. Assessment: Tension headache. Plan: Ibuprofen 600mg TID, follow up in 1 week. [MISSED DIAGNOSIS CASE]",
+      "output": {
+        "primary_hypothesis": "Giant Cell Arteritis",
+        "differential_diagnoses": [
+          "Tension Headache",
+          "Trigeminal Neuralgia",
+          "Migraine"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "New onset headache",
+          "Scalp tenderness",
+          "Fatigue",
+          "Advanced age"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Ibuprofen (Inappropriate alone)"
+        ],
+        "reasoning": "Potential missed diagnosis. Scalp tenderness (allodynia) and new headache in an elderly patient is highly suspicious for GCA. Failure to order ESR/CRP risks permanent vision loss."
+      }
+    },
+    {
+      "input": "Pt: 6yo M. Subjective: Mother reports child has been 'drinking water constantly' and started wetting the bed again after being dry for 2 years. 5lb weight loss noted. Objective: Pt appears thin, fruity odor on breath. Vitals: HR 115, BP 90/60. Assessment: Hyperglycemia r/o Type 1 DM. Plan: Fingerstick glucose, BMP, UA, Venous Blood Gas.",
+      "output": {
+        "primary_hypothesis": "Diabetic Ketoacidosis (DKA)",
+        "differential_diagnoses": [
+          "New onset Type 1 Diabetes Mellitus",
+          "Diabetes Insipidus",
+          "Urinary Tract Infection"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Polydipsia",
+          "Secondary enuresis",
+          "Weight loss",
+          "Acetone breath"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Fingerstick Glucose",
+          "UA (for ketones)",
+          "VBG",
+          "BMP"
+        ],
+        "reasoning": "The triad of polydipsia, weight loss, and secondary enuresis is a classic presentation for pediatric Type 1 Diabetes, with fruity breath indicating ketoacidosis."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 62yo F presents with a 3-month history of intermittent rectal bleeding, change in bowel habits (alternating constipation and diarrhea), and occasional abdominal cramping. Denies significant weight loss or fever.\nOBJECTIVE: Abdomen soft, non-tender. Rectal exam reveals guaiac positive stool. No palpable masses.\nASSESSMENT: Change in bowel habits, rectal bleeding.\nPLAN: Colonoscopy to evaluate rectal bleeding and change in bowel habits. Rule out malignancy.",
+      "output": {
+        "primary_hypothesis": "Colorectal cancer",
+        "differential_diagnoses": [
+          "Diverticulosis with bleeding",
+          "Hemorrhoids",
+          "Inflammatory bowel disease (Crohn's, Ulcerative Colitis)"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Rectal bleeding",
+          "Change in bowel habits",
+          "Abdominal cramping",
+          "Guaiac positive stool"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Colonoscopy",
+          "Fecal occult blood test"
+        ],
+        "reasoning": "Age, change in bowel habits, and rectal bleeding are concerning for colorectal cancer. Colonoscopy is the gold standard for diagnosis. Diverticulosis and hemorrhoids are common causes of bleeding but usually don't present with significant change in bowel habits."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 55yo M presents with a 2-week history of persistent cough, occasional hemoptysis, and exertional dyspnea. Reports a 40 pack-year smoking history. Denies fever or weight loss.\nOBJECTIVE: Lungs clear to auscultation bilaterally. No clubbing. Chest X-ray shows a 3cm spiculated nodule in the right upper lobe.\nASSESSMENT: Persistent cough, hemoptysis, dyspnea in a heavy smoker.\nPLAN: CT chest with contrast, PET scan, biopsy of lung nodule. Refer to Pulmonology and Thoracic Surgery.",
+      "output": {
+        "primary_hypothesis": "Lung cancer",
+        "differential_diagnoses": [
+          "Pneumonia",
+          "Tuberculosis",
+          "Pulmonary embolism",
+          "Granulomatous disease"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Persistent cough",
+          "Hemoptysis",
+          "Exertional dyspnea",
+          "Smoking history",
+          "Lung nodule on CXR"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CT chest with contrast",
+          "PET scan",
+          "Biopsy of lung nodule"
+        ],
+        "reasoning": "The combination of symptoms (cough, hemoptysis, dyspnea) in a patient with a significant smoking history and a suspicious lung nodule on CXR strongly suggests lung cancer. Other etiologies are less likely given the radiographic findings."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 48yo F presents for routine screening mammogram. Reports no breast complaints, no lumps, no nipple discharge. Family history of breast cancer in maternal aunt at age 60.\nOBJECTIVE: No palpable masses or skin changes on breast exam.\nASSESSMENT: Routine screening mammogram.\nPLAN: Screening mammogram. Follow up with results.",
+      "output": {
+        "primary_hypothesis": "No malignancy (screening)",
+        "differential_diagnoses": [
+          "Benign breast cyst",
+          "Fibroadenoma",
+          "Early-stage breast cancer"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Asymptomatic",
+          "Family history of breast cancer"
+        ],
+        "urgency": "low",
+        "tests_ordered": [
+          "Screening mammogram"
+        ],
+        "reasoning": "This is a screening encounter with no reported symptoms. The primary goal is to detect any abnormalities early. While the family history is a risk factor, without any clinical findings, the confidence in malignancy is low at this stage, pending imaging results."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 68yo M c/o persistent fatigue and a 15 lb unintentional weight loss over 4 months. Also notes occasional abdominal discomfort, particularly after meals, and a feeling of fullness. Denies significant change in bowel habits or rectal bleeding.\nOBJECTIVE: Abdomen distended, mild diffuse tenderness. Bowel sounds normal. No hepatosplenomegaly.\nASSESSMENT: Unexplained weight loss, fatigue, abdominal discomfort.\nPLAN: CBC, CMP, CEA, CA 19-9, stool guaiac. CT abdomen/pelvis. Refer to Gastroenterology.",
+      "output": {
+        "primary_hypothesis": "Colorectal cancer (advanced)",
+        "differential_diagnoses": [
+          "Peptic ulcer disease",
+          "Gastric cancer",
+          "Pancreatic cancer",
+          "Chronic pancreatitis",
+          "Irritable bowel syndrome"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Unintentional weight loss",
+          "Fatigue",
+          "Abdominal discomfort",
+          "Feeling of fullness"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "CBC",
+          "CMP",
+          "CEA",
+          "CA 19-9",
+          "Stool guaiac",
+          "CT abdomen/pelvis"
+        ],
+        "reasoning": "The significant unintentional weight loss and fatigue in an older adult are red flags. While bowel habit changes are not prominent, abdominal discomfort and fullness could indicate a mass effect or gastric/intestinal obstruction. Colorectal, gastric, or pancreatic cancers are high on the differential. Imaging and tumor markers are crucial."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 72yo F presents with a 6-month history of persistent dry cough and occasional hoarseness. She reports a 50 pack-year smoking history. Denies hemoptysis, weight loss, or fever.\nOBJECTIVE: Lungs clear to auscultation. No palpable lymphadenopathy. Vocal cord mobility normal on laryngoscopy.\nASSESSMENT: Persistent cough, hoarseness.\nPLAN: Chest X-ray, PFTs. Empiric PPI trial for GERD/laryngitis. Re-evaluate in 4 weeks. Consider further workup if no improvement.",
+      "output": {
+        "primary_hypothesis": "Early-stage lung cancer",
+        "differential_diagnoses": [
+          "Chronic bronchitis",
+          "GERD/Laryngitis",
+          "Post-nasal drip",
+          "ACE inhibitor cough"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Persistent dry cough",
+          "Hoarseness",
+          "Smoking history"
+        ],
+        "urgency": "low",
+        "tests_ordered": [
+          "Chest X-ray",
+          "Pulmonary function tests"
+        ],
+        "reasoning": "This is a POTENTIAL MISSED DIAGNOSIS. While a trial for GERD/laryngitis is reasonable, the persistent cough and hoarseness in a heavy smoker with a 6-month duration are highly suspicious for lung cancer, even without hemoptysis or weight loss. A chest X-ray is crucial, and if negative, further imaging like a CT scan should be considered given the risk factors and symptom duration. The initial plan is too conservative."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 51yo F presents with a palpable lump in her left breast, noticed 1 month ago. Denies nipple discharge, skin changes, or axillary fullness. No family history of breast cancer.\nOBJECTIVE: Palpable 1.5 cm firm, irregular mass in the upper outer quadrant of the left breast. No axillary lymphadenopathy.\nASSESSMENT: Left breast mass.\nPLAN: Mammogram and ultrasound of the left breast. Core needle biopsy of the mass. Referral to Breast Surgery.",
+      "output": {
+        "primary_hypothesis": "Breast cancer",
+        "differential_diagnoses": [
+          "Benign breast cyst",
+          "Fibroadenoma",
+          "Fat necrosis",
+          "Fibrocystic changes"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Palpable breast lump",
+          "Firm, irregular mass"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Mammogram",
+          "Ultrasound of left breast",
+          "Core needle biopsy"
+        ],
+        "reasoning": "A palpable, firm, irregular breast mass in any woman, especially over 40, is highly suspicious for malignancy until proven otherwise. Imaging and biopsy are essential for diagnosis. While benign etiologies exist, they are less likely given the description of the mass."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 35yo F presents with a 2-week history of increasing fatigue and a change in bowel habits (diarrhea, urgency). Reports some intermittent abdominal cramping. Denies rectal bleeding or weight loss.\nOBJECTIVE: Abdomen non-tender. Rectal exam unremarkable. Stool guaiac negative.\nASSESSMENT: Diarrhea, abdominal cramping.\nPLAN: Stool studies (culture, ova & parasites, C. diff). Trial of loperamide. Dietary modifications. Re-evaluate in 2 weeks.",
+      "output": {
+        "primary_hypothesis": "Infectious gastroenteritis",
+        "differential_diagnoses": [
+          "Irritable bowel syndrome",
+          "Inflammatory bowel disease (Crohn's, Ulcerative Colitis)",
+          "Lactose intolerance",
+          "Colorectal cancer (less likely given age)"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Diarrhea",
+          "Urgency",
+          "Abdominal cramping",
+          "Fatigue"
+        ],
+        "urgency": "low",
+        "tests_ordered": [
+          "Stool studies (culture, ova & parasites, C. diff)",
+          "Loperamide",
+          "Dietary modifications"
+        ],
+        "reasoning": "The acute onset of diarrhea and cramping suggests an infectious or inflammatory process. Given the patient's age and lack of red flags like rectal bleeding or weight loss, infection is the most likely initial diagnosis. However, IBD should be considered if symptoms persist, and colorectal cancer, though less likely, cannot be entirely ruled out without further investigation if symptoms are prolonged or evolve."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 58yo M c/o progressive shortness of breath and a nagging cough, worsening over 3 months. Reports significant fatigue and a 10 lb unintentional weight loss. Has a 40 pack-year smoking history. Denies hemoptysis.\nOBJECTIVE: Diminished breath sounds in the left base. Mildly decreased O2 saturation on RA. CXR shows a large, irregular mass in the left lower lobe with associated pleural effusion.\nASSESSMENT: Lung mass with effusion.\nPLAN: Thoracentesis for cytology and fluid analysis. CT chest/abdomen/pelvis with contrast. PET scan. Refer to Oncology and Pulmonology.",
+      "output": {
+        "primary_hypothesis": "Lung cancer with pleural metastasis",
+        "differential_diagnoses": [
+          "Mesothelioma",
+          "Metastatic disease from another primary",
+          "Tuberculosis with effusion",
+          "Bacterial pneumonia with parapneumonic effusion"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "Progressive dyspnea",
+          "Nagging cough",
+          "Unintentional weight loss",
+          "Smoking history",
+          "Lung mass on CXR",
+          "Pleural effusion"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Thoracentesis",
+          "CT chest/abdomen/pelvis",
+          "PET scan"
+        ],
+        "reasoning": "The presence of a large lung mass, pleural effusion, shortness of breath, weight loss, and smoking history in an older male strongly points towards advanced lung cancer with pleural involvement. Thoracentesis is critical for diagnosis and staging."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 40yo F presents with intermittent bloating and abdominal discomfort for the past year. Reports occasional constipation alternating with diarrhea, but denies any bleeding or weight loss. Family history of colon polyps in father.\nOBJECTIVE: Abdomen soft, non-tender. No masses felt. Rectal exam normal.\nASSESSMENT: Irritable bowel syndrome.\nPLAN: High fiber diet, adequate hydration, stress management. Trial of antispasmodics. Colonoscopy to rule out structural abnormality given family history.",
+      "output": {
+        "primary_hypothesis": "Irritable bowel syndrome",
+        "differential_diagnoses": [
+          "Inflammatory bowel disease",
+          "Colorectal cancer (early)",
+          "Small intestinal bacterial overgrowth (SIBO)",
+          "Celiac disease"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "Bloating",
+          "Abdominal discomfort",
+          "Altered bowel habits (constipation/diarrhea)"
+        ],
+        "urgency": "low",
+        "tests_ordered": [
+          "Colonoscopy",
+          "Dietary modifications",
+          "Antispasmodics"
+        ],
+        "reasoning": "This is a POTENTIAL MISSED DIAGNOSIS. While IBS is a common diagnosis for these symptoms, the patient's age and family history of colon polyps warrant a thorough investigation for structural abnormalities, including early colorectal cancer. A colonoscopy is appropriate but should be considered with higher suspicion, not just as a rule-out for IBS."
+      }
+    },
+    {
+      "input": "SUBJECTIVE: 50yo F presents for routine physical. Reports she occasionally notices a slight pulling sensation in her right breast but denies any distinct lumps or skin changes. No nipple discharge. No family history of breast cancer.\nOBJECTIVE: No palpable masses or skin abnormalities on breast exam.\nASSESSMENT: Occasional breast sensation.\nPLAN: Reassurance. Continue routine screening mammograms annually.",
+      "output": {
+        "primary_hypothesis": "Benign breast changes",
+        "differential_diagnoses": [
+          "Fibrocystic changes",
+          "Early-stage breast cancer",
+          "Fat necrosis"
+        ],
+        "confidence": "low",
+        "key_symptoms": [
+          "Occasional pulling sensation",
+          "Asymptomatic otherwise"
+        ],
+        "urgency": "low",
+        "tests_ordered": [
+          "Routine screening mammogram"
+        ],
+        "reasoning": "This is a POTENTIAL MISSED DIAGNOSIS. While the symptoms are vague and the exam is normal, any new breast sensation, especially a pulling sensation which can sometimes indicate underlying tumor fixation, warrants further investigation beyond simple reassurance. A diagnostic mammogram and potentially ultrasound of the affected breast should be considered, especially if the sensation is new or persistent, despite the lack of a palpable lump. The 'routine screening' plan might be insufficient if this is a new or concerning symptom."
+      }
+    },
+    {
+      "input": "Pt is a 58yo M presenting c/o intermittent rectal bleeding and fatigue for the past 2 months. Denies significant pain or weight loss. Bowel habits irregular, mostly constipated. Hx of hemorrhoids. O: Exam reveals mild conjunctival pallor. Rectal exam shows external hemorrhoids and red blood on glove, no palpable masses. Stool guaiac positive. A: GI bleed, likely hemorrhoids vs. colonic polyp/cancer. Anemia secondary to blood loss. P: Refer to GI for urgent colonoscopy. CBC, Iron studies today. Increase fiber, hydration. Counsel on potential for more serious etiology.",
+      "output": {
+        "primary_hypothesis": "Colorectal Carcinoma (CRC) / Large Bowel Polyp with high-grade dysplasia",
+        "differential_diagnoses": [
+          "Hemorrhoids",
+          "Diverticulosis",
+          "Inflammatory Bowel Disease (IBD)",
+          "Angiodysplasia"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "intermittent rectal bleeding",
+          "fatigue",
+          "irregular bowel habits",
+          "positive stool guaiac",
+          "anemia"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Colonoscopy",
+          "CBC",
+          "Iron studies"
+        ],
+        "reasoning": "Intermittent rectal bleeding and fatigue in an adult male, especially with positive stool guaiac and irregular bowel habits, necessitates urgent investigation for colorectal cancer, despite a history of hemorrhoids. Hemorrhoids often mask more serious pathology."
+      }
+    },
+    {
+      "input": "Pt is a 42yo F c/o intermittent lower abdominal cramps, bloating, and new onset constipation for the past 3 months. Symptoms are worse with stress. Denies weight loss, fever, or overt GI bleeding. No family hx of colon cancer. O: Abd exam soft, mildly distended with diffuse tenderness, no rebound or guarding. Bowel sounds normoactive. Rectal exam normal, stool negative for occult blood. A: Irritable Bowel Syndrome (IBS) vs functional constipation. P: Advised increase fiber, water intake. Start polyethylene glycol daily. Re-evaluate in 4 weeks. No further workup planned at this time.",
+      "output": {
+        "primary_hypothesis": "Irritable Bowel Syndrome (IBS)",
+        "differential_diagnoses": [
+          "Functional Constipation",
+          "Early Colorectal Carcinoma",
+          "Inflammatory Bowel Disease (IBD)",
+          "Endometriosis"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "intermittent abdominal cramps",
+          "bloating",
+          "new onset constipation",
+          "worse with stress"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Dietary changes",
+          "Laxatives"
+        ],
+        "reasoning": "While IBS is a reasonable initial diagnosis given the vague symptoms and link to stress, a new onset of persistent constipation and abdominal cramps in a 42-year-old, even without alarming symptoms like weight loss or bleeding, warrants consideration of early colorectal cancer. A sigmoidoscopy or even a full colonoscopy should be considered if symptoms do not resolve quickly, especially with a change in bowel habits from baseline. This represents a POTENTIAL MISSED DIAGNOSIS if further workup isn't pursued upon follow-up or if symptoms persist/worsen."
+      }
+    },
+    {
+      "input": "Pt is a 72yo M presenting c/o significant unintentional weight loss (15 lbs in 2 months), severe fatigue, and a marked change in bowel habits to primarily 'pencil-thin stools' with occasional bright red blood. Hx of diverticulosis. O: Pt appears cachectic and pale. Abd exam reveals a firm, non-tender mass palpable in the left lower quadrant. Rectal exam reveals dark red blood on glove, no external hemorrhoids, no palpable rectal mass. Labs show severe microcytic anemia (Hgb 7.8). A: Highly suspicious for advanced Colorectal Carcinoma with probable obstruction. P: STAT GI consult for urgent colonoscopy/imaging. Type & screen, broad labs, IV fluids. Oncology consult.",
+      "output": {
+        "primary_hypothesis": "Advanced Colorectal Carcinoma (CRC)",
+        "differential_diagnoses": [
+          "Severe Diverticulitis with abscess/fistula",
+          "Ischemic Colitis",
+          "Lymphoma"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "unintentional weight loss",
+          "severe fatigue",
+          "pencil-thin stools",
+          "rectal bleeding",
+          "cachexia",
+          "palpable abdominal mass",
+          "severe anemia"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Urgent Colonoscopy",
+          "CT Abdomen/Pelvis",
+          "CBC",
+          "Type & Screen",
+          "Oncology consult"
+        ],
+        "reasoning": "The constellation of significant weight loss, severe anemia, change in bowel habits (pencil stools), and a palpable abdominal mass in an elderly patient points strongly to advanced colorectal carcinoma with potential metastatic disease or obstruction."
+      }
+    },
+    {
+      "input": "Pt is a 48yo F presenting for routine annual physical. Denies any breast lumps, pain, or nipple discharge. No family history of breast cancer. O: Breast exam bilateral symmetrical, no masses, skin changes, or axillary/supraclavicular lymphadenopathy. Review of recent screening mammogram report shows new, suspicious pleomorphic microcalcifications in the upper outer quadrant of the left breast (BI-RADS 4). A: Suspicious mammographic findings requiring further workup. P: Referral to breast specialist for diagnostic mammogram with magnification views and stereotactic core needle biopsy of the left breast.",
+      "output": {
+        "primary_hypothesis": "Ductal Carcinoma In Situ (DCIS) / Early Invasive Breast Carcinoma",
+        "differential_diagnoses": [
+          "Benign Calcifications (e.g., fibrocystic changes, fat necrosis)",
+          "Atypical Ductal Hyperplasia (ADH)"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "asymptomatic",
+          "pleomorphic microcalcifications on mammogram",
+          "BI-RADS 4"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Diagnostic mammogram with magnification views",
+          "Stereotactic core needle biopsy"
+        ],
+        "reasoning": "Pleomorphic microcalcifications, especially new findings and categorized as BI-RADS 4, carry a significant risk of malignancy (2-95% probability) and necessitate urgent biopsy for definitive diagnosis, even in an asymptomatic patient."
+      }
+    },
+    {
+      "input": "Pt is a 62yo F presenting c/o a new, self-palpated lump in her right breast for the past 3 weeks. It is non-tender and firm. Denies nipple discharge, skin changes, or axillary swelling. Family hx: mother had breast cancer at 70. O: Right breast exam reveals a 2cm x 2cm firm, irregular, non-mobile mass at 1 o'clock position, 3cm from the areola. No skin retraction or dimpling. No palpable axillary or supraclavicular lymphadenopathy. Left breast exam normal. A: Suspicious right breast mass, highly concerning for malignancy. P: Urgent order for diagnostic mammogram of right breast with ultrasound. Core needle biopsy under imaging guidance. Referral to breast surgeon.",
+      "output": {
+        "primary_hypothesis": "Breast Carcinoma",
+        "differential_diagnoses": [
+          "Fibroadenoma (less likely given age/description)",
+          "Cyst (less likely given firmness/irregularity)",
+          "Fat Necrosis"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "new self-palpated lump",
+          "firm, irregular, non-mobile mass",
+          "non-tender",
+          "age > 50"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "Diagnostic mammogram (right breast)",
+          "Breast ultrasound (right breast)",
+          "Core needle biopsy",
+          "Surgical consult"
+        ],
+        "reasoning": "A new, firm, irregular, and non-mobile breast mass in a 62-year-old woman is highly suspicious for breast carcinoma, requiring prompt triple assessment (clinical exam, imaging, biopsy) for definitive diagnosis."
+      }
+    },
+    {
+      "input": "Pt is a 35yo F presenting c/o bilateral breast tenderness and feeling 'lumpy' for the past 6 months, worse before menses. She reports fluctuating size of some 'lumps'. Denies any nipple discharge or skin changes. No family history of breast cancer. O: Bilateral breast exam reveals diffuse nodularity, more pronounced in the upper outer quadrants, consistent with fibrocystic changes. No dominant masses, skin changes, or lymphadenopathy. A: Fibrocystic breast changes. P: Reassurance, advise supportive bra, reduce caffeine intake, consider evening primrose oil. Return if symptoms worsen or a new dominant mass develops. No imaging recommended at this visit due to age and exam findings.",
+      "output": {
+        "primary_hypothesis": "Fibrocystic Breast Changes",
+        "differential_diagnoses": [
+          "Fibroadenoma",
+          "Cysts",
+          "Early Breast Carcinoma (unlikely given classic fibrocystic presentation, but not entirely excluded)"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "bilateral breast tenderness",
+          "lumpy breasts",
+          "symptoms worse before menses",
+          "diffuse nodularity on exam",
+          "fluctuating size"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Supportive bra",
+          "Caffeine reduction",
+          "Evening primrose oil"
+        ],
+        "reasoning": "While the symptoms and exam findings are classic for fibrocystic changes, persistent breast symptoms for 6 months, even without a dominant mass, in a patient who feels 'lumpy' could potentially mask a subtle underlying malignancy. Although not standard for a young patient with classic fibrocystic changes, an ultrasound could be considered if symptoms persist or if the patient remains highly anxious. This represents a POTENTIAL MISSED DIAGNOSIS if a subtle malignancy is present within the background of diffuse fibrocystic tissue and not investigated further if symptoms don't resolve with conservative management or if any asymmetry develops."
+      }
+    },
+    {
+      "input": "Pt is a 68yo M, Hx of 40-pack-year smoking, presenting c/o persistent dry cough for 3 weeks, mild dyspnea on exertion, and generalized fatigue. Denies fever, chills, or hemoptysis. He attributes the cough to 'smoker's cough'. O: Vitals stable. Lungs clear to auscultation, no wheezes or crackles. Cardiac regular. A: Persistent cough in a heavy smoker. Possibilities include chronic bronchitis exacerbation, early lung cancer, or viral URI. P: CXR today. PFTs. Smoking cessation counseling. Albuterol inhaler PRN for dyspnea. Follow-up in 1 week with CXR results. If CXR is negative and cough persists, consider CT chest.",
+      "output": {
+        "primary_hypothesis": "Chronic Bronchitis Exacerbation / Viral URI",
+        "differential_diagnoses": [
+          "Early Lung Carcinoma",
+          "COPD exacerbation",
+          "Cardiac etiology (e.g., CHF)",
+          "Post-nasal drip"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "persistent dry cough",
+          "mild dyspnea on exertion",
+          "generalized fatigue",
+          "heavy smoking history"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CXR",
+          "PFTs",
+          "Smoking cessation counseling",
+          "Albuterol inhaler"
+        ],
+        "reasoning": "A persistent cough and dyspnea in a heavy smoker, even without classic 'red flag' symptoms like hemoptysis or significant weight loss, warrants prompt investigation for lung cancer. The initial CXR is a good first step, but a low threshold for CT chest is appropriate given the high-risk patient, even if CXR is initially clear."
+      }
+    },
+    {
+      "input": "Pt is a 55yo F, never smoker, presenting for pre-operative clearance for an elective cholecystectomy. Denies any respiratory symptoms, cough, dyspnea, or chest pain. O: Physical exam unremarkable. Pre-op chest X-ray report shows a 1.5 cm non-calcified nodule in the left upper lobe, not seen on prior CXR from 5 years ago. No other significant findings. A: Solitary Pulmonary Nodule (SPN), likely benign vs. early lung cancer. P: Urgent CT chest with contrast for further characterization of the nodule. Referral to Pulmonology for evaluation and management recommendations. Delay elective surgery until nodule is evaluated.",
+      "output": {
+        "primary_hypothesis": "Solitary Pulmonary Nodule (SPN) needing characterization (likely benign vs. early lung cancer)",
+        "differential_diagnoses": [
+          "Granuloma (e.g., infectious like histoplasmosis/TB)",
+          "Hamartoma",
+          "Metastatic lesion (if primary malignancy history)",
+          "Inflammatory nodule"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "asymptomatic",
+          "1.5 cm non-calcified nodule on CXR",
+          "new finding since prior CXR"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "CT chest with contrast",
+          "Pulmonology consult"
+        ],
+        "reasoning": "A newly identified, non-calcified solitary pulmonary nodule of 1.5 cm requires urgent further characterization with CT to assess its malignant potential, even in an asymptomatic, never-smoker patient. Growth since a previous image is particularly concerning."
+      }
+    },
+    {
+      "input": "Pt is a 50yo F, non-smoker, presenting c/o recurrent cough and congestion, stating she's had 'bronchitis' three times in the past 6 months, each treated with Z-packs. Persistent cough now with mild shortness of breath. Denies fever, chills, weight loss. O: Lungs with mild expiratory wheeze, otherwise clear. Vitals stable. A: Chronic bronchitis vs. asthma. P: Prescribed albuterol inhaler. Follow-up in 2 weeks. Advised to avoid triggers. No imaging or further workup ordered at this visit.",
+      "output": {
+        "primary_hypothesis": "Chronic Bronchitis / Asthma",
+        "differential_diagnoses": [
+          "Early Lung Carcinoma",
+          "Post-nasal drip syndrome",
+          "GERD with atypical presentation",
+          "Bronchiectasis"
+        ],
+        "confidence": "medium",
+        "key_symptoms": [
+          "recurrent cough",
+          "recurrent congestion",
+          "mild shortness of breath",
+          "multiple antibiotic courses without resolution"
+        ],
+        "urgency": "medium",
+        "tests_ordered": [
+          "Albuterol inhaler",
+          "Trigger avoidance"
+        ],
+        "reasoning": "Recurrent respiratory symptoms, persistent cough, and mild shortness of breath in a 50-year-old adult, even a non-smoker, despite multiple courses of antibiotics over 6 months, should prompt investigation beyond symptomatic treatment. Attributing it solely to 'bronchitis' or 'asthma' without imaging (like a CXR) risks missing an underlying malignancy or other serious pathology. This represents a POTENTIAL MISSED DIAGNOSIS due to lack of comprehensive workup for persistent, recurrent symptoms."
+      }
+    },
+    {
+      "input": "Pt is a 70yo M, Hx of heavy smoking (60 pack-years), presenting urgently c/o hemoptysis (frank blood streaking sputum) for 1 week, significant unintentional weight loss (20 lbs in 2 months), and severe right-sided pleuritic chest pain. Denies fever. O: Appears cachectic and dyspneic. Decreased breath sounds at the right lung base. Digital clubbing present. Vitals: BP 140/90, HR 105, RR 24, O2 Sat 90% on RA. A: Highly suspicious for advanced Lung Carcinoma, likely with pleural involvement. P: STAT CT chest with contrast. Urgent Pulmonology and Oncology consults. Admission for pain management and workup. Bronchoscopy likely needed.",
+      "output": {
+        "primary_hypothesis": "Advanced Lung Carcinoma",
+        "differential_diagnoses": [
+          "Severe Pneumonia with necrosis/abscess",
+          "Pulmonary Tuberculosis",
+          "Bronchiectasis with infection",
+          "Pulmonary Embolism (less likely given chronic symptoms)"
+        ],
+        "confidence": "high",
+        "key_symptoms": [
+          "hemoptysis",
+          "unintentional weight loss",
+          "severe pleuritic chest pain",
+          "heavy smoking history",
+          "cachexia",
+          "decreased breath sounds",
+          "digital clubbing",
+          "dyspnea"
+        ],
+        "urgency": "high",
+        "tests_ordered": [
+          "STAT CT chest with contrast",
+          "Pulmonology consult",
+          "Oncology consult",
+          "Bronchoscopy",
+          "Admission"
+        ],
+        "reasoning": "Hemoptysis, significant weight loss, pleuritic chest pain, and digital clubbing in a heavy smoker are classic red flags strongly indicating advanced lung carcinoma, requiring immediate and aggressive diagnostic workup and management."
+      }
+    }
+  ]
+}

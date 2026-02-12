@@ -1,0 +1,33 @@
+{
+  "patient_id": "P010",
+  "demographics": {
+    "age": 70,
+    "sex": "F",
+    "mrn": "MRN-P01099"
+  },
+  "visit_date": "2024-11-05",
+  "clinical_note": {
+    "date": "2024-11-05",
+    "provider": "Dr. Martinez",
+    "text": "70yo female presents with 2 days of dysuria, urgency, and suprapubic discomfort. PMH: Atrial Fibrillation (Afib), Hypertension. Current Medications: Warfarin 5mg daily. Exam: Afebrile, BP 132/78. Plan: Suspect cystitis, r/o UTI. Prescribing Bactrim DS (TMP/SMX) twice daily for 3 days."
+  },
+  "orders": [
+    {
+      "order_id": "ORD1",
+      "test_name": "Trimethoprim-sulfamethoxazole (Bactrim DS) 800-160 mg oral tablet",
+      "status": "completed"
+    }
+  ],
+  "results": [],
+  "diagnostic_hypothesis": {
+    "primary": "Drug Interaction",
+    "reasoning": "Prescribing Bactrim to a patient on Warfarin significantly potentiates the anticoagulant effect by inhibiting CYP2C9, leading to an elevated INR and increased risk of major hemorrhage."
+  },
+  "ground_truth_diagnosis": "Bleeding Risk",
+  "failure_mode": "Did not check INR while on Bactrim",
+  "ai_should_flag": [
+    "High-risk drug-drug interaction (Bactrim and Warfarin)",
+    "Missing baseline or follow-up INR monitoring",
+    "Contraindicated medication choice given current anticoagulation regimen"
+  ]
+}

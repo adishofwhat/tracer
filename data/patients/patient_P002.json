@@ -1,0 +1,65 @@
+{
+  "patient_id": "P002",
+  "demographics": {
+    "age": 72,
+    "sex": "M",
+    "mrn": "MRN-P00299"
+  },
+  "visit_date": "2024-11-05",
+  "clinical_note": {
+    "date": "2024-11-05",
+    "provider": "Dr. Martinez, Juan",
+    "text": "Subjective: 72-year-old male with history of COPD and CAD presents with 3-day history of worsening cough and shortness of breath. Patient reports increased sputum production which is thick and yellow. Denies chest pain or palpitations. Reports mild chills but has not taken temperature at home. Using Albuterol inhaler every 4 hours with minimal relief.\n\nObjective: BP 142/88, HR 94, Temp 99.2 F, SpO2 91% on room air. Resp rate 22. Exam: Alert and oriented x3. Lungs: Diminished breath sounds at bases, scattered wheezing, focal crackles noted in the right lower field. Heart: Regular rhythm, no murmurs. Trace edema in lower extremities.\n\nAssessment: Elderly male with baseline COPD presenting with acute respiratory symptoms. r/o pneumonia vs COPD exacerbation. Differentials include CHF and bronchitis.\n\nPlan: 1. Order CXR PA/Lateral. 2. CBC with differential. 3. Start Azithromycin 500mg daily x 5 days. 4. Continue current COPD regimen and Albuterol PRN. 5. Patient instructed to call if symptoms worsen or fever develops."
+  },
+  "orders": [
+    {
+      "order_id": "ORD001",
+      "test_name": "Chest X-Ray PA and Lateral",
+      "status": "completed",
+      "result_date": "2024-11-07"
+    },
+    {
+      "order_id": "ORD002",
+      "test_name": "Complete Blood Count (CBC)",
+      "status": "completed",
+      "result_date": "2024-11-05"
+    },
+    {
+      "order_id": "ORD003",
+      "test_name": "Azithromycin 500mg PO",
+      "status": "completed",
+      "result_date": "2024-11-05"
+    },
+    {
+      "order_id": "ORD004",
+      "test_name": "Sputum Culture",
+      "status": "pending",
+      "days_pending": 14,
+      "failure_reason": "Specimen not collected by patient"
+    }
+  ],
+  "results": [
+    {
+      "result_id": "RES001",
+      "test_name": "Chest X-Ray",
+      "result_date": "2024-11-07",
+      "interpretation": "Positive for right lower lobe infiltrate.",
+      "full_text": "FINDINGS: The heart size is within normal limits. There is a focal area of increased opacity in the right lower lobe, consistent with a consolidated infiltrate. No pleural effusion or pneumothorax is identified. Stable appearance of chronic hyperinflation and flattening of the diaphragms consistent with known COPD. IMPRESSION: Right lower lobe infiltrate consistent with pneumonia. Clinical correlation required."
+    }
+  ],
+  "diagnostic_hypothesis": {
+    "primary": "Pneumonia",
+    "differential": [
+      "COPD Exacerbation",
+      "Congestive Heart Failure"
+    ],
+    "reasoning": "Clinical presentation of productive cough and focal crackles on exam in the setting of chronic COPD increases the suspicion of a superimposed bacterial infection."
+  },
+  "ground_truth_diagnosis": "Bacterial Pneumonia",
+  "failure_mode": "Positive pneumonia finding on X-ray not acknowledged by provider",
+  "ai_should_flag": [
+    "Unread Imaging Result",
+    "Missed Pneumonia Diagnosis",
+    "Incomplete Treatment Loop"
+  ]
+}

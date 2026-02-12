@@ -1,0 +1,44 @@
+{
+  "patient_id": "P003",
+  "demographics": {
+    "age": 45,
+    "sex": "F",
+    "mrn": "MRN-P00399"
+  },
+  "visit_date": "2024-11-05",
+  "clinical_note": {
+    "date": "2024-11-05",
+    "provider": "Dr. Martinez",
+    "text": "Patient is a 45-year-old female presenting with a palpable neck lump first noticed by her hairdresser during an appointment 10 days ago. Patient is currently asymptomatic, denying dysphagia, dyspnea, or voice changes. On physical exam, a firm, non-tender, approximately 2cm nodule is noted in the right lower pole of the thyroid. No cervical lymphadenopathy noted. Given the firm nature of the nodule, we must r/o thyroid malignancy. Plan includes serum TSH and a Thyroid Ultrasound for further characterization."
+  },
+  "orders": [
+    {
+      "order_id": "ORD001",
+      "test_name": "TSH",
+      "status": "completed"
+    },
+    {
+      "order_id": "ORD002",
+      "test_name": "Thyroid Ultrasound",
+      "status": "pending"
+    }
+  ],
+  "results": [
+    {
+      "result_id": "RES001",
+      "test_name": "TSH",
+      "full_text": "TSH: 1.25 mIU/L (Reference Range: 0.40 - 4.50 mIU/L). Result within normal limits."
+    }
+  ],
+  "diagnostic_hypothesis": {
+    "primary": "Thyroid malignancy",
+    "reasoning": "Palpable thyroid nodules in adult females carry a risk of malignancy; physical examination findings of a firm nodule necessitate imaging regardless of normal thyroid function tests."
+  },
+  "ground_truth_diagnosis": "Papillary Thyroid Cancer",
+  "failure_mode": "Ultrasound delayed due to administrative insurance denial",
+  "ai_should_flag": [
+    "High-risk diagnostic order pending for 28 days",
+    "Administrative insurance denial for rule-out malignancy order",
+    "Closed-loop failure for palpable thyroid nodule investigation"
+  ]
+}

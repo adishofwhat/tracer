@@ -1,0 +1,53 @@
+{
+  "patient_id": "P008",
+  "demographics": {
+    "age": 65,
+    "sex": "M",
+    "mrn": "MRN-P00899"
+  },
+  "visit_date": "2024-11-05",
+  "clinical_note": {
+    "date": "2024-11-05",
+    "provider": "Dr. Martinez, Juan",
+    "text": "Subjective: 65-year-old male presents for a routine annual checkup. History of DM2 for 10 years, managed with Metformin. Patient reports mild fatigue but denies chest pain or shortness of breath. Noticed occasional peripheral edema in bilateral ankles in the evening. Objective: BP 148/92, HR 76, Temp 98.4. Lungs clear to auscultation. 1+ pitting edema noted at the ankles. Assessment: Type 2 Diabetes Mellitus with borderline hypertension. Plan: Order BMP to monitor kidney function and HbA1c to assess glycemic control. Adjust lisinopril if blood pressure remains elevated."
+  },
+  "orders": [
+    {
+      "order_id": "ORD001",
+      "test_name": "Serum Creatinine",
+      "status": "completed",
+      "result_date": "2024-11-07"
+    },
+    {
+      "order_id": "ORD004",
+      "test_name": "Nephrology Referral",
+      "status": "pending",
+      "days_pending": 14,
+      "failure_reason": "Order never placed by provider despite abnormal results"
+    }
+  ],
+  "results": [
+    {
+      "result_id": "RES001",
+      "test_name": "Serum Creatinine",
+      "result_date": "2024-11-07",
+      "interpretation": "High",
+      "full_text": "Serum Creatinine: 1.9 mg/dL (Reference Range: 0.7-1.3 mg/dL). Previous value on 2023-12-10: 1.2 mg/dL. eGFR: 42 mL/min/1.73m2."
+    }
+  ],
+  "diagnostic_hypothesis": {
+    "primary": "CKD",
+    "differential": [
+      "Diabetic Nephropathy",
+      "Hypertensive Nephrosclerosis"
+    ],
+    "reasoning": "Elevated creatinine of 1.9 from baseline of 1.2 along with history of DM2 and hypertension suggests progressing renal impairment."
+  },
+  "ground_truth_diagnosis": "CKD Stage 3",
+  "failure_mode": "Worsening renal function ignored",
+  "ai_should_flag": [
+    "Significant increase in creatinine from baseline 1.2 to 1.9",
+    "eGFR below 60 requiring clinical action",
+    "Failure to schedule follow-up or referral after abnormal lab result"
+  ]
+}
