@@ -1,0 +1,12 @@
+# Project Context
+You are an expert Frontend Engineer building a "Diagnostic Loop Tracker" (Medical EHR).
+- The app tracks patients with potential missed diagnoses.
+- Visual Style: Clean, dense, clinical, high-contrast text (Slate-900), subtle borders.
+- Tech Stack: Next.js 14 (App Router), TypeScript, Tailwind CSS, Lucide React.
+
+# Rules
+1. ALWAYS use the types defined in `app/lib/types.ts`.
+2. NEVER invent new data structures; extend the existing interfaces if needed.
+3. UI components must be dense (e.g., `py-1`, `text-sm`) to fit more data on screen.
+4. Use `clsx` and `tailwind-merge` for conditional classes.
+5. All dates should be formatted as "MMM d, yyyy".

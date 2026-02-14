@@ -15,7 +15,7 @@
 - **Bonus:** Live demo on Vercel
 - **Deadline:** Feb 24, 11:59 PM UTC
 
-### Current Phase: Foundation (Days 1-6)
+### Current Phase: Foundation (Days 1-?)
 
 ### Completed Today (Day 1):
 - [x] Track selection (Main + Agentic Workflow)
@@ -26,11 +26,22 @@
 - [x] MedGemma download started (Lowest model is MedGemma 1.5 (4B))
 - [ ] Test inference script created (Test failed, Validated GTX 1050 limits, GTX 1050 (4GB) is insufficient for MedGemma 1.5 4B-it. Need to shift to something else probably cloud based)
 
-### Tomorrow (Day 2):
-- [ ] Validate patient data with nurses
-- [ ] Test MedGemma base model performance
-- [ ] Start fine-tuning preparation
-- [ ] Begin React frontend structure with Cursor
+Completed Today (Day 2):
+[x] Frontend Architecture: Built full Next.js + Tailwind UI (Layout, Sidebar).
+[x] High-Density Components: Created ResultsList (Epic-style sorting) and ResultCard.
+[x] Decision Support UI: Built AIContextPanel with vertical Diagnostic Loop Timeline.
+[x] Data Layer: Defined strict types.ts and realistic mockData.ts.
+[x] Evaluation Logic: Created src/utils/evaluator.py for scoring.
+[x] Base Model Benchmark: Tested Base Model
+    Success: One-shot extraction works.
+    Failure: Zero-shot extraction fails (hallucinated JSON).
+    Failure: Open-ended prompts trigger safety loops.
+[ ] Nurse Feedback push for another day.
+
+Blockers / Issues:
+Hardware Limit (Colab): Fine-tuning paused. training json and script are ready, but Colab GPU runtime disconnected/hit quota before training could start.
+
+Action: Resume fine-tuning immediately on Day 3 once quota resets.
 
 ### Technical Stack:
 - **AI:** MedGemma 1.5 (4B) (base + fine-tuned with LoRA)
@@ -40,22 +51,22 @@
 - **Hardware:** GTX 1050 (local testing), Colab Pro (fine-tuning)
 
 ### Key Architecture Decisions:
-- **Feb 6:** Pre-compute all MedGemma outputs (no live inference in demo)
-- **Feb 6:** React/Next.js for EHR-like UI (not Streamlit)
-- **Feb 6:** Fine-tune for hypothesis extraction (Novel Task angle)
-- **Feb 6:** Deploy live demo on Vercel (bonus points)
-- **Feb 6:** Target Agentic Workflow Prize (perfect fit for loop tracking)
+- **Feb ?:** Pre-compute all MedGemma outputs (no live inference in demo)
+- **Feb ?:** React/Next.js for EHR-like UI (not Streamlit)
+- **Feb ?:** Fine-tune for hypothesis extraction (Novel Task angle)
+- **Feb ?:** Deploy live demo on Vercel (bonus points)
+- **Feb ?:** Target Agentic Workflow Prize (perfect fit for loop tracking)
 
 ### Data Generated:
-- Patient scenarios: 0/10 (target: end of Day 1)
-- Training examples: 0/100 (target: end of Day 1)
+- Patient scenarios: 10/10 (target: end of Day 1)
+- Training examples: 110/100 (target: end of Day 1)
 
 ### Questions/Blockers:
-- None currently
+- Hardware Limit reached due to GTX 1050 4GB for running the model. Have to look for other options.
 
 ### Next Critical Milestones:
-- **Day 3:** Nurse validation of patient data
-- **Day 5:** Fine-tuning complete
-- **Day 10:** Live demo deployed
-- **Day 16:** Video recorded
-- **Day 18:** SUBMIT (buffer day)
+- **Day ?:** Nurse validation of patient data
+- **Day ?:** Fine-tuning complete
+- **Day ?:** Live demo deployed
+- **Day ?:** Video recorded
+- **Day ?:** SUBMIT (buffer day)

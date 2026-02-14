@@ -1,65 +1,91 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import {
+  Bell,
+  Search,
+  HelpCircle,
+  Inbox,
+} from "lucide-react";
+import Sidebar from "./components/Sidebar";
+import ResultsList from "./components/ResultsList";
+import ResultDetail from "./components/ResultDetail";
+import { MOCK_PATIENTS } from "./lib/mockData";
+import type { PatientCase } from "./lib/types";
 
 export default function Home() {
+  const [activePath, setActivePath] = useState("/");
+  const [selectedId, setSelectedId] = useState<string | null>(
+    MOCK_PATIENTS[0]?.patient.patient_id ?? null
+  );
+
+  const selectedCase: PatientCase | undefined = MOCK_PATIENTS.find(
+    (c) => c.patient.patient_id === selectedId
+  );
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="flex h-screen overflow-hidden bg-slate-50">
+      {/* Sidebar */}
+      <Sidebar activePath={activePath} onNavigate={setActivePath} />
+
+      {/* Main area */}
+      <div className="ml-[240px] flex flex-1 flex-col overflow-hidden">
+        {/* Top bar */}
+        <header className="flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-6">
+          <div>
+            <h1 className="text-base font-semibold text-slate-900">
+              Results Inbox
+            </h1>
+            <p className="text-[11px] text-slate-500">
+              {MOCK_PATIENTS.length} open cases &middot;{" "}
+              {MOCK_PATIENTS.filter(
+                (c) => c.ai_analysis?.urgency_level === "high"
+              ).length}{" "}
+              critical
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button className="relative rounded-md p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600">
+              <Bell className="h-4 w-4" />
+              <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-red-500" />
+            </button>
+            <button className="rounded-md p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600">
+              <HelpCircle className="h-4 w-4" />
+            </button>
+            <div className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white">
+              SP
+            </div>
+          </div>
+        </header>
+
+        {/* Content split: list + detail */}
+        <div className="flex flex-1 overflow-hidden">
+          <ResultsList
+            results={MOCK_PATIENTS}
+            selectedId={selectedId}
+            onSelect={setSelectedId}
+          />
+
+          {/* Detail panel */}
+          <div className="flex-1 overflow-hidden">
+            {selectedCase ? (
+              <ResultDetail
+                patientCase={selectedCase}
+                onClose={() => setSelectedId(null)}
+              />
+            ) : (
+              <div className="flex h-full flex-col items-center justify-center text-slate-400">
+                <Inbox className="mb-3 h-10 w-10" />
+                <p className="text-sm font-medium">No case selected</p>
+                <p className="text-xs">
+                  Select a patient from the list to view details.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
