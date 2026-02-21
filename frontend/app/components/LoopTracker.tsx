@@ -27,7 +27,7 @@ function buildTimeline(pc: PatientCase): TimelineStep[] {
   // Step 1 — Clinical encounter
   steps.push({
     label: "Clinical Encounter",
-    detail: `${pc.clinical_note.provider} — ${pc.clinical_note.specialty}`,
+    detail: `${pc.clinical_note.provider}${pc.clinical_note.specialty ? ` — ${pc.clinical_note.specialty}` : ""}`,
     date: pc.visit_date,
     status: "complete",
   });

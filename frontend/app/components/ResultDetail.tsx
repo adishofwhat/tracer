@@ -84,8 +84,12 @@ export default function ResultDetail({
             <div className="px-4 py-3">
               <div className="mb-2 flex items-center gap-2 text-[11px] text-slate-500">
                 <span>{clinical_note.provider}</span>
-                <span className="text-slate-300">|</span>
-                <span>{clinical_note.specialty}</span>
+                {clinical_note.specialty && (
+                  <>
+                    <span className="text-slate-300">|</span>
+                    <span>{clinical_note.specialty}</span>
+                  </>
+                )}
                 <span className="text-slate-300">|</span>
                 <span>{formatDate(clinical_note.date)}</span>
               </div>
@@ -168,7 +172,7 @@ export default function ResultDetail({
                       {result.test_name}
                     </span>
                     <span className="text-[10px] text-slate-400">
-                      {formatDate(result.result_date)}
+                      {result.result_date ? formatDate(result.result_date) : ""}
                     </span>
                   </div>
 
@@ -219,6 +223,15 @@ export default function ResultDetail({
                           )}
                         </tbody>
                       </table>
+                    </div>
+                  )}
+
+                  {/* Full text (when no structured values) */}
+                  {!result.values && result.full_text && (
+                    <div className="mb-2 rounded-md border border-slate-100 bg-slate-50/50 px-2.5 py-2">
+                      <p className="text-[11px] leading-relaxed text-slate-600">
+                        {result.full_text}
+                      </p>
                     </div>
                   )}
 

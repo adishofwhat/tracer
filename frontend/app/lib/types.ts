@@ -1,6 +1,7 @@
 // =============================================================================
 // Diagnostic Loop Tracker — Core Type Definitions
 // =============================================================================
+// All date fields are ISO strings (e.g. "2024-11-05"), never Date objects.
 
 // ── Patient ──────────────────────────────────────────────────────────────────
 
@@ -21,7 +22,7 @@ export type OrderStatus = "pending" | "completed" | "cancelled";
 export interface Order {
   order_id: string;
   test_name: string;
-  order_date: string;
+  order_date?: string;
   status: OrderStatus;
   result_date?: string | null;
   days_pending?: number;
@@ -43,10 +44,11 @@ export type ResultUrgency = "routine" | "urgent" | "critical";
 
 export interface LabResult {
   result_id: string;
-  order_id: string;
+  order_id?: string;
   test_name: string;
-  result_date: string;
+  result_date?: string;
   values?: Record<string, LabValue>;
+  full_text?: string;
   interpretation?: string;
   radiology_report?: string;
   key_finding?: string;
@@ -58,7 +60,7 @@ export interface LabResult {
 export interface ClinicalNote {
   date: string;
   provider: string;
-  specialty: string;
+  specialty?: string;
   text: string;
 }
 
@@ -68,7 +70,7 @@ export type Confidence = "low" | "medium" | "high";
 
 export interface DiagnosticHypothesis {
   primary: string;
-  differential: string[];
+  differential?: string[];
   reasoning: string;
   confidence?: Confidence;
 }

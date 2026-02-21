@@ -17,7 +17,7 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Inbox", icon: Inbox, href: "/", badge: 3 },
+  { label: "Inbox", icon: Inbox, href: "/", badge: 10 },
   { label: "Loop Tracker", icon: Activity, href: "#loop-tracker" },
   { label: "Analytics", icon: BarChart3, href: "#analytics" },
   { label: "Settings", icon: Settings, href: "#settings" },

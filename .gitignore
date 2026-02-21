@@ -1,4 +1,5 @@
 # Model weights (too large for git)
+data/
 models/
 *.bin
 *.safetensors

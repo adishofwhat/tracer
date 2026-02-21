@@ -41,7 +41,7 @@ function buildTimeline(pc: PatientCase): TimelineStep[] {
   // 1 — Clinical Encounter
   steps.push({
     label: "Clinical Encounter",
-    detail: `${pc.clinical_note.provider} — ${pc.clinical_note.specialty}`,
+    detail: `${pc.clinical_note.provider}${pc.clinical_note.specialty ? ` — ${pc.clinical_note.specialty}` : ""}`,
     date: pc.visit_date,
     status: "complete",
   });
@@ -198,7 +198,8 @@ export default function AIContextPanel({ patientCase }: AIContextPanelProps) {
             <p className="mt-0.5 text-xs font-medium text-slate-800">
               {analysis.hypothesis_extracted.primary}
             </p>
-            {analysis.hypothesis_extracted.differential.length > 0 && (
+            {analysis.hypothesis_extracted.differential &&
+              analysis.hypothesis_extracted.differential.length > 0 && (
               <p className="mt-0.5 text-[11px] text-slate-500">
                 DDx: {analysis.hypothesis_extracted.differential.join(", ")}
               </p>
@@ -232,13 +233,24 @@ export default function AIContextPanel({ patientCase }: AIContextPanelProps) {
         </div>
         <div className="space-y-1">
           {completedOrders.map((order) => {
-            // Find matching result to determine if abnormal
-            const result = patientCase.results.find(
-              (r) => r.order_id === order.order_id
-            );
+            // Find matching result — try order_id first, then fuzzy test name
+            const result =
+              patientCase.results.find(
+                (r) => r.order_id && r.order_id === order.order_id
+              ) ??
+              patientCase.results.find((r) =>
+                order.test_name.toLowerCase().includes(r.test_name.toLowerCase()) ||
+                r.test_name.toLowerCase().includes(order.test_name.toLowerCase())
+              );
+
+            // Determine if abnormal: structured values, or interpretation text
             const hasAbnormal =
-              result?.values &&
-              Object.values(result.values).some((v) => v.flag !== "N");
+              (result?.values &&
+                Object.values(result.values).some((v) => v.flag !== "N")) ||
+              (result?.interpretation &&
+                /abnormal|high|low|elevated|critical|positive/i.test(
+                  result.interpretation
+                ));
             const StatusIcon = hasAbnormal ? AlertTriangle : CheckCircle2;
             const iconColor = hasAbnormal
               ? "text-amber-500"
