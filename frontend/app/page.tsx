@@ -1,105 +1,174 @@
-"use client";
+import Link from "next/link";
+import { loadPatients } from "@/app/lib/dataLoader";
+import type { PatientData, UrgencyLevel } from "@/app/lib/types";
+import RiskLine from "@/app/components/RiskLine";
 
-import { useState } from "react";
-import { Bell, HelpCircle, Inbox } from "lucide-react";
-import Sidebar from "./components/Sidebar";
-import ResultsList from "./components/ResultsList";
-import ResultDetail from "./components/ResultDetail";
-import { PATIENTS_WITH_AI } from "./lib/patientsData";
-import type { PatientCase } from "./lib/types";
+function cardBorderClass(urgency: string) {
+  if (urgency === "high")
+    return "border border-gray-200 border-l-4 border-l-red-500 rounded-lg";
+  if (urgency === "medium")
+    return "border border-gray-200 border-l-4 border-l-yellow-400 rounded-lg";
+  return "border border-gray-200 border-l-4 border-l-green-500 rounded-lg";
+}
 
-export default function Home() {
-  const [activePath, setActivePath] = useState("/");
-  const [selectedId, setSelectedId] = useState<string | null>(
-    PATIENTS_WITH_AI[0]?.patient.patient_id ?? null
+function urgencyBadge(level: UrgencyLevel) {
+  const config = {
+    high: { bg: "bg-red-100 text-red-700", label: "HIGH" },
+    medium: { bg: "bg-yellow-100 text-yellow-700", label: "MED" },
+    low: { bg: "bg-green-100 text-green-700", label: "LOW" },
+  } as const;
+  const c = config[level];
+  return (
+    <span
+      className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold ${c.bg}`}
+    >
+      {c.label}
+    </span>
   );
+}
 
-  const selectedCase: PatientCase | undefined = PATIENTS_WITH_AI.find(
-    (c) => c.patient.patient_id === selectedId
-  );
+export default function InboxPage() {
+  const patients = loadPatients();
+  const urgencyOrder = { high: 0, medium: 1, low: 2 } as const;
 
-  const highCount = PATIENTS_WITH_AI.filter(
-    (c) => c.ai_analysis?.urgency_level === "high"
-  ).length;
+  const sorted = [...patients].sort((a, b) => {
+    const urgencyDiff =
+      urgencyOrder[a.ai_analysis.urgency] -
+      urgencyOrder[b.ai_analysis.urgency];
+    if (urgencyDiff !== 0) return urgencyDiff;
 
-  // Handle empty dataset gracefully
-  if (PATIENTS_WITH_AI.length === 0) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-slate-50">
-        <div className="text-center">
-          <Inbox className="mx-auto mb-3 h-12 w-12 text-slate-300" />
-          <p className="text-sm font-medium text-slate-600">
-            No patients found
-          </p>
-          <p className="mt-1 text-xs text-slate-400">
-            Check that the patient data file is present and correctly formatted.
-          </p>
-        </div>
-      </div>
+    const aFlagged = a.ai_analysis.agent_review_flag ? 0 : 1;
+    const bFlagged = b.ai_analysis.agent_review_flag ? 0 : 1;
+    if (aFlagged !== bFlagged) return aFlagged - bFlagged;
+
+    const aDays = Math.max(
+      ...a.orders
+        .filter((o) => o.status === "pending")
+        .map((o) => o.days_pending ?? 0),
+      0
     );
-  }
+    const bDays = Math.max(
+      ...b.orders
+        .filter((o) => o.status === "pending")
+        .map((o) => o.days_pending ?? 0),
+      0
+    );
+    return bDays - aDays;
+  });
+
+  const totalFlagged = patients.filter(
+    (p) => p.ai_analysis.agent_review_flag
+  ).length;
+  const totalHigh = patients.filter(
+    (p) => p.ai_analysis.urgency === "high"
+  ).length;
+  const totalPending = patients.reduce(
+    (sum, p) => sum + p.orders.filter((o) => o.status === "pending").length,
+    0
+  );
+  const withConfidence = patients.filter(
+    (p) => p.ai_analysis.agent_confidence !== null
+  );
+  const avgConfidence = (
+    withConfidence.reduce(
+      (sum, p) => sum + (p.ai_analysis.agent_confidence ?? 0),
+      0
+    ) / withConfidence.length
+  ).toFixed(1);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50">
-      {/* Sidebar */}
-      <Sidebar activePath={activePath} onNavigate={setActivePath} />
-
-      {/* Main area */}
-      <div className="ml-[240px] flex flex-1 flex-col overflow-hidden">
-        {/* Top bar */}
-        <header className="flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-6">
-          <div>
-            <h1 className="text-base font-semibold text-slate-900">
-              Results Inbox
-            </h1>
-            <p className="text-[11px] text-slate-500">
-              {PATIENTS_WITH_AI.length} open cases &middot; {highCount} critical
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button className="relative rounded-md p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600">
-              <Bell className="h-4 w-4" />
-              {highCount > 0 && (
-                <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-red-500" />
-              )}
-            </button>
-            <button className="rounded-md p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600">
-              <HelpCircle className="h-4 w-4" />
-            </button>
-            <div className="ml-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white">
-              SP
-            </div>
-          </div>
-        </header>
-
-        {/* Content split: list + detail */}
-        <div className="flex flex-1 overflow-hidden">
-          <ResultsList
-            results={PATIENTS_WITH_AI}
-            selectedId={selectedId}
-            onSelect={setSelectedId}
-          />
-
-          {/* Detail panel */}
-          <div className="flex-1 overflow-hidden">
-            {selectedCase ? (
-              <ResultDetail
-                patientCase={selectedCase}
-                onClose={() => setSelectedId(null)}
-              />
-            ) : (
-              <div className="flex h-full flex-col items-center justify-center text-slate-400">
-                <Inbox className="mb-3 h-10 w-10" />
-                <p className="text-sm font-medium">No case selected</p>
-                <p className="text-xs">
-                  Select a patient from the list to view details.
-                </p>
-              </div>
-            )}
-          </div>
+    <div className="bg-gray-50 min-h-screen">
+      {/* Stats bar */}
+      <div className="flex gap-8 px-6 py-4 bg-white border-b border-gray-200">
+        <div>
+          <span className="text-lg font-bold text-red-600">{totalFlagged}</span>
+          <span className="text-xs text-gray-400 block">flagged for review</span>
+        </div>
+        <div>
+          <span className="text-lg font-bold text-orange-500">{totalHigh}</span>
+          <span className="text-xs text-gray-400 block">high urgency</span>
+        </div>
+        <div>
+          <span className="text-lg font-bold text-blue-600">{totalPending}</span>
+          <span className="text-xs text-gray-400 block">open loops</span>
+        </div>
+        <div>
+          <span className="text-lg font-bold text-gray-900">{avgConfidence}/10</span>
+          <span className="text-xs text-gray-400 block">avg AI confidence</span>
         </div>
       </div>
+
+      {/* Patient grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6 pb-10">
+        {sorted.map((p) => (
+          <PatientCard key={p.patient_id} patient={p} />
+        ))}
+      </div>
     </div>
+  );
+}
+
+function PatientCard({ patient: p }: { patient: PatientData }) {
+  const pendingCount = p.orders.filter((o) => o.status === "pending").length;
+  const flagCount = p.ai_analysis.flags.length;
+
+  return (
+    <Link
+      href={`/patients/${p.patient_id}`}
+      className={`block bg-white ${cardBorderClass(p.ai_analysis.urgency)} p-4 hover:shadow-md transition-all cursor-pointer`}
+    >
+      {/* Row 1: ID + flag + confidence + urgency */}
+      <div className="flex items-center">
+        <span className="font-mono text-xs text-gray-400">
+          {p.patient_id}
+        </span>
+        {p.ai_analysis.agent_review_flag === true && (
+          <span className="ml-3 bg-yellow-50 border border-yellow-200 rounded px-2 py-0.5 text-[11px] text-yellow-800 font-medium whitespace-nowrap self-center">
+            ⚠ Flagged for Agent Review
+          </span>
+        )}
+        <div className="flex items-center gap-2 ml-auto">
+          {p.ai_analysis.agent_confidence !== null && (
+            <span className="text-xs">
+              <span className="text-gray-400">conf.</span>{" "}
+              <span className="font-semibold text-gray-600">
+                {p.ai_analysis.agent_confidence}/10
+              </span>
+            </span>
+          )}
+          {urgencyBadge(p.ai_analysis.urgency)}
+        </div>
+      </div>
+
+      {/* Diagnosis */}
+      <p className="font-semibold text-gray-900 text-sm truncate mt-2">
+        {p.ground_truth_diagnosis}
+      </p>
+
+      {/* Demographics */}
+      <p className="text-xs text-gray-500 mt-1">
+        {p.demographics.age} {p.demographics.sex} ·{" "}
+        {p.clinical_note.specialty ?? "General"}
+      </p>
+
+      {/* Stats row */}
+      <div className="flex justify-between mt-2">
+        {pendingCount > 0 ? (
+          <span className="text-xs text-gray-500">
+            🕐 {pendingCount} pending
+          </span>
+        ) : (
+          <span className="text-xs text-green-600">✓ No pending orders</span>
+        )}
+        {flagCount > 0 && (
+          <span className="text-xs text-red-600 font-medium">
+            {flagCount} AI alerts
+          </span>
+        )}
+      </div>
+
+      {/* Failure mode */}
+      <RiskLine text={p.failure_mode} />
+    </Link>
   );
 }

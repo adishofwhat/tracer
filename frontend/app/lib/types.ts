@@ -1,102 +1,70 @@
 // =============================================================================
 // Diagnostic Loop Tracker — Core Type Definitions
 // =============================================================================
-// All date fields are ISO strings (e.g. "2024-11-05"), never Date objects.
+// All date fields are ISO strings (YYYY-MM-DD), never Date objects.
 
-// ── Patient ──────────────────────────────────────────────────────────────────
+export type OrderStatus = "pending" | "completed" | "cancelled";
 
-export interface Patient {
+export type UrgencyLevel = "low" | "medium" | "high";
+
+export type LabFlag = "N" | "L" | "H" | "C";
+
+export type ResultUrgency = "routine" | "urgent" | "critical";
+
+// ── AI Analysis ──────────────────────────────────────────────────────────────
+
+export interface AIAnalysis {
+  primary_hypothesis: string;
+  differential_diagnoses: string[];
+  key_symptoms: string[];
+  urgency: UrgencyLevel;
+  tests_ordered: string[];
+  reasoning: string;
+  loop_status: string;
+  flags: string[];
+  agent_confidence: number | null;
+  agent_review_flag: boolean | null;
+}
+
+// ── Patient Data (top-level record) ──────────────────────────────────────────
+
+export interface PatientData {
   patient_id: string;
   demographics: {
     age: number;
     sex: "M" | "F";
     mrn: string;
-    name?: string;
   };
-}
-
-// ── Orders ───────────────────────────────────────────────────────────────────
-
-export type OrderStatus = "pending" | "completed" | "cancelled";
-
-export interface Order {
-  order_id: string;
-  test_name: string;
-  order_date?: string;
-  status: OrderStatus;
-  result_date?: string | null;
-  days_pending?: number;
-  failure_reason?: string;
-}
-
-// ── Lab Values & Results ─────────────────────────────────────────────────────
-
-export type LabFlag = "N" | "L" | "H" | "C"; // Normal, Low, High, Critical
-
-export interface LabValue {
-  value: number | string;
-  unit: string;
-  reference: string;
-  flag: LabFlag;
-}
-
-export type ResultUrgency = "routine" | "urgent" | "critical";
-
-export interface LabResult {
-  result_id: string;
-  order_id?: string;
-  test_name: string;
-  result_date?: string;
-  values?: Record<string, LabValue>;
-  full_text?: string;
-  interpretation?: string;
-  radiology_report?: string;
-  key_finding?: string;
-  urgency?: ResultUrgency;
-}
-
-// ── Clinical Notes ───────────────────────────────────────────────────────────
-
-export interface ClinicalNote {
-  date: string;
-  provider: string;
-  specialty?: string;
-  text: string;
-}
-
-// ── Diagnostic Hypothesis ────────────────────────────────────────────────────
-
-export type Confidence = "low" | "medium" | "high";
-
-export interface DiagnosticHypothesis {
-  primary: string;
-  differential?: string[];
-  reasoning: string;
-  confidence?: Confidence;
-}
-
-// ── AI Analysis ──────────────────────────────────────────────────────────────
-
-export type UrgencyLevel = "low" | "medium" | "high";
-
-export interface AIAnalysis {
-  hypothesis_extracted: DiagnosticHypothesis;
-  context_summary: string;
-  flags: string[];
-  suggested_actions: string[];
-  urgency_level: UrgencyLevel;
-}
-
-// ── Patient Case (top-level aggregate) ───────────────────────────────────────
-
-export interface PatientCase {
-  patient: Patient;
   visit_date: string;
-  clinical_note: ClinicalNote;
-  orders: Order[];
-  results: LabResult[];
-  diagnostic_hypothesis: DiagnosticHypothesis;
+  clinical_note: {
+    date: string;
+    provider: string;
+    specialty?: string;
+    text: string;
+  };
+  orders: {
+    order_id: string;
+    test_name: string;
+    status: OrderStatus;
+    order_date: string;
+    result_date?: string | null;
+    days_pending?: number;
+    failure_reason?: string;
+  }[];
+  results: {
+    result_id: string;
+    test_name: string;
+    result_date: string;
+    interpretation?: string;
+    full_text?: string;
+  }[];
+  diagnostic_hypothesis: {
+    primary: string;
+    differential?: string[];
+    reasoning: string;
+  };
   ground_truth_diagnosis: string;
   failure_mode: string;
-  ai_analysis?: AIAnalysis;
+  ai_should_flag: string[];
+  ai_analysis: AIAnalysis;
 }
