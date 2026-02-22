@@ -3,7 +3,7 @@
 > **MedGemma Impact Challenge Submission**
 > Preventing missed diagnoses in ambulatory care through fine-tuned MedGemma and a 4-agent quality pipeline.
 
-**[Live Demo]([https://tracer-health.vercel.app/])**
+**[Live Demo](https://tracer-health.vercel.app/)**
 
 **[Fine-tuned Model (HuggingFace)]([HUGGINGFACE URL])**
 
