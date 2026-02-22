@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Tracer — Diagnostic Tracer",
+  title: "Tracer",
   description:
     "Tracer — AI diagnostic loop tracking system",
 };
