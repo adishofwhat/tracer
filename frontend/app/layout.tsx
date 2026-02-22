@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LoopGuard — Diagnostic Loop Tracker",
+  title: "Tracer — Diagnostic Tracer",
   description:
-    "AI-powered EHR inbox that detects missed diagnoses and broken diagnostic loops.",
+    "Tracer — AI diagnostic loop tracking system",
 };
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPatientById } from "@/app/lib/dataLoader";
-import type { PatientData, UrgencyLevel, OrderStatus } from "@/app/lib/types";
+import type { UrgencyLevel, OrderStatus } from "@/app/lib/types";
 import MarkReviewedButton from "@/app/components/MarkReviewedButton";
 import ReasonCell from "@/app/components/ReasonCell";
 
@@ -53,6 +53,7 @@ function interpretationBadge(interp: string | undefined) {
   );
 }
 
+// Bold critical values in AI flag text (lab values, quoted text, ranges)
 function formatFlag(flag: string) {
   const parts = flag.split(
     /(\d[\d,]*\s*(?:U\/mL|ng\/mL|mg\/dL|days|mIU\/mL|g\/dL|%)|"[^"]+"|>\d+\s*\w+)/g
@@ -89,7 +90,7 @@ export default async function PatientDetailPage({
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* ── Header ── */}
+      {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <Link
           href="/"
@@ -97,12 +98,12 @@ export default async function PatientDetailPage({
         >
           ← Back to Inbox
         </Link>
-        <div className="flex items-center justify-between mt-3">
+        <div className="flex items-center justify-between mt-3 flex-wrap gap-3">
           <div className="flex items-center gap-3 flex-wrap">
             <span className="font-mono text-gray-400 text-sm">
               {p.patient_id}
             </span>
-            <span className="text-gray-600 text-sm">
+            <span className="text-gray-500 text-sm">
               {p.demographics.age} · {p.demographics.sex} · {p.demographics.mrn}
             </span>
             {urgencyBadge(ai.urgency)}
@@ -116,11 +117,9 @@ export default async function PatientDetailPage({
         </div>
       </div>
 
-      {/* ── Main body ── */}
       <div className="p-6 pb-10">
-        {/* Two-column: Clinical Note + AI Analysis */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-          {/* LEFT — Clinical Note */}
+          {/* Clinical Note */}
           <div className="bg-white border border-gray-200 rounded-lg">
             <div className="p-4 border-b border-gray-100">
               <h2 className="font-semibold text-gray-900">Clinical Note</h2>
@@ -134,7 +133,6 @@ export default async function PatientDetailPage({
               </div>
             </div>
 
-            {/* Original Hypothesis */}
             <div className="p-4 border-t border-gray-100">
               <p className="text-xs font-semibold text-gray-500 uppercase">
                 Original Hypothesis
@@ -147,7 +145,6 @@ export default async function PatientDetailPage({
               </p>
             </div>
 
-            {/* Confirmed Diagnosis */}
             <div className="p-4 border-t border-gray-100">
               <p className="text-xs font-semibold text-gray-500 uppercase">
                 Confirmed Diagnosis
@@ -158,9 +155,8 @@ export default async function PatientDetailPage({
             </div>
           </div>
 
-          {/* RIGHT — AI Analysis */}
+          {/* AI Analysis */}
           <div className="bg-white border border-gray-200 rounded-lg">
-            {/* Header */}
             <div className="p-4 border-b border-gray-100">
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <span className="font-semibold text-gray-900">AI Analysis</span>
@@ -173,12 +169,11 @@ export default async function PatientDetailPage({
                   )}
                 </div>
               </div>
-              <p className="text-xs text-gray-400 mt-0.5">
+              <p className="text-xs text-gray-500 mt-0.5">
                 Fine-tuned MedGemma 1.5 (4B) · 4-agent quality pipeline
               </p>
             </div>
 
-            {/* Agent review banner */}
             {ai.agent_review_flag === true && (
               <div className="p-3 bg-yellow-50 border-b border-yellow-100">
                 <p className="text-sm text-yellow-800 font-medium">
@@ -187,9 +182,8 @@ export default async function PatientDetailPage({
               </div>
             )}
 
-            {/* Primary Hypothesis */}
             <div className="p-4 border-b border-gray-100">
-              <p className="text-xs font-semibold text-gray-400 uppercase">
+              <p className="text-xs font-semibold text-gray-500 uppercase">
                 Primary Hypothesis
               </p>
               <p className="text-sm font-semibold text-gray-900 mt-1">
@@ -197,9 +191,8 @@ export default async function PatientDetailPage({
               </p>
             </div>
 
-            {/* Differential Diagnoses */}
             <div className="p-4 border-b border-gray-100">
-              <p className="text-xs font-semibold text-gray-400 uppercase">
+              <p className="text-xs font-semibold text-gray-500 uppercase">
                 Differential
               </p>
               <div className="flex flex-col gap-0.5 mt-1">
@@ -211,9 +204,8 @@ export default async function PatientDetailPage({
               </div>
             </div>
 
-            {/* Key Symptoms */}
             <div className="p-4 border-b border-gray-100">
-              <p className="text-xs font-semibold text-gray-400 uppercase">
+              <p className="text-xs font-semibold text-gray-500 uppercase">
                 Key Symptoms
               </p>
               <div className="flex flex-col gap-0.5 mt-1">
@@ -225,7 +217,6 @@ export default async function PatientDetailPage({
               </div>
             </div>
 
-            {/* AI Flags */}
             <div className="p-4 border-b border-gray-100">
               <p className="text-xs font-semibold text-red-500 uppercase">
                 AI Alerts
@@ -240,9 +231,8 @@ export default async function PatientDetailPage({
               ))}
             </div>
 
-            {/* Reasoning */}
             <div className="p-4 border-b border-gray-100">
-              <p className="text-xs font-semibold text-gray-400 uppercase">
+              <p className="text-xs font-semibold text-gray-500 uppercase">
                 Clinical Reasoning
               </p>
               <p className="text-xs text-gray-600 italic leading-relaxed mt-1">
@@ -250,7 +240,6 @@ export default async function PatientDetailPage({
               </p>
             </div>
 
-            {/* Loop Status */}
             <div className="p-4">
               {ai.loop_status === "open" ? (
                 <span className="text-xs font-bold text-red-600">
@@ -265,9 +254,8 @@ export default async function PatientDetailPage({
           </div>
         </div>
 
-        {/* ── Orders + Results (below columns) ── */}
+        {/* Orders + Results */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 items-start">
-          {/* Orders Table */}
           <div className="bg-white border border-gray-200 rounded-lg">
             <div className="p-4 border-b border-gray-100">
               <h2 className="font-semibold text-gray-900">
@@ -317,7 +305,6 @@ export default async function PatientDetailPage({
             </div>
           </div>
 
-          {/* Results */}
           <div className="bg-white border border-gray-200 rounded-lg">
             <div className="p-4 border-b border-gray-100">
               <h2 className="font-semibold text-gray-900">

@@ -19,19 +19,19 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 h-14 px-6 flex items-center justify-between">
-      <div className="flex items-center">
-        <Link href="/" className="font-bold text-lg text-gray-900 hover:text-gray-700">
-          LoopGuard
+    <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 h-14 px-4 sm:px-6 flex items-center justify-between gap-4">
+      <div className="flex items-center min-w-0">
+        <Link href="/" className="font-bold text-lg text-gray-900 hover:text-gray-700 shrink-0">
+          Tracer
         </Link>
-        <span className="text-sm text-gray-400 ml-2">
-          · Diagnostic Loop Tracker
+        <span className="text-sm text-gray-400 ml-2 hidden sm:inline">
+          · Diagnostic Tracer
         </span>
-        <Link href="/loop-tracker" className="text-xs font-semibold text-red-600 bg-red-50 border border-red-200 rounded-full px-3 py-1 ml-6 hover:bg-red-100 transition-colors">
+        <Link href="/loop-tracker" className="text-xs font-semibold text-red-600 bg-red-50 border border-red-200 rounded-full px-3 py-1 ml-4 sm:ml-6 hover:bg-red-100 transition-colors shrink-0">
           {openLoops} open loops
         </Link>
       </div>
-      <div className="flex gap-6">
+      <div className="flex gap-4 sm:gap-6 shrink-0">
         {NAV_LINKS.map((link) => {
           const isActive = pathname === link.href;
           return (

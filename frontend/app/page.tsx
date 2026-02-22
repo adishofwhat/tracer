@@ -29,8 +29,9 @@ function urgencyBadge(level: UrgencyLevel) {
 
 export default function InboxPage() {
   const patients = loadPatients();
-  const urgencyOrder = { high: 0, medium: 1, low: 2 } as const;
 
+  // Sort: urgency → flagged for review → longest pending order
+  const urgencyOrder = { high: 0, medium: 1, low: 2 } as const;
   const sorted = [...patients].sort((a, b) => {
     const urgencyDiff =
       urgencyOrder[a.ai_analysis.urgency] -
@@ -78,27 +79,25 @@ export default function InboxPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Stats bar */}
-      <div className="flex gap-8 px-6 py-4 bg-white border-b border-gray-200">
+      <div className="flex flex-wrap gap-x-8 gap-y-2 px-6 py-4 bg-white border-b border-gray-200">
         <div>
           <span className="text-lg font-bold text-red-600">{totalFlagged}</span>
-          <span className="text-xs text-gray-400 block">flagged for review</span>
+          <span className="text-xs text-gray-500 block">flagged for review</span>
         </div>
         <div>
           <span className="text-lg font-bold text-orange-500">{totalHigh}</span>
-          <span className="text-xs text-gray-400 block">high urgency</span>
+          <span className="text-xs text-gray-500 block">high urgency</span>
         </div>
         <div>
           <span className="text-lg font-bold text-blue-600">{totalPending}</span>
-          <span className="text-xs text-gray-400 block">open loops</span>
+          <span className="text-xs text-gray-500 block">open loops</span>
         </div>
         <div>
           <span className="text-lg font-bold text-gray-900">{avgConfidence}/10</span>
-          <span className="text-xs text-gray-400 block">avg AI confidence</span>
+          <span className="text-xs text-gray-500 block">avg AI confidence</span>
         </div>
       </div>
 
-      {/* Patient grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6 pb-10">
         {sorted.map((p) => (
           <PatientCard key={p.patient_id} patient={p} />
@@ -117,7 +116,6 @@ function PatientCard({ patient: p }: { patient: PatientData }) {
       href={`/patients/${p.patient_id}`}
       className={`block bg-white ${cardBorderClass(p.ai_analysis.urgency)} p-4 hover:shadow-md transition-all cursor-pointer`}
     >
-      {/* Row 1: ID + flag + confidence + urgency */}
       <div className="flex items-center">
         <span className="font-mono text-xs text-gray-400">
           {p.patient_id}
@@ -140,18 +138,15 @@ function PatientCard({ patient: p }: { patient: PatientData }) {
         </div>
       </div>
 
-      {/* Diagnosis */}
       <p className="font-semibold text-gray-900 text-sm truncate mt-2">
         {p.ground_truth_diagnosis}
       </p>
 
-      {/* Demographics */}
       <p className="text-xs text-gray-500 mt-1">
         {p.demographics.age} {p.demographics.sex} ·{" "}
         {p.clinical_note.specialty ?? "General"}
       </p>
 
-      {/* Stats row */}
       <div className="flex justify-between mt-2">
         {pendingCount > 0 ? (
           <span className="text-xs text-gray-500">
@@ -167,7 +162,6 @@ function PatientCard({ patient: p }: { patient: PatientData }) {
         )}
       </div>
 
-      {/* Failure mode */}
       <RiskLine text={p.failure_mode} />
     </Link>
   );
