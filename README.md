@@ -5,9 +5,9 @@
 
 **[Live Demo](https://tracer-health.vercel.app/)**
 
-**[Fine-tuned Model (HuggingFace)]([HUGGINGFACE URL])**
+**[Fine-tuned Model (HuggingFace)](https://huggingface.co/adishofwhat/tracer-medgemma-v2)**
 
-**[Fine-tuning Notebook (Kaggle)]([KAGGLE URL])**
+**[Fine-tuning Notebook (Kaggle)](https://www.kaggle.com/code/adishgolechha/medgemma-finetuning-final)**
 
 ---
 
