@@ -3,7 +3,9 @@
 > **MedGemma Impact Challenge Submission**
 > Preventing missed diagnoses in ambulatory care through fine-tuned MedGemma and a 4-agent quality pipeline.
 
-**[Live Demo]([LIVE DEMO URL])** · **[Fine-tuned Model (HuggingFace)]([HUGGINGFACE URL])** · **[Fine-tuning Notebook (Kaggle)]([KAGGLE URL])**
+**[Live Demo]([LIVE DEMO URL])**
+**[Fine-tuned Model (HuggingFace)]([HUGGINGFACE URL])**
+**[Fine-tuning Notebook (Kaggle)]([KAGGLE URL])**
 
 ---
 
@@ -163,3 +165,6 @@ The 23 open loops in the demo represent exactly the failure pattern that causes 
 
 Built for the **MedGemma Impact Challenge** (Google, February 2026).
 Uses fine-tuned MedGemma 1.5 (4B-it) as the core extraction model.
+
+## License
+Apache 2.0 — see [LICENSE](LICENSE) for details.
