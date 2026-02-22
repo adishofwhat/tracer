@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { loadPatients } from "@/app/lib/dataLoader";
 import type { UrgencyLevel } from "@/app/lib/types";
+import { useTracer } from "@/app/context/TracerContext";
 import ReasonCell from "@/app/components/ReasonCell";
 
 interface PendingLoop {
@@ -67,7 +68,15 @@ type SortDir = "asc" | "desc";
 
 export default function LoopTrackerPage() {
   const router = useRouter();
+  const { tracerOn } = useTracer();
   const [urgencyFilter, setUrgencyFilter] = useState<UrgencyFilter>("all");
+
+  useEffect(() => {
+    if (!tracerOn) {
+      router.push("/");
+    }
+  }, [tracerOn, router]);
+
   const [sortField, setSortField] = useState<SortField>("days");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
 
@@ -146,9 +155,15 @@ export default function LoopTrackerPage() {
               ← Results Inbox
             </Link>
             <h1 className="text-xl font-bold text-gray-900">Loop Tracker</h1>
-            <p className="text-sm text-gray-500">
-              Pending diagnostic orders requiring follow-up
-            </p>
+            <div>
+              <p className="text-sm text-gray-500">
+                Pending diagnostic orders requiring follow-up
+              </p>
+              <p className="text-xs text-blue-600 font-medium mt-0.5">
+                ● Tracer-exclusive — this cross-patient view does not exist in
+                standard EHR systems
+              </p>
+            </div>
           </div>
           <div className="text-right">
             <p className="text-2xl font-bold text-red-600">
