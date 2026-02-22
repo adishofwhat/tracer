@@ -1,0 +1,1944 @@
+[
+  {
+    "patient_id": "P001",
+    "demographics": {
+      "age": 58,
+      "sex": "F",
+      "mrn": "MRN-782451"
+    },
+    "visit_date": "2025-01-08",
+    "clinical_note": {
+      "date": "2025-01-08",
+      "provider": "Dr. Martinez, Juan",
+      "specialty": "Internal Medicine",
+      "text": "SUBJECTIVE: 58-year-old female presents with 3-month history of intermittent abdominal bloating and early satiety. Reports feeling full after eating small amounts. Notes her pants are tighter around the waist despite no weight gain. Denies nausea, vomiting, diarrhea, or constipation. No vaginal bleeding. Last menstrual period 7 years ago at age 51. No family history of ovarian cancer. No personal history of breast cancer.\n\nOBJECTIVE:\nVitals: BP 128/78, HR 76, Temp 98.4\u00b0F, Weight 152 lbs\nAbdomen: Mildly distended, positive fluid wave, no tenderness, no masses palpable\nPelvic: Deferred to routine GYN appointment scheduled next month\nExtremities: No edema\n\nASSESSMENT: Postmenopausal female with progressive abdominal bloating and early satiety. Differential includes irritable bowel syndrome, constipation, functional dyspepsia. Fluid wave may represent obesity or mild ascites. Patient declined pelvic exam today, has routine GYN appointment in 4 weeks.\n\nPLAN: Trial of fiber supplementation and dietary modifications. CA-125 ordered given age and symptoms to rule out ovarian pathology. Transvaginal ultrasound ordered to evaluate for ovarian masses. Patient to follow up in 6 weeks or sooner if symptoms worsen. Encouraged to keep scheduled GYN appointment."
+    },
+    "orders": [
+      {
+        "order_id": "ORD001",
+        "test_name": "CA-125 Tumor Marker",
+        "status": "completed",
+        "order_date": "2025-01-08",
+        "result_date": "2025-01-10"
+      },
+      {
+        "order_id": "ORD002",
+        "test_name": "Transvaginal Ultrasound",
+        "status": "pending",
+        "order_date": "2025-01-08",
+        "days_pending": 18,
+        "failure_reason": "Patient never scheduled - waiting for insurance approval call that never came"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES001",
+        "test_name": "CA-125 Tumor Marker",
+        "result_date": "2025-01-10",
+        "interpretation": "Critical",
+        "full_text": "CA-125: 685 U/mL (Reference Range: <35 U/mL)\n\nCRITICAL: Markedly elevated CA-125. In postmenopausal women with pelvic symptoms, CA-125 >200 U/mL has >75% positive predictive value for ovarian malignancy. Urgent gynecologic oncology evaluation recommended. Correlation with pelvic imaging essential."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Ovarian cancer",
+      "differential": [
+        "Benign ovarian cyst",
+        "Endometriosis",
+        "Pelvic inflammatory disease",
+        "Irritable bowel syndrome"
+      ],
+      "reasoning": "Postmenopausal woman with abdominal bloating, early satiety, and ascites (fluid wave) has classic presentation for ovarian cancer. CA-125 of 685 is extremely concerning in this age group. Transvaginal ultrasound critical to identify adnexal mass and guide urgent oncology referral."
+    },
+    "ground_truth_diagnosis": "Stage IIIC Epithelial Ovarian Cancer",
+    "failure_mode": "Ultrasound never completed due to insurance scheduling delay - patient presented 6 weeks later with bowel obstruction from advanced disease",
+    "ai_should_flag": [
+      "CRITICAL CA-125 of 685 (normal <35) - highly suspicious for ovarian cancer in postmenopausal woman",
+      "Classic ovarian cancer triad: bloating, early satiety, ascites",
+      "Ultrasound ordered 18 days ago but never completed",
+      "Postmenopausal status makes ovarian cancer more likely than benign causes"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Ovarian cancer (epithelial)",
+      "differential_diagnoses": [
+        "Irritable bowel syndrome",
+        "Functional dyspepsia",
+        "Constipation",
+        "Gastroparesis",
+        "Colorectal cancer"
+      ],
+      "key_symptoms": [
+        "Progressive abdominal bloating over 3 months",
+        "Early satiety",
+        "Increased abdominal girth (tighter pants)",
+        "Age >50 with postmenopausal status",
+        "Positive fluid wave on physical exam",
+        "No specific GI symptoms like diarrhea or constipation"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "CA-125 tumor marker",
+        "Transvaginal ultrasound (pelvic evaluation)",
+        "Complete blood count",
+        "Comprehensive metabolic panel",
+        "Lactate dehydrogenase"
+      ],
+      "reasoning": "Postmenopausal woman with new onset bloating and early satiety requires exclusion of ovarian malignancy. CA-125 elevated in 50% of ovarian cancers but not sensitive in early stages. Ultrasound detects most ovarian tumors. If suspicious mass found, surgical staging required.",
+      "loop_status": "open",
+      "flags": [
+        "CA-125 critically elevated at 685 U/mL (normal <35) \u2014 highly suspicious for ovarian malignancy",
+        "Transvaginal ultrasound ordered 18 days ago \u2014 never completed",
+        "Postmenopausal woman with ascites: ovarian cancer until proven otherwise"
+      ],
+      "agent_confidence": 9,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P002",
+    "demographics": {
+      "age": 72,
+      "sex": "M",
+      "mrn": "MRN-445892"
+    },
+    "visit_date": "2025-01-12",
+    "clinical_note": {
+      "date": "2025-01-12",
+      "provider": "Dr. Thompson, Lisa",
+      "specialty": "Family Medicine",
+      "text": "SUBJECTIVE: 72-year-old male presents for follow-up of anemia found on routine labs 3 weeks ago. Patient reports feeling more tired than usual over past 6 months but attributed it to getting older. Denies chest pain or shortness of breath at rest. Does get winded going up stairs. No dark stools or blood in stool noted. No abdominal pain. Appetite good, weight stable. Takes aspirin 81mg daily for cardiac prevention.\n\nOBJECTIVE:\nVitals: BP 138/82, HR 88, Weight 175 lbs (stable)\nGeneral: Pale conjunctiva and nail beds\nCardiovascular: Regular rate and rhythm, no murmurs\nAbdomen: Soft, non-tender, no masses, bowel sounds normal\nRectal: Guaiac test not performed today (recent colonoscopy 5 years ago normal)\n\nLabs from 3 weeks ago:\nHemoglobin: 9.2 g/dL (normal 13.5-17.5)\nMCV: 72 fL (normal 80-100) - microcytic\nFerritin: 8 ng/mL (normal 20-200) - low\n\nASSESSMENT: Iron deficiency anemia in elderly male. Microcytic anemia with low ferritin indicates iron deficiency. In men and postmenopausal women, GI blood loss is the most common cause. Patient's colonoscopy is due (last one 5 years ago).\n\nPLAN: Start ferrous sulfate 325mg daily. Order colonoscopy to evaluate for occult GI malignancy or bleeding source. Order upper endoscopy if colonoscopy is negative. Patient advised that anemia in older men requires thorough GI evaluation. Follow-up in 8 weeks with repeat CBC after starting iron."
+    },
+    "orders": [
+      {
+        "order_id": "ORD003",
+        "test_name": "Colonoscopy",
+        "status": "pending",
+        "order_date": "2025-01-12",
+        "days_pending": 11,
+        "failure_reason": "Patient didn't schedule - referred to GI but never called to make appointment"
+      },
+      {
+        "order_id": "ORD004",
+        "test_name": "Complete Blood Count (CBC)",
+        "status": "pending",
+        "order_date": "2025-01-12",
+        "days_pending": 56,
+        "failure_reason": "Follow-up labs scheduled for 8 weeks out, not yet due"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES002",
+        "test_name": "Fecal Occult Blood Test",
+        "result_date": "2025-01-13",
+        "interpretation": "Positive",
+        "full_text": "Fecal Occult Blood Test: POSITIVE\n\nINTERPRETATION: Positive fecal occult blood test confirms GI blood loss. In context of iron deficiency anemia in elderly male, colonoscopy is essential to evaluate for colorectal malignancy or other bleeding source. Urgent GI referral recommended."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Colorectal cancer causing chronic GI blood loss",
+      "differential": [
+        "Gastric cancer",
+        "Peptic ulcer disease",
+        "Angiodysplasia",
+        "Dietary iron deficiency (unlikely in developed countries)"
+      ],
+      "reasoning": "Iron deficiency anemia in elderly male is GI malignancy until proven otherwise. Microcytic anemia (MCV 72) with low ferritin (8) indicates chronic blood loss. Colonoscopy is essential diagnostic test - up to 10% of patients >50 with iron deficiency anemia have colorectal cancer."
+    },
+    "ground_truth_diagnosis": "Stage II Adenocarcinoma of Ascending Colon",
+    "failure_mode": "Patient never scheduled colonoscopy - presented 4 months later with bowel obstruction requiring emergency surgery",
+    "ai_should_flag": [
+      "Iron deficiency anemia in 72-year-old male mandates colonoscopy",
+      "Microcytic anemia (MCV 72) with low ferritin (8) = chronic GI blood loss",
+      "Colonoscopy ordered 14 days ago but patient never scheduled appointment",
+      "Age >50 + iron deficiency anemia = 10% risk of colorectal cancer"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Iron deficiency anemia (most likely gastrointestinal blood loss)",
+      "differential_diagnoses": [
+        "Anemia of chronic disease",
+        "Thalassemia trait",
+        "Vitamin B12 deficiency",
+        "Folate deficiency"
+      ],
+      "key_symptoms": [
+        "Microcytic anemia (MCV 72)",
+        "Low ferritin (8 ng/mL)",
+        "Fatigue",
+        "Pallor",
+        "Age >50 (GI bleed risk increases)",
+        "Normal colonoscopy 5 years ago (may be outdated)"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Ferritin level",
+        "Complete blood count",
+        "Upper endoscopy (EGD)",
+        "Colonoscopy (if not done within 5 years)",
+        "Celiac serology (anti-TTG IgA)",
+        "Reticulocyte count"
+      ],
+      "reasoning": "Iron deficiency in adult male requires investigation for GI source of blood loss. Most common causes: colorectal cancer, peptic ulcer disease, angiodysplasia, gastritis. Colonoscopy essential given age and time since last screening.",
+      "loop_status": "open",
+      "flags": [
+        "PSA markedly elevated \u2014 urgent urology referral placed but not yet confirmed",
+        "Prostate biopsy pending \u2014 date not yet scheduled",
+        "Provider notes 'suspicious nodule on DRE consistent with malignancy'"
+      ],
+      "agent_confidence": 8,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P003",
+    "demographics": {
+      "age": 45,
+      "sex": "M",
+      "mrn": "MRN-338291"
+    },
+    "visit_date": "2025-01-15",
+    "clinical_note": {
+      "date": "2025-01-15",
+      "provider": "Dr. Patel, Anjali",
+      "specialty": "Internal Medicine",
+      "text": "SUBJECTIVE: 45-year-old male presents with persistent dry cough for 8 weeks. Initially thought it was a cold but cough never resolved. Now coughing multiple times per day, occasionally productive of clear sputum. One episode of blood-streaked sputum 2 days ago (small amount). Reports feeling more fatigued than usual and has lost about 12 pounds over past 2 months without trying. Denies fever, night sweats, or chest pain. No known TB exposures.\n\nSOCIAL HISTORY: Smokes 1 pack per day x 25 years (25 pack-years). Works as construction supervisor. No asbestos exposure.\n\nOBJECTIVE:\nVitals: BP 132/84, HR 78, Temp 98.6\u00b0F, RR 16, SpO2 96% on RA, Weight 168 lbs (down from 180 lbs)\nGeneral: Thin appearing, no acute distress\nRespiratory: Decreased breath sounds right upper lobe, no wheezing or crackles\nLymphs: No cervical or supraclavicular lymphadenopathy palpated\nExtremities: No clubbing noted\n\nASSESSMENT: Persistent cough in smoker with weight loss and hemoptysis. Differential includes chronic bronchitis, post-infectious cough, less likely pneumonia given absence of fever. Concerning features include weight loss and hemoptysis, though amount was minimal.\n\nPLAN: Chest X-ray to evaluate for pneumonia or other pathology. If normal, may consider trial of inhaled corticosteroid for post-infectious cough. Smoking cessation counseling provided. Follow-up in 2 weeks to review chest X-ray results."
+    },
+    "orders": [
+      {
+        "order_id": "ORD005",
+        "test_name": "Chest X-ray PA and Lateral",
+        "status": "completed",
+        "order_date": "2025-01-15",
+        "result_date": "2025-01-15"
+      },
+      {
+        "order_id": "ORD006",
+        "test_name": "CT Chest with Contrast",
+        "status": "pending",
+        "order_date": "2025-01-15",
+        "days_pending": 11,
+        "failure_reason": "Patient scheduled CT but cancelled appointment twice due to work commitments"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES002",
+        "test_name": "Chest X-ray PA and Lateral",
+        "result_date": "2025-01-15",
+        "interpretation": "Abnormal",
+        "full_text": "FINDINGS: 3.2 cm spiculated mass in right upper lobe with irregular borders. Associated hilar lymphadenopathy on right. No pleural effusion. Heart size normal.\n\nIMPRESSION: Right upper lobe mass concerning for primary lung malignancy. Spiculated margins are highly suspicious for bronchogenic carcinoma. Recommend urgent CT chest with contrast for further characterization and staging. Clinical correlation with smoking history strongly supports malignancy. Recommend pulmonology referral."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Lung cancer (non-small cell lung cancer)",
+      "differential": [
+        "Tuberculosis",
+        "Fungal infection (histoplasmosis)",
+        "Lung abscess",
+        "Hamartoma (benign)"
+      ],
+      "reasoning": "Spiculated lung mass on chest X-ray in 45-year-old with 25 pack-year smoking history, hemoptysis, and weight loss is lung cancer until proven otherwise. Spiculated borders and hilar lymphadenopathy make benign causes unlikely. CT chest essential for staging before biopsy."
+    },
+    "ground_truth_diagnosis": "Stage IIIA Non-Small Cell Lung Adenocarcinoma",
+    "failure_mode": "CT scan cancelled twice by patient due to work - by time rescheduled, cancer had progressed to stage IV with brain metastases",
+    "ai_should_flag": [
+      "ABNORMAL chest X-ray: 3.2 cm spiculated mass in right upper lobe",
+      "Radiologist specifically states 'highly suspicious for bronchogenic carcinoma'",
+      "Red flags: hemoptysis + weight loss (12 lbs) + heavy smoker (25 pack-years)",
+      "CT chest ordered 11 days ago but appointment cancelled twice",
+      "Hilar lymphadenopathy suggests locally advanced disease"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Lung cancer (smoker with weight loss and hemoptysis)",
+      "differential_diagnoses": [
+        "Chronic obstructive pulmonary disease exacerbation",
+        "Tuberculosis",
+        "Post-viral cough syndrome",
+        "Bronchitis"
+      ],
+      "key_symptoms": [
+        "Persistent cough >8 weeks",
+        "Significant smoking history (25 pack-years)",
+        "Unintentional weight loss (12 lbs)",
+        "Hemoptysis (blood-streaked sputum)",
+        "Fatigue"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Chest X-ray PA and lateral",
+        "CT chest with contrast",
+        "Complete blood count",
+        "Comprehensive metabolic panel",
+        "Pulmonary function tests if indicated"
+      ],
+      "reasoning": "Heavy smoker with weight loss and hemoptysis requires immediate imaging evaluation for malignancy. Even if X-ray is normal, CT chest essential given high risk. Smoking cessation most important intervention.",
+      "loop_status": "open",
+      "flags": [
+        "CT shows 1.8 cm lung nodule in high-risk smoker \u2014 highly suspicious for malignancy",
+        "PET scan ordered but scheduling pending \u2014 critical diagnostic delay",
+        "Radiologist explicitly recommends 'urgent follow-up and tissue sampling'"
+      ],
+      "agent_confidence": 9,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P004",
+    "demographics": {
+      "age": 6,
+      "sex": "F",
+      "mrn": "MRN-992847"
+    },
+    "visit_date": "2025-01-18",
+    "clinical_note": {
+      "date": "2025-01-18",
+      "provider": "Dr. Williams, Robert",
+      "specialty": "Pediatrics",
+      "text": "SUBJECTIVE: 6-year-old female brought in by mother for easy bruising and petechiae for past week. Mother reports child has had multiple bruises on legs and arms with minimal trauma. Noticed small red dots on skin (petechiae) on chest and arms yesterday. No recent illnesses. No fever. Eating and playing normally. No joint pain or swelling. No history of bleeding disorders in family.\n\nOBJECTIVE:\nVitals: BP 95/60, HR 102, Temp 98.2\u00b0F, RR 22\nGeneral: Well-appearing, playful, appropriate for age\nSkin: Multiple ecchymoses (bruises) on bilateral lower extremities in various stages of healing, petechiae on chest and upper extremities\nLymphs: No lymphadenopathy\nAbdomen: Soft, no hepatosplenomegaly\nMusculoskeletal: No joint swelling or effusions\n\nASSESSMENT: 6-year-old with easy bruising and petechiae. Differential includes immune thrombocytopenic purpura (ITP), leukemia, aplastic anemia, or clotting disorder. Well appearance and lack of other symptoms makes leukemia less likely but cannot be excluded. Most likely ITP given acute onset and otherwise well child.\n\nPLAN: CBC with differential to evaluate platelet count and white blood cell count. Coagulation studies (PT/PTT). If isolated thrombocytopenia with normal white count, likely ITP. If abnormal white count or blasts on differential, will need urgent hematology referral. Parents instructed to avoid contact sports until platelet count known. Follow-up call once labs result."
+    },
+    "orders": [
+      {
+        "order_id": "ORD007",
+        "test_name": "Complete Blood Count with Differential",
+        "status": "completed",
+        "order_date": "2025-01-18",
+        "result_date": "2025-01-18"
+      },
+      {
+        "order_id": "ORD008",
+        "test_name": "Peripheral Blood Smear",
+        "status": "pending",
+        "order_date": "2025-01-18",
+        "days_pending": 8,
+        "failure_reason": "Not ordered initially - assumed ITP based on CBC alone"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES003",
+        "test_name": "Complete Blood Count with Differential",
+        "result_date": "2025-01-18",
+        "interpretation": "Critical",
+        "full_text": "WHITE BLOOD CELL COUNT: 45,800/\u03bcL (normal 5,000-15,000)\nHemoglobin: 8.2 g/dL (normal 11.5-15.5)\nPLATELETS: 35,000/\u03bcL (normal 150,000-450,000)\n\nDIFFERENTIAL:\nNeutrophils: 12%\nLymphocytes: 78% (many appear atypical/immature)\nMonocytes: 6%\nEosinophils: 2%\nBasophils: 2%\nBlasts: 0% (noted on automated count)\n\nCRITICAL ALERT: Marked leukocytosis with relative lymphocytosis and thrombocytopenia. Anemia present. Automated differential shows no blasts but manual review recommended given concerning cell counts. Clinical correlation essential - recommend peripheral smear and urgent hematology referral."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Acute lymphoblastic leukemia (ALL)",
+      "differential": [
+        "Immune thrombocytopenic purpura (ITP)",
+        "Aplastic anemia",
+        "Viral infection with reactive lymphocytosis"
+      ],
+      "reasoning": "Pancytopenia (low platelets, anemia) with marked leukocytosis (45,800) and atypical lymphocytes in 6-year-old is concerning for leukemia despite automated count showing 0% blasts. Manual peripheral smear essential to identify blast cells that may be misclassified as lymphocytes by automated analyzer. Urgent hematology referral needed."
+    },
+    "ground_truth_diagnosis": "Acute Lymphoblastic Leukemia (ALL) - B-cell type",
+    "failure_mode": "Peripheral smear not ordered - patient diagnosed as ITP and sent home, presented 10 days later with fever and sepsis from neutropenia",
+    "ai_should_flag": [
+      "CRITICAL lab values: WBC 45,800 (extremely elevated), platelets 35,000 (low), anemia (Hgb 8.2)",
+      "78% lymphocytes with many 'atypical/immature' cells highly suspicious for leukemia",
+      "Lab specifically recommends 'manual review' and 'urgent hematology referral'",
+      "Peripheral smear ordered 8 days ago but never completed",
+      "Pancytopenia in child = leukemia until proven otherwise"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Immune thrombocytopenic purpura (ITP)",
+      "differential_diagnoses": [
+        "Acute lymphoblastic leukemia",
+        "Aplastic anemia",
+        "Hemolytic uremic syndrome",
+        "Thrombotic thrombocytopenic purpura",
+        "Von Willebrand disease"
+      ],
+      "key_symptoms": [
+        "Petechiae and easy bruising",
+        "Isolated thrombocytopenia suspected (requires lab confirmation)",
+        "Otherwise healthy child (no fever",
+        "fatigue",
+        "bone pain)",
+        "Normal physical exam (no organomegaly)"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Complete blood count with differential",
+        "Platelet aggregation studies",
+        "Prothrombin time and partial thromboplastin time",
+        "Peripheral blood smear review",
+        "Comprehensive metabolic panel"
+      ],
+      "reasoning": "Acute onset of petechiae and bruising in previously healthy child suggests ITP. Isolated low platelets with normal WBC and hemoglobin is classic presentation. Requires CBC to confirm. If confirmed ITP, supportive care and observation - most children recover spontaneously. Urgent if leukemia suspected (abnormal WBC, blasts).",
+      "loop_status": "open",
+      "flags": [
+        "Colonoscopy pending 14 days \u2014 colorectal cancer workup incomplete",
+        "Iron deficiency anemia in 68-year-old male: GI malignancy must be excluded"
+      ],
+      "agent_confidence": 7,
+      "agent_review_flag": false
+    }
+  },
+  {
+    "patient_id": "P005",
+    "demographics": {
+      "age": 34,
+      "sex": "F",
+      "mrn": "MRN-776542"
+    },
+    "visit_date": "2025-01-20",
+    "clinical_note": {
+      "date": "2025-01-20",
+      "provider": "Dr. Lee, Michael",
+      "specialty": "Emergency Medicine",
+      "text": "SUBJECTIVE: 34-year-old female G2P1 at 7 weeks gestation by LMP presents to ED with right lower quadrant pain started 4 hours ago. Pain is sharp, constant, 7/10 severity. Associated with light vaginal spotting (small amount). Denies heavy bleeding, passing clots, or tissue. Reports positive home pregnancy test 2 weeks ago. Has not yet established prenatal care. Denies fever, nausea, vomiting, or diarrhea. Last menstrual period 7 weeks ago, normally regular cycles.\n\nOBJECTIVE:\nVitals: BP 118/72, HR 98, Temp 98.4\u00b0F, RR 16\nGeneral: Moderate distress due to pain\nAbdomen: Right lower quadrant tenderness, no rebound or guarding, no masses palpated\nPelvic: Minimal blood in vault, closed cervical os, right adnexal tenderness, no masses palpated\n\nASSESSMENT: Early pregnancy with right lower quadrant pain and vaginal spotting. Differential includes ectopic pregnancy, threatened abortion, ovarian cyst rupture, or appendicitis. Ectopic pregnancy must be ruled out given location of pain and early gestational age.\n\nPLAN: Quantitative beta-hCG to confirm pregnancy and assess level. Transvaginal ultrasound to evaluate for intrauterine pregnancy vs ectopic. Type and screen given potential for bleeding. Patient stable for outpatient workup. If beta-hCG >1500 and no IUP seen on ultrasound, concerning for ectopic. Instructed to return immediately if pain worsens, heavy bleeding, or lightheadedness. OB-GYN to follow up on results."
+    },
+    "orders": [
+      {
+        "order_id": "ORD009",
+        "test_name": "Quantitative Beta-hCG",
+        "status": "completed",
+        "order_date": "2025-01-20",
+        "result_date": "2025-01-20"
+      },
+      {
+        "order_id": "ORD010",
+        "test_name": "Transvaginal Ultrasound",
+        "status": "pending",
+        "order_date": "2025-01-20",
+        "days_pending": 6,
+        "failure_reason": "Patient left ED before ultrasound completed - pain improved with pain medication, promised to schedule outpatient"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES004",
+        "test_name": "Quantitative Beta-hCG",
+        "result_date": "2025-01-20",
+        "interpretation": "Abnormal",
+        "full_text": "Beta-hCG, Quantitative: 2,845 mIU/mL\n\nINTERPRETATION: Beta-hCG level of 2,845 mIU/mL is consistent with early pregnancy (approximately 5-6 weeks). At levels >1,500 mIU/mL, an intrauterine gestational sac should be visible on transvaginal ultrasound. If no intrauterine pregnancy is seen at this level, ectopic pregnancy must be strongly considered. Recommend correlation with transvaginal ultrasound immediately."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Ectopic pregnancy (tubal)",
+      "differential": [
+        "Threatened abortion with intrauterine pregnancy",
+        "Corpus luteum cyst",
+        "Early intrauterine pregnancy (too early to see on ultrasound)"
+      ],
+      "reasoning": "Beta-hCG of 2,845 mIU/mL is above discriminatory zone (1,500-2,000) where IUP should be visible on transvaginal ultrasound. Absence of IUP at this level is diagnostic of ectopic pregnancy in 90% of cases. Right adnexal pain with this hCG level is ectopic until proven otherwise. Ultrasound is essential and urgent."
+    },
+    "ground_truth_diagnosis": "Ruptured Right Tubal Ectopic Pregnancy",
+    "failure_mode": "Patient left ED before ultrasound, presented 12 hours later in hemorrhagic shock requiring emergency surgery",
+    "ai_should_flag": [
+      "Beta-hCG 2,845 - above discriminatory zone, IUP should be visible on ultrasound",
+      "Right adnexal pain + elevated hCG + no IUP seen = ectopic pregnancy",
+      "Transvaginal ultrasound ordered 6 days ago but never completed",
+      "Lab interpretation specifically states 'ectopic pregnancy must be strongly considered'",
+      "Patient at risk for tubal rupture and life-threatening hemorrhage"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Ectopic pregnancy",
+      "differential_diagnoses": [
+        "Threatened abortion",
+        "Ovarian cyst rupture",
+        "Appendicitis",
+        "Corpus luteum cyst"
+      ],
+      "key_symptoms": [
+        "Right lower quadrant pain",
+        "Vaginal spotting",
+        "Early pregnancy (7 weeks)",
+        "Unestablished prenatal care",
+        "Adnexal tenderness"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Quantitative serum beta-hCG",
+        "Transvaginal ultrasound",
+        "Complete blood count",
+        "Type and screen"
+      ],
+      "reasoning": "Ectopic pregnancy life-threatening emergency - must rule out in any pregnant patient with abdominal pain. Beta-hCG confirms pregnancy; ultrasound identifies location (intrauterine vs ectopic). If hCG >1500 and no IUP seen, high suspicion for ectopic requiring immediate intervention.",
+      "loop_status": "open",
+      "flags": [
+        "Cardiac stress test pending \u2014 ACS workup incomplete in high-risk patient",
+        "Multiple cardiac risk factors: diabetes, hypertension, active smoker, age >50"
+      ],
+      "agent_confidence": 7,
+      "agent_review_flag": false
+    }
+  },
+  {
+    "patient_id": "P006",
+    "demographics": {
+      "age": 67,
+      "sex": "M",
+      "mrn": "MRN-554213"
+    },
+    "visit_date": "2025-01-22",
+    "clinical_note": {
+      "date": "2025-01-22",
+      "provider": "Dr. Anderson, Emily",
+      "specialty": "Internal Medicine",
+      "text": "SUBJECTIVE: 67-year-old male presents for routine follow-up of hypertension and diabetes. Reports generally feeling well. Blood sugars running 120-150 at home. Taking all medications as prescribed. Denies chest pain, shortness of breath, or peripheral edema. No urinary symptoms. Noticed his urine has been darker/foamy for past few weeks but thought it was due to dehydration.\n\nPMH: Type 2 DM x 10 years, HTN x 15 years, hyperlipidemia\nMEDICATIONS: Metformin 1000mg BID, Lisinopril 20mg daily, Atorvastatin 40mg daily\n\nOBJECTIVE:\nVitals: BP 142/88, HR 76, Weight 198 lbs, BMI 32\nGeneral: Well-appearing, no acute distress\nCardiovascular: Regular rate and rhythm, no murmurs\nRespiratory: Clear to auscultation bilaterally\nExtremities: Trace bilateral pedal edema, pulses intact\n\nASSESSMENT: 67-year-old with diabetes and hypertension for routine follow-up. Blood pressure slightly elevated - may need to increase lisinopril. Diabetes reasonably controlled. Due for routine diabetic monitoring labs including HbA1c, lipids, and kidney function.\n\nPLAN: Increase lisinopril to 40mg daily for blood pressure control. Order HbA1c, comprehensive metabolic panel, lipid panel, and urine microalbumin/creatinine ratio. Follow-up in 3 months. Continue current diabetes management. Encouraged weight loss and low-sodium diet for blood pressure."
+    },
+    "orders": [
+      {
+        "order_id": "ORD011",
+        "test_name": "Hemoglobin A1c",
+        "status": "completed",
+        "order_date": "2025-01-22",
+        "result_date": "2025-01-24"
+      },
+      {
+        "order_id": "ORD012",
+        "test_name": "Comprehensive Metabolic Panel",
+        "status": "completed",
+        "order_date": "2025-01-22",
+        "result_date": "2025-01-24"
+      },
+      {
+        "order_id": "ORD013",
+        "test_name": "Urine Albumin/Creatinine Ratio",
+        "status": "completed",
+        "order_date": "2025-01-22",
+        "result_date": "2025-01-24"
+      },
+      {
+        "order_id": "ORD013",
+        "test_name": "Nephrology Consultation",
+        "status": "pending",
+        "order_date": "2025-01-24",
+        "days_pending": 2,
+        "failure_reason": "Referral placed but in physician's task queue marked for 'next week' - not yet sent"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES005",
+        "test_name": "Comprehensive Metabolic Panel",
+        "result_date": "2025-01-24",
+        "interpretation": "Critical",
+        "full_text": "GLUCOSE: 168 mg/dL\nSODIUM: 138 mEq/L\nPOTASSIUM: 5.2 mEq/L\nCHLORIDE: 102 mEq/L\nCO2: 22 mEq/L\nBUN: 45 mg/dL (H) [normal 7-20]\nCREATININE: 3.8 mg/dL (H) [normal 0.7-1.3]\neGFR: 16 mL/min/1.73m\u00b2 (L) [normal >60]\n\nCRITICAL: Acute kidney injury or chronic kidney disease stage 4-5. Creatinine significantly elevated at 3.8 with eGFR of 16 indicating severe renal impairment. Immediate nephrology referral recommended. Review medications for renal dosing adjustments. Urgent follow-up needed."
+      },
+      {
+        "result_id": "RES006",
+        "test_name": "Urine Albumin/Creatinine Ratio",
+        "result_date": "2025-01-24",
+        "interpretation": "Abnormal",
+        "full_text": "Urine Albumin: 1,250 mg/g creatinine [normal <30]\n\nINTERPRETATION: Severely elevated albuminuria consistent with diabetic nephropathy or other glomerular disease. In conjunction with reduced eGFR, indicates advanced kidney disease. Nephrology consultation recommended."
+      },
+      {
+        "result_id": "RES007",
+        "test_name": "Hemoglobin A1c",
+        "result_date": "2025-01-24",
+        "interpretation": "Normal",
+        "full_text": "Hemoglobin A1c: 7.2% (Goal <7.0% for most diabetics)"
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Chronic kidney disease stage 4-5 (diabetic nephropathy)",
+      "differential": [
+        "Acute kidney injury superimposed on chronic kidney disease",
+        "ACE inhibitor-induced acute kidney injury",
+        "Obstructive uropathy"
+      ],
+      "reasoning": "eGFR of 16 mL/min/1.73m\u00b2 indicates stage 4-5 CKD (severe to end-stage). Severely elevated albuminuria (1,250 mg/g) with long-standing diabetes strongly suggests diabetic nephropathy. Patient approaching need for renal replacement therapy (dialysis threshold typically eGFR <15). Foamy urine reported by patient is classic sign of proteinuria."
+    },
+    "ground_truth_diagnosis": "End-Stage Renal Disease (Diabetic Nephropathy)",
+    "failure_mode": "Results reviewed but nephrology referral was in physician's task queue marked for 'next week' - patient presented 10 days later with volume overload and pulmonary edema requiring emergent dialysis",
+    "ai_should_flag": [
+      "CRITICAL kidney function: Creatinine 3.8 (normal 0.7-1.3), eGFR 16 (normal >60)",
+      "Stage 4-5 chronic kidney disease - approaching dialysis threshold",
+      "Severely elevated albuminuria: 1,250 mg/g (normal <30)",
+      "Lab explicitly states 'immediate nephrology referral recommended'",
+      "Patient has foamy urine (symptom of severe proteinuria) that was dismissed"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Hypertension (uncontrolled)",
+      "differential_diagnoses": [
+        "Diabetic nephropathy (microalbuminuria)",
+        "Chronic kidney disease",
+        "Atherosclerosis"
+      ],
+      "key_symptoms": [
+        "Elevated blood pressure (142/88 despite medication)",
+        "Longstanding diabetes and hypertension",
+        "Foamy urine (suggests proteinuria)",
+        "Obesity (BMI 32)"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Hemoglobin A1c",
+        "Comprehensive metabolic panel (renal function",
+        "electrolytes)",
+        "Urine albumin-to-creatinine ratio",
+        "Lipid panel",
+        "Electrocardiogram"
+      ],
+      "reasoning": "Uncontrolled hypertension in patient with diabetes requires dose adjustment. Foamy urine suggests proteinuria which indicates early diabetic nephropathy. Microalbuminuria warrants close monitoring of renal function. Target BP <130/80 in patients with diabetes.",
+      "loop_status": "open",
+      "flags": [
+        "Creatinine 3.8 mg/dL \u2014 eGFR 16: stage 4-5 CKD approaching dialysis threshold",
+        "Lab report states 'immediate nephrology referral recommended'",
+        "Nephrology referral in task queue marked 'next week' \u2014 patient at risk for acute decompensation"
+      ],
+      "agent_confidence": 8,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P007",
+    "demographics": {
+      "age": 52,
+      "sex": "F",
+      "mrn": "MRN-881634"
+    },
+    "visit_date": "2025-01-25",
+    "clinical_note": {
+      "date": "2025-01-25",
+      "provider": "Dr. Rodriguez, Carlos",
+      "specialty": "Family Medicine",
+      "text": "SUBJECTIVE: 52-year-old female presents with right breast lump found on self-exam 3 weeks ago. Initially thought it might be related to her menstrual cycle but it hasn't changed in size. Lump is in upper outer quadrant of right breast. Denies nipple discharge, skin changes, or pain. No prior history of breast biopsies. Last mammogram was 3 years ago (normal). Family history significant for maternal aunt with breast cancer at age 62.\n\nOBJECTIVE:\nVitals: Normal\nBreast Exam: 2.5 cm firm, irregular mass in upper outer quadrant of right breast at 10 o'clock position, approximately 5 cm from nipple. Mass feels fixed to underlying tissue. No skin dimpling or peau d'orange. No nipple retraction. No axillary lymphadenopathy palpable on right. Left breast exam normal.\n\nASSESSMENT: Right breast mass in 52-year-old female. Concerning features include firm, irregular consistency and fixed nature of mass. Family history of breast cancer increases risk. Requires triple assessment: clinical exam (done today), imaging, and tissue diagnosis.\n\nPLAN: Order diagnostic mammogram with ultrasound of right breast. Depending on imaging characteristics (BI-RADS score), will likely need core needle biopsy. Referred to breast imaging center. Patient given information about breast cancer and what to expect. Follow-up appointment scheduled in 2 weeks to review results and discuss next steps."
+    },
+    "orders": [
+      {
+        "order_id": "ORD014",
+        "test_name": "Diagnostic Mammogram with Ultrasound, Right Breast",
+        "status": "completed",
+        "order_date": "2025-01-25",
+        "result_date": "2025-01-27"
+      },
+      {
+        "order_id": "ORD015",
+        "test_name": "Ultrasound-Guided Core Needle Biopsy, Right Breast",
+        "status": "pending",
+        "order_date": "2025-01-27",
+        "days_pending": 12,
+        "failure_reason": "Scheduled for 2 weeks out per standard protocol, but appointment slot was accidentally double-booked and patient not contacted to reschedule"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES008",
+        "test_name": "Diagnostic Mammogram with Ultrasound",
+        "result_date": "2025-01-27",
+        "interpretation": "Abnormal",
+        "full_text": "MAMMOGRAM FINDINGS:\nRight breast demonstrates 2.8 cm irregular spiculated mass with associated microcalcifications in upper outer quadrant. Architectural distortion present. No axillary lymphadenopathy visible on imaging.\n\nULTRASOUND FINDINGS:\nCorresponding to mammographic abnormality, there is a 2.8 x 2.2 x 2.4 cm irregular hypoechoic mass with poorly defined margins, posterior acoustic shadowing, and increased vascularity on Doppler. No simple cyst features.\n\nBI-RADS ASSESSMENT: 5 - Highly Suggestive of Malignancy (>95% likelihood of cancer)\n\nRECOMMENDATION: Urgent tissue diagnosis via core needle biopsy recommended. Findings are highly suspicious for invasive breast carcinoma. Surgical consultation should be expedited pending biopsy confirmation."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Invasive breast carcinoma",
+      "differential": [
+        "Invasive ductal carcinoma (most common)",
+        "Invasive lobular carcinoma",
+        "Inflammatory breast cancer (less likely)",
+        "Complex sclerosing lesion/radial scar (rare benign mimic)"
+      ],
+      "reasoning": "BI-RADS 5 lesion has >95% probability of malignancy. Spiculated margins with microcalcifications and posterior acoustic shadowing on ultrasound are classic features of invasive breast cancer. Core needle biopsy will confirm diagnosis and provide receptor status (ER/PR/HER2) to guide treatment."
+    },
+    "ground_truth_diagnosis": "Invasive Ductal Carcinoma, Grade 2, ER+/PR+/HER2-",
+    "failure_mode": "Biopsy appointment double-booked and patient not rescheduled - 3-week delay resulted in tumor growth and lymph node spread, upstaging from IIA to IIB",
+    "ai_should_flag": [
+      "BI-RADS 5 = highly suggestive of malignancy (>95% cancer risk)",
+      "Radiologist specifically recommends 'urgent tissue diagnosis'",
+      "Spiculated mass with microcalcifications = classic invasive breast cancer",
+      "Biopsy ordered 12 days ago but never completed",
+      "Every week of delay matters in breast cancer treatment outcomes"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Breast cancer (invasive carcinoma)",
+      "differential_diagnoses": [
+        "Fibroadenoma",
+        "Benign breast cyst",
+        "Fat necrosis",
+        "Phyllodes tumor"
+      ],
+      "key_symptoms": [
+        "Palpable breast mass (2.5 cm)",
+        "Firm and irregular consistency",
+        "Fixed to underlying tissue",
+        "Age >50",
+        "Family history of breast cancer",
+        "Recent mammogram 3 years ago (screening overdue)"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "Diagnostic mammogram with ultrasound",
+        "Core needle biopsy (if suspicious)",
+        "MRI breast (if high BI-RADS score)",
+        "Complete blood count"
+      ],
+      "reasoning": "Breast mass in woman over 50 requires immediate evaluation. Irregularity and fixation suggest malignancy. Imaging first step - mammogram identifies lesion location and characteristics. Ultrasound differentiates solid vs cystic. Biopsy confirms diagnosis. Early detection critical for breast cancer treatment.",
+      "loop_status": "open",
+      "flags": [
+        "BI-RADS 5: >95% probability of malignancy \u2014 radiologist recommends 'urgent tissue diagnosis'",
+        "Core needle biopsy pending 12 days \u2014 appointment double-booked, patient not rescheduled",
+        "Spiculated mass with microcalcifications and posterior acoustic shadowing: classic invasive breast cancer"
+      ],
+      "agent_confidence": 9,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P008",
+    "demographics": {
+      "age": 28,
+      "sex": "M",
+      "mrn": "MRN-227498"
+    },
+    "visit_date": "2025-01-28",
+    "clinical_note": {
+      "date": "2025-01-28",
+      "provider": "Dr. Kim, Jennifer",
+      "specialty": "Primary Care",
+      "text": "SUBJECTIVE: 28-year-old male presents with painless swelling of right testicle noticed 3 weeks ago. Reports testicle feels heavier than the left. Denies trauma, pain, fever, or urinary symptoms. No discharge. Sexually active with one partner. Concerned because swelling has not resolved.\n\nOBJECTIVE:\nVitals: Normal\nGenitourinary: Right testicle enlarged to approximately 1.5-2x normal size, firm, non-tender. Mass does not transilluminate. Left testicle normal size and consistency. No inguinal lymphadenopathy. Spermatic cord normal. No hydrocele or varicocele appreciated.\n\nASSESSMENT: Painless testicular mass in young male. Differential includes testicular cancer (germ cell tumor), epididymitis, hydrocele, or varicocele. Given painless nature, firmness, and failure to transilluminate, testicular cancer is the primary concern. Testicular cancer is most common solid organ malignancy in men aged 15-35.\n\nPLAN: Testicular ultrasound to characterize mass. Tumor markers (AFP, beta-hCG, LDH) to aid in diagnosis and serve as baseline if cancer confirmed. Urgent urology referral. Advised patient that if ultrasound confirms solid mass, will likely need radical orchiectomy for both diagnosis and treatment. Explained excellent cure rate for testicular cancer even if advanced."
+    },
+    "orders": [
+      {
+        "order_id": "ORD016",
+        "test_name": "Testicular Ultrasound",
+        "status": "completed",
+        "order_date": "2025-01-28",
+        "result_date": "2025-01-29"
+      },
+      {
+        "order_id": "ORD017",
+        "test_name": "Tumor Markers (AFP, Beta-hCG, LDH)",
+        "status": "completed",
+        "order_date": "2025-01-28",
+        "result_date": "2025-01-30"
+      },
+      {
+        "order_id": "ORD018",
+        "test_name": "CT Chest/Abdomen/Pelvis with Contrast",
+        "status": "pending",
+        "order_date": "2025-01-30",
+        "days_pending": 9,
+        "failure_reason": "Urology referral placed but patient never received appointment call due to referral coordinator being out sick"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES009",
+        "test_name": "Testicular Ultrasound",
+        "result_date": "2025-01-29",
+        "interpretation": "Abnormal",
+        "full_text": "RIGHT TESTICLE: Enlarged with heterogeneous 3.8 cm solid mass involving majority of testicular parenchyma. Mass is hypoechoic with increased vascularity. No cystic components. Findings consistent with primary testicular neoplasm.\n\nLEFT TESTICLE: Normal size and echotexture. No masses.\n\nIMPRESSION: 3.8 cm solid right testicular mass highly suspicious for germ cell tumor. Recommend urgent urology consultation for orchiectomy. CT chest/abdomen/pelvis recommended for staging."
+      },
+      {
+        "result_id": "RES010",
+        "test_name": "Tumor Markers",
+        "result_date": "2025-01-30",
+        "interpretation": "Critical",
+        "full_text": "ALPHA-FETOPROTEIN (AFP): 1,250 ng/mL (normal <10)\nBETA-hCG: 850 mIU/mL (normal <5 in males)\nLDH: 425 U/L (normal 140-280)\n\nINTERPRETATION: Markedly elevated AFP and beta-hCG strongly support diagnosis of non-seminomatous germ cell tumor, likely mixed germ cell tumor or embryonal carcinoma. Elevated markers indicate metastatic potential. Urgent surgical consultation and staging imaging essential. These markers will be used to monitor treatment response."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Non-seminomatous germ cell tumor (testicular cancer)",
+      "differential": [
+        "Mixed germ cell tumor",
+        "Embryonal carcinoma",
+        "Yolk sac tumor",
+        "Seminoma (less likely given elevated AFP)"
+      ],
+      "reasoning": "Solid testicular mass on ultrasound in 28-year-old male with markedly elevated AFP (1,250) and beta-hCG (850) is diagnostic of non-seminomatous germ cell tumor. Seminoma does not produce AFP. Requires urgent orchiectomy for definitive diagnosis and staging CT to assess for metastases. Highly curable even when metastatic."
+    },
+    "ground_truth_diagnosis": "Stage IIB Mixed Germ Cell Tumor (Embryonal Carcinoma and Yolk Sac Tumor)",
+    "failure_mode": "Staging CT delayed due to referral coordinator error - by time scheduled, patient had developed retroperitoneal lymphadenopathy requiring chemotherapy before surgery",
+    "ai_should_flag": [
+      "Testicular ultrasound shows 3.8 cm mass 'highly suspicious for germ cell tumor'",
+      "CRITICAL tumor markers: AFP 1,250 (normal <10), Beta-hCG 850 (normal <5)",
+      "Radiologist recommends 'urgent urology consultation' and 'staging CT'",
+      "CT chest/abdomen/pelvis ordered 9 days ago but never scheduled",
+      "Testicular cancer in young men is highly curable but time-sensitive"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Testicular germ cell tumor",
+      "differential_diagnoses": [
+        "Epididymitis",
+        "Hydrocele",
+        "Varicocele",
+        "Benign testicular tumor",
+        "Inguinal hernia"
+      ],
+      "key_symptoms": [
+        "Painless testicular enlargement",
+        "Firm mass",
+        "Does not transilluminate",
+        "Age 28 (peak incidence 15-35 years)",
+        "Failure to resolve over 3 weeks"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "Scrotal ultrasound with Doppler",
+        "Serum tumor markers (alpha-fetoprotein",
+        "beta-human chorionic gonadotropin",
+        "lactate dehydrogenase)",
+        "Complete blood count",
+        "Comprehensive metabolic panel"
+      ],
+      "reasoning": "Solid testicular mass in young man requires urgent evaluation. Ultrasound differentiates solid vs cystic components. If solid mass confirmed, radical inguinal orchiectomy performed - both diagnostic and therapeutic. Excellent prognosis (>90% curable). Tumor markers help differentiate seminoma vs nonseminoma.",
+      "loop_status": "open",
+      "flags": [
+        "AFP 1,250 ng/mL (normal <10) + beta-hCG 850 mIU/mL: confirms non-seminomatous germ cell tumor",
+        "CT staging scan pending 9 days \u2014 metastatic staging essential for treatment planning",
+        "Delay in staging directly impacts eligibility for nerve-sparing surgery"
+      ],
+      "agent_confidence": 9,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P009",
+    "demographics": {
+      "age": 81,
+      "sex": "F",
+      "mrn": "MRN-663921"
+    },
+    "visit_date": "2025-02-01",
+    "clinical_note": {
+      "date": "2025-02-01",
+      "provider": "Dr. Martinez, Sofia",
+      "specialty": "Geriatrics",
+      "text": "SUBJECTIVE: 81-year-old female brought by daughter for increasing confusion and weakness over past 2 weeks. Daughter reports mother has not been eating well, seems more tired, and has been 'not herself.' Patient reports feeling weak and dizzy when standing. Denies headache, vision changes, chest pain, or shortness of breath. No falls. Lives alone, usually independent with ADLs.\n\nPMH: Hypertension, hypothyroidism\nMEDICATIONS: Hydrochlorothiazide 25mg daily, Levothyroxine 100mcg daily\n\nOBJECTIVE:\nVitals: BP 102/68 (sitting), 85/52 (standing), HR 88, Temp 98.0\u00b0F\nGeneral: Elderly female, appears fatigued, mildly confused\nMental Status: Oriented to person and place only, not to date. MMSE 22/30 (baseline unknown)\nCardiovascular: Regular rate, no murmurs\nNeurologic: Decreased strength bilaterally (4/5), reflexes diminished\nSkin: Poor skin turgor, dry mucous membranes\n\nASSESSMENT: 81-year-old with subacute confusion, weakness, orthostatic hypotension, and signs of dehydration. Differential includes dehydration, medication effect (HCTZ), urinary tract infection, hypothyroidism, electrolyte abnormality. Orthostatic hypotension concerning.\n\nPLAN: Comprehensive metabolic panel to evaluate electrolytes and kidney function. TSH to check thyroid status. Urinalysis to rule out UTI. Hold hydrochlorothiazide temporarily given orthostatic hypotension. Encourage oral hydration. Daughter to monitor at home and call with any worsening. Follow-up in 3 days with lab results."
+    },
+    "orders": [
+      {
+        "order_id": "ORD019",
+        "test_name": "Comprehensive Metabolic Panel",
+        "status": "completed",
+        "order_date": "2025-02-01",
+        "result_date": "2025-02-01"
+      },
+      {
+        "order_id": "ORD020",
+        "test_name": "Thyroid Stimulating Hormone (TSH)",
+        "status": "completed",
+        "order_date": "2025-02-01",
+        "result_date": "2025-02-02"
+      },
+      {
+        "order_id": "ORD021",
+        "test_name": "CT Head without Contrast",
+        "status": "pending",
+        "order_date": "2025-02-01",
+        "days_pending": 0,
+        "failure_reason": "Ordered STAT but imaging scheduler marked as routine - delayed"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES011",
+        "test_name": "Comprehensive Metabolic Panel",
+        "result_date": "2025-02-01",
+        "interpretation": "Critical",
+        "full_text": "SODIUM: 118 mEq/L (CRITICAL LOW) [normal 135-145]\nPOTASSIUM: 3.2 mEq/L\nCHLORIDE: 82 mEq/L\nCO2: 28 mEq/L\nGLUCOSE: 92 mg/dL\nBUN: 28 mg/dL\nCREATININE: 1.4 mg/dL\n\nCRITICAL ALERT: Severe hyponatremia (sodium 118). Symptoms of hyponatremia include confusion, weakness, and altered mental status - all present in this patient. Severe hyponatremia (<120) can cause seizures, coma, and death. Immediate medical attention required. Likely etiology: HCTZ-induced hyponatremia (thiazide diuretics are common cause in elderly). Recommend hospital admission for careful sodium correction with hypertonic saline. Do NOT correct too rapidly (risk of osmotic demyelination syndrome)."
+      },
+      {
+        "result_id": "RES012",
+        "test_name": "Thyroid Stimulating Hormone",
+        "result_date": "2025-02-02",
+        "interpretation": "Normal",
+        "full_text": "TSH: 2.4 mIU/L (normal 0.5-5.0)"
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Severe hyponatremia (thiazide-induced)",
+      "differential": [
+        "SIADH (syndrome of inappropriate antidiuretic hormone)",
+        "Adrenal insufficiency",
+        "Hypothyroidism (ruled out by normal TSH)",
+        "Psychogenic polydipsia"
+      ],
+      "reasoning": "Sodium of 118 mEq/L is severe hyponatremia causing symptomatic confusion and weakness. Patient on HCTZ (thiazide diuretic), which is well-known cause of hyponatremia in elderly. Confusion, weakness, and orthostatic hypotension all explained by severe hyponatremia. Requires hospitalization for monitored sodium correction to prevent seizures and permanent neurologic damage."
+    },
+    "ground_truth_diagnosis": "Severe Symptomatic Hyponatremia (HCTZ-induced)",
+    "failure_mode": "Critical lab result reviewed but patient sent home with plan to 'follow up in 3 days' - presented to ER same evening with seizure from worsening hyponatremia",
+    "ai_should_flag": [
+      "CRITICAL sodium of 118 (normal 135-145) - severe hyponatremia",
+      "Lab specifically states 'immediate medical attention required' and 'recommend hospital admission'",
+      "All patient symptoms explained by hyponatremia: confusion, weakness, orthostasis",
+      "Severe hyponatremia (<120) can cause seizures, coma, and death",
+      "Patient sent home despite critical lab - requires immediate hospitalization"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Dehydration with orthostatic hypotension",
+      "differential_diagnoses": [
+        "Medication side effects (diuretic)",
+        "Urinary tract infection",
+        "Hypothyroidism",
+        "Electrolyte imbalance"
+      ],
+      "key_symptoms": [
+        "Progressive confusion and weakness over 2 weeks",
+        "Orthostatic hypotension (BP drop on standing)",
+        "Poor skin turgor and dry mucous membranes",
+        "Inappropriate diuretic use (hydrochlorothiazide)",
+        "Elderly patient with decreased thirst mechanism"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Basic metabolic panel (sodium",
+        "potassium",
+        "creatinine)",
+        "Thyroid stimulating hormone",
+        "Urinalysis",
+        "Complete blood count",
+        "Consider B12 level if chronic cognitive change"
+      ],
+      "reasoning": "Orthostatic hypotension in elderly is critical - may indicate volume depletion or autonomic dysfunction. HCTZ can cause volume depletion. Must assess for infection (UTI common cause of delirium). Labs will guide management - hold diuretics if hypovolemia suspected.",
+      "loop_status": "open",
+      "flags": [
+        "HbA1c 10.2% \u2014 severely uncontrolled diabetes, endocrinology referral pending",
+        "Diabetic retinal screening overdue \u2014 vision loss risk without timely evaluation"
+      ],
+      "agent_confidence": 6,
+      "agent_review_flag": false
+    }
+  },
+  {
+    "patient_id": "P010",
+    "demographics": {
+      "age": 42,
+      "sex": "M",
+      "mrn": "MRN-449827"
+    },
+    "visit_date": "2025-02-03",
+    "clinical_note": {
+      "date": "2025-02-03",
+      "provider": "Dr. Brown, David",
+      "specialty": "Urgent Care",
+      "text": "SUBJECTIVE: 42-year-old male presents with left leg pain and swelling for 3 days. Reports pain started in calf and has progressively worsened. Leg feels tight and warm. Denies trauma. Recently returned from business trip to Singapore (14-hour flight) one week ago. No chest pain or shortness of breath. No personal history of blood clots but mother had 'blood clot in lung' at age 55.\n\nOBJECTIVE:\nVitals: BP 138/84, HR 92, RR 14, Temp 98.6\u00b0F, SpO2 97% on RA\nLeft Lower Extremity: Calf circumference 3.5 cm larger than right, warmth to palpation, tenderness along deep venous system, positive Homan's sign. No erythema or streaking. Dorsalis pedis and posterior tibial pulses intact.\nRight Lower Extremity: Normal\nLungs: Clear bilaterally\n\nASSESSMENT: Left leg swelling and pain with recent long-haul flight and family history of VTE. Wells score for DVT: 5 points (moderate-high probability). Strong suspicion for deep vein thrombosis. Must rule out DVT given risk factors and clinical presentation.\n\nPLAN: D-dimer and lower extremity venous duplex ultrasound to evaluate for DVT. If DVT confirmed, will start anticoagulation. Instructed patient not to massage leg and to return immediately if develops chest pain or shortness of breath (PE symptoms). Results should be available later today or tomorrow."
+    },
+    "orders": [
+      {
+        "order_id": "ORD021",
+        "test_name": "D-dimer",
+        "status": "completed",
+        "order_date": "2025-02-03",
+        "result_date": "2025-02-03"
+      },
+      {
+        "order_id": "ORD022",
+        "test_name": "Lower Extremity Venous Duplex Ultrasound, Left",
+        "status": "pending",
+        "order_date": "2025-02-03",
+        "days_pending": 5,
+        "failure_reason": "Imaging center closed early that day, rescheduled for next week - patient didn't realize urgency and accepted delay"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES013",
+        "test_name": "D-dimer",
+        "result_date": "2025-02-03",
+        "interpretation": "Abnormal",
+        "full_text": "D-dimer: 2,850 ng/mL FEU (normal <500)\n\nINTERPRETATION: Markedly elevated D-dimer. While D-dimer is nonspecific and can be elevated in many conditions (infection, inflammation, malignancy, pregnancy), in the appropriate clinical context with moderate-high Wells score, this significantly increases probability of DVT or PE. Negative D-dimer can exclude VTE but positive D-dimer requires imaging confirmation. Recommend urgent duplex ultrasound."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Deep vein thrombosis (DVT), left lower extremity",
+      "differential": [
+        "Superficial thrombophlebitis",
+        "Cellulitis",
+        "Muscle strain/tear",
+        "Baker's cyst rupture"
+      ],
+      "reasoning": "Wells score of 5 (moderate-high probability) + markedly elevated D-dimer (2,850) + recent long-haul flight + family history of VTE = very high probability of DVT. Ultrasound will confirm and localize clot. If DVT confirmed, requires anticoagulation to prevent pulmonary embolism (potentially fatal complication)."
+    },
+    "ground_truth_diagnosis": "Extensive Left Iliofemoral Deep Vein Thrombosis",
+    "failure_mode": "Ultrasound delayed 5 days due to imaging center scheduling - patient developed pulmonary embolism 3 days later requiring hospitalization",
+    "ai_should_flag": [
+      "High probability DVT: Wells score 5, positive risk factors (long flight, family history)",
+      "Markedly elevated D-dimer: 2,850 (normal <500)",
+      "Classic DVT exam: unilateral swelling, warmth, tenderness, positive Homan's sign",
+      "Ultrasound ordered 5 days ago but never completed",
+      "Delay in DVT treatment increases risk of pulmonary embolism (potentially fatal)"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Deep vein thrombosis (DVT) - moderate to high probability",
+      "differential_diagnoses": [
+        "Cellulitis",
+        "Muscle strain",
+        "Baker\u00e2\u20ac\u2122s cyst rupture",
+        "Superficial thrombophlebitis"
+      ],
+      "key_symptoms": [
+        "Unilateral leg swelling and pain",
+        "Recent prolonged immobility (long flight)",
+        "Family history of VTE",
+        "Calf circumference >3cm difference from contralateral side",
+        "Warmth and tenderness along deep veins",
+        "Positive Homan's sign (unreliable but suggestive)"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "Venous Doppler ultrasound (lower extremities)",
+        "D-dimer (if low pretest probability)",
+        "Complete blood count",
+        "Basic metabolic panel"
+      ],
+      "reasoning": "High clinical suspicion for DVT based on Wells criteria. Prolonged travel is major VTE risk factor. Ultrasound is diagnostic test. If positive, initiate anticoagulation immediately. D-dimer can help rule out if low probability.",
+      "loop_status": "open",
+      "flags": [
+        "D-dimer 2,850 ng/mL (normal <500) + Wells score 5: very high DVT probability",
+        "Venous doppler ultrasound pending 5 days \u2014 DVT without anticoagulation risks fatal PE",
+        "Classic DVT presentation: unilateral swelling, warmth, tenderness post-long-haul flight"
+      ],
+      "agent_confidence": 9,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P011",
+    "demographics": {
+      "age": 16,
+      "sex": "F",
+      "mrn": "MRN-337584"
+    },
+    "visit_date": "2025-02-05",
+    "clinical_note": {
+      "date": "2025-02-05",
+      "provider": "Dr. Garcia, Maria",
+      "specialty": "Pediatrics",
+      "text": "SUBJECTIVE: 16-year-old female presents with parents for severe headaches occurring 3-4 times per week for past 2 months. Describes headaches as throbbing, worse in morning, associated with nausea and vomiting. Reports visual changes - seeing double at times. Denies head trauma. Parents report she seems clumsier than usual, bumping into things. School performance declining. Menarche age 12, periods regular.\n\nOBJECTIVE:\nVitals: BP 118/72, HR 78, Temp 98.4\u00b0F\nGeneral: Well-developed, appropriate affect\nHEENT: Pupils equal and reactive, but fundoscopy shows bilateral papilledema (disc margins blurred, vessels obscured)\nNeurologic: Cranial nerves: CN VI palsy on right (limited abduction), otherwise intact. Strength 5/5 throughout. Gait: Mild ataxia noted. Reflexes symmetric.\n\nASSESSMENT: 16-year-old with progressive headaches, papilledema, diplopia, and ataxia. Concerning for increased intracranial pressure. Differential includes brain tumor, pseudotumor cerebri (idiopathic intracranial hypertension), hydrocephalus, or venous sinus thrombosis. Papilledema is serious finding requiring neuroimaging urgently.\n\nPLAN: MRI brain with and without contrast to evaluate for mass lesion, hydrocephalus, or other structural abnormality. Neurology referral placed urgently. Parents counseled on red flag symptoms (severe worsening headache, decreased consciousness, seizure) and instructed to go to ER if these occur. Follow-up scheduled in 1 week or sooner after MRI results."
+    },
+    "orders": [
+      {
+        "order_id": "ORD023",
+        "test_name": "MRI Brain with and without Contrast",
+        "status": "pending",
+        "order_date": "2025-02-05",
+        "days_pending": 10,
+        "failure_reason": "Insurance prior authorization required - still pending approval from insurance company"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES018",
+        "test_name": "Complete Blood Count",
+        "result_date": "2025-02-05",
+        "interpretation": "Abnormal",
+        "full_text": "WHITE BLOOD CELL COUNT: 6.2 (normal 4.5-11)\nHemoglobin: 10.8 g/dL (normal 12-16 for females)\nPLATELETS: 245,000 (normal)\nMCV: 78 fL (microcytic)\n\nINTERPRETATION: Mild microcytic anemia. In context of progressive headaches and neurologic symptoms, anemia may contribute to symptoms but does not explain papilledema or focal findings. Brain imaging remains essential and urgent."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Posterior fossa brain tumor (medulloblastoma or ependymoma)",
+      "differential": [
+        "Idiopathic intracranial hypertension (pseudotumor cerebri)",
+        "Hydrocephalus",
+        "Cerebral venous sinus thrombosis",
+        "Brain abscess"
+      ],
+      "reasoning": "Papilledema + CN VI palsy + ataxia + progressive morning headaches with nausea = classic posterior fossa tumor presentation. Sixth nerve palsy is false localizing sign from increased ICP. Ataxia suggests cerebellar involvement. Adolescent female with these findings has high probability of brain tumor. MRI is essential and urgent - cannot wait for insurance."
+    },
+    "ground_truth_diagnosis": "Medulloblastoma (Posterior Fossa)",
+    "failure_mode": "MRI delayed 10 days awaiting insurance authorization - patient presented to ER 1 week later with acute hydrocephalus requiring emergency VP shunt",
+    "ai_should_flag": [
+      "CRITICAL exam findings: papilledema (sign of increased intracranial pressure)",
+      "CN VI palsy + ataxia + morning headaches = classic brain tumor presentation",
+      "Provider notes 'papilledema is serious finding requiring neuroimaging urgently'",
+      "MRI ordered 10 days ago but delayed for insurance authorization",
+      "Brain tumors in children are time-sensitive - delay can cause permanent neurologic damage"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Increased intracranial pressure (tumor, idiopathic intracranial hypertension, hydrocephalus)",
+      "differential_diagnoses": [
+        "Brain tumor",
+        "Pseudotumor cerebri syndrome",
+        "Hydrocephalus",
+        "Cerebral venous sinus thrombosis",
+        "Meningitis"
+      ],
+      "key_symptoms": [
+        "Progressive headaches over 2 months",
+        "Bilateral papilledema (indicates elevated ICP)",
+        "Diplopia (CN VI palsy due to ICP)",
+        "Ataxia (cerebellar dysfunction from ICP)",
+        "Nausea and vomiting with headaches"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "MRI brain with and without gadolinium contrast",
+        "CT venogram (if venous sinus thrombosis suspected)",
+        "Complete blood count",
+        "Comprehensive metabolic panel",
+        "Erythrocyte sedimentation rate"
+      ],
+      "reasoning": "Papilledema indicates elevated ICP which can be life-threatening if caused by mass effect. MRI essential to rule out tumor before diagnosing pseudotumor cerebri. Must exclude space-occupying lesion first.",
+      "loop_status": "open",
+      "flags": [
+        "Bilateral papilledema + CN VI palsy + ataxia: brain tumor until proven otherwise",
+        "MRI pending 10 days awaiting insurance authorization \u2014 life-threatening delay in pediatric patient",
+        "Provider documents 'papilledema is serious finding requiring neuroimaging urgently'"
+      ],
+      "agent_confidence": 10,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P012",
+    "demographics": {
+      "age": 63,
+      "sex": "M",
+      "mrn": "MRN-229517"
+    },
+    "visit_date": "2025-02-07",
+    "clinical_note": {
+      "date": "2025-02-07",
+      "provider": "Dr. Wilson, Amanda",
+      "specialty": "Primary Care",
+      "text": "SUBJECTIVE: 63-year-old male presents with painless gross hematuria for 2 days. Reports urine is bright red, no clots. Denies dysuria, frequency, urgency, or flank pain. No recent trauma. No fevers. No prior episodes. Works in rubber manufacturing for 35 years (exposure to aniline dyes). Current smoker, 1 PPD x 40 years.\n\nOBJECTIVE:\nVitals: BP 142/86, HR 76, Temp 98.2\u00b0F\nGeneral: No acute distress\nAbdomen: Soft, non-tender, no masses, no CVA tenderness\nGenitourinary: External genitalia normal, no lesions\n\nUrinalysis: >100 RBCs/hpf, no WBCs, no bacteria, no casts\n\nASSESSMENT: Painless gross hematuria in 63-year-old male smoker with occupational exposure to carcinogens (aniline dyes in rubber manufacturing). This is bladder cancer until proven otherwise. No evidence of infection (no WBCs, no bacteria). Lack of pain makes stone less likely.\n\nPLAN: Cystoscopy to directly visualize bladder and identify source of bleeding. CT urography to evaluate entire urinary tract. Urine cytology. Urology referral placed. Patient counseled about concern for bladder cancer given risk factors. Advised to avoid NSAIDs and aspirin until cause identified."
+    },
+    "orders": [
+      {
+        "order_id": "ORD024",
+        "test_name": "Cystoscopy",
+        "status": "pending",
+        "order_date": "2025-02-07",
+        "days_pending": 7,
+        "failure_reason": "Urology appointment scheduled 3 weeks out per standard protocol"
+      },
+      {
+        "order_id": "ORD025",
+        "test_name": "CT Urography",
+        "status": "completed",
+        "order_date": "2025-02-07",
+        "result_date": "2025-02-09"
+      },
+      {
+        "order_id": "ORD026",
+        "test_name": "Urine Cytology",
+        "status": "completed",
+        "order_date": "2025-02-07",
+        "result_date": "2025-02-10"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES014",
+        "test_name": "CT Urography",
+        "result_date": "2025-02-09",
+        "interpretation": "Abnormal",
+        "full_text": "FINDINGS: 2.8 cm irregular mass arising from right bladder wall, predominantly involving the right lateral wall and trigone. Mass demonstrates enhancement. Mild right-sided hydronephrosis suggesting possible involvement of right ureteral orifice. No upper tract masses. Kidneys enhance symmetrically. No lymphadenopathy.\n\nIMPRESSION: Bladder mass highly suspicious for urothelial carcinoma (bladder cancer). Mild hydronephrosis concerning for tumor involvement of ureteral orifice. Recommend urgent cystoscopy with biopsy and possible transurethral resection. Tumor appears invasive given size and hydronephrosis."
+      },
+      {
+        "result_id": "RES015",
+        "test_name": "Urine Cytology",
+        "result_date": "2025-02-10",
+        "interpretation": "Abnormal",
+        "full_text": "INTERPRETATION: Atypical urothelial cells present. High-grade urothelial carcinoma cannot be excluded. Recommend correlation with cystoscopy and biopsy for definitive diagnosis."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Bladder cancer (urothelial carcinoma)",
+      "differential": [
+        "Benign prostatic hyperplasia with bleeding",
+        "Bladder stone",
+        "Urethral stricture"
+      ],
+      "reasoning": "Painless hematuria in male >60 with smoking history and occupational carcinogen exposure is bladder cancer until proven otherwise. CT shows 2.8 cm bladder mass with concerning features (hydronephrosis suggests muscle invasion). Urine cytology supports malignancy. Cystoscopy with TURBT (transurethral resection of bladder tumor) is both diagnostic and therapeutic."
+    },
+    "ground_truth_diagnosis": "Muscle-Invasive Bladder Cancer (Urothelial Carcinoma, High-Grade)",
+    "failure_mode": "Cystoscopy delayed 3 weeks per standard scheduling - tumor continued to grow and invade, requiring radical cystectomy instead of bladder-sparing treatment",
+    "ai_should_flag": [
+      "CT shows 2.8 cm bladder mass 'highly suspicious for urothelial carcinoma'",
+      "Hydronephrosis suggests muscle-invasive disease (worse prognosis)",
+      "Urine cytology shows atypical cells, 'high-grade carcinoma cannot be excluded'",
+      "Cystoscopy ordered 7 days ago but scheduled 3 weeks out",
+      "Painless hematuria + smoking + occupational exposure = very high bladder cancer risk"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Bladder cancer",
+      "differential_diagnoses": [
+        "Urothelial carcinoma (non-bladder)",
+        "Renal cell carcinoma",
+        "Benign prostatic hyperplasia",
+        "Urinary tract infection",
+        "Nephrolithiasis",
+        "Glomerulonephritis"
+      ],
+      "key_symptoms": [
+        "Painless gross hematuria",
+        "Age 63",
+        "Occupational exposure to aniline dyes (rubber industry - known bladder carcinogen)",
+        "Heavy smoking history (40 pack-years)",
+        "Bright red blood without clots",
+        "No signs of infection on urinalysis"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "Cystoscopy with biopsy",
+        "CT urography (CT IVP)",
+        "Urine cytology",
+        "Complete blood count",
+        "Comprehensive metabolic panel",
+        "PSA level"
+      ],
+      "reasoning": "Bladder cancer most common malignancy in US men. Risk factors: smoking, occupational exposures (aniline dyes), chronic irritation. Cystoscopy gold standard for detection. CT urography evaluates upper tracts. Cytology detects shed cells. Must exclude benign causes before treatment planning.",
+      "loop_status": "open",
+      "flags": [
+        "CT urography: 2.8 cm bladder mass 'highly suspicious for urothelial carcinoma'",
+        "Hydronephrosis on CT suggests muscle-invasive disease \u2014 increases risk, bladder removal likely",
+        "Urine cytology: 'high-grade urothelial carcinoma cannot be excluded'",
+        "Cystoscopy pending 7 days \u2014 standard scheduling despite confirmed suspicious mass"
+      ],
+      "agent_confidence": 9,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P013",
+    "demographics": {
+      "age": 71,
+      "sex": "F",
+      "mrn": "MRN-558342"
+    },
+    "visit_date": "2025-02-09",
+    "clinical_note": {
+      "date": "2025-02-09",
+      "provider": "Dr. Chang, Steven",
+      "specialty": "Cardiology",
+      "text": "SUBJECTIVE: 71-year-old female presents for cardiology follow-up of newly diagnosed atrial fibrillation found 2 weeks ago during routine visit. Patient reports occasional palpitations but otherwise asymptomatic. No chest pain, shortness of breath, or lightheadedness. No history of stroke or TIA.\n\nPMH: Hypertension, diabetes, CHF (EF 45%), prior MI 3 years ago\nMEDICATIONS: Metoprolol 50mg BID, Lisinopril 20mg daily, Metformin 1000mg BID\n\nOBJECTIVE:\nVitals: BP 128/76, HR 88 irregular, RR 14\nCardiovascular: Irregularly irregular rhythm, no murmurs\nEKG: Atrial fibrillation, rate 85-95 bpm\n\nASSESSMENT: Newly diagnosed atrial fibrillation. CHA2DS2-VASc score is 6 (age 71, female, HTN, diabetes, CHF, prior MI) indicating high stroke risk. Patient requires anticoagulation to prevent stroke. Rate control adequate on current beta blocker.\n\nPLAN: Start apixaban 5mg BID for stroke prevention. Discussed risks and benefits of anticoagulation including bleeding risk. Patient agrees to start therapy. Continue metoprolol for rate control. Echocardiogram to assess for left atrial thrombus before considering cardioversion in future. Follow-up in 4 weeks."
+    },
+    "orders": [
+      {
+        "order_id": "ORD027",
+        "test_name": "Transthoracic Echocardiogram",
+        "status": "pending",
+        "order_date": "2025-02-09",
+        "days_pending": 6,
+        "failure_reason": "Scheduled for 2 weeks out, patient hasn't gone yet"
+      },
+      {
+        "order_id": "ORD028",
+        "test_name": "Apixaban Prescription",
+        "status": "cancelled",
+        "order_date": "2025-02-09",
+        "failure_reason": "Pharmacy called patient about $85 copay - patient decided to wait and discuss cheaper options at next visit"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES019",
+        "test_name": "Transthoracic Echocardiogram",
+        "result_date": "2025-02-10",
+        "interpretation": "Abnormal",
+        "full_text": "LEFT VENTRICLE: Normal size, ejection fraction 55% (normal)\nLEFT ATRIUM: Moderately enlarged (5.2 cm)\nVALVES: Mild mitral regurgitation, no significant stenosis\nRHYTHM: Atrial fibrillation\n\nIMPRESSION: Atrial fibrillation with left atrial enlargement. Normal left ventricular function. Anticoagulation strongly recommended given CHA2DS2-VASc score of 6 - high stroke risk without treatment."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Atrial fibrillation with high stroke risk (CHA2DS2-VASc 6)",
+      "differential": [
+        "Paroxysmal atrial fibrillation",
+        "Persistent atrial fibrillation"
+      ],
+      "reasoning": "CHA2DS2-VASc score of 6 indicates very high annual stroke risk (approximately 9-15% per year without anticoagulation). Anticoagulation reduces stroke risk by 60-70%. Benefits clearly outweigh bleeding risks in this patient. Apixaban or other DOAC is first-line therapy."
+    },
+    "ground_truth_diagnosis": "Persistent Atrial Fibrillation (High Stroke Risk)",
+    "failure_mode": "Patient never started anticoagulation due to cost - presented 3 weeks later with acute ischemic stroke causing permanent disability",
+    "ai_should_flag": [
+      "CHA2DS2-VASc score of 6 = very high stroke risk (~10-15% per year)",
+      "Anticoagulation (apixaban) ordered but CANCELLED due to cost concerns",
+      "Patient has not started stroke prevention medication",
+      "Multiple high-risk features: age, diabetes, heart failure, prior MI",
+      "Every day without anticoagulation increases stroke risk"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Atrial fibrillation with high stroke risk",
+      "differential_diagnoses": [
+        "Paroxysmal atrial fibrillation if symptoms intermittent",
+        "Multifocal atrial tachycardia",
+        "Atrial flutter with rapid conduction"
+      ],
+      "key_symptoms": [
+        "New onset atrial fibrillation (2 weeks)",
+        "Age 71 (CHA2DS2-VASc = 6)",
+        "Comorbidities (HTN",
+        "DM",
+        "CHF",
+        "prior MI)",
+        "Asymptomatic currently",
+        "Irregularly irregular rhythm on exam"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Transthoracic echocardiogram (assess LA size",
+        "function",
+        "rule out thrombus)",
+        "Complete blood count (check for anemia)",
+        "Thyroid stimulating hormone (hyperthyroidism can trigger AF)",
+        "Consider 12-lead electrocardiogram (baseline)"
+      ],
+      "reasoning": "High CHA2DS2-VASc score (6) indicates need for oral anticoagulation to prevent stroke. Apixaban preferred over warfarin due to convenience and lower bleeding risk. Rate control achieved with metoprolol; may require dose adjustment if symptomatic. Cardioversion considered after 3 months of anticoagulation unless acute coronary syndrome present.",
+      "loop_status": "open",
+      "flags": [
+        "CHA2DS2-VASc score 6 = high stroke risk \u2014 anticoagulation prescription was cancelled due to cost",
+        "Patient currently unprotected from stroke \u2014 requires urgent medication resolution",
+        "Echocardiogram pending \u2014 left atrial thrombus not yet excluded"
+      ],
+      "agent_confidence": 8,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P014",
+    "demographics": {
+      "age": 54,
+      "sex": "M",
+      "mrn": "MRN-882451"
+    },
+    "visit_date": "2025-02-11",
+    "clinical_note": {
+      "date": "2025-02-11",
+      "provider": "Dr. Taylor, Rachel",
+      "specialty": "Gastroenterology",
+      "text": "SUBJECTIVE: 54-year-old male presents for persistent jaundice and pruritus for 3 weeks. Reports dark urine and pale stools. Significant weight loss of 20 pounds over past 2 months. Vague upper abdominal discomfort. Denies fever, nausea, or vomiting. No alcohol use. New-onset diabetes diagnosed 4 months ago.\n\nOBJECTIVE:\nVitals: BP 132/78, HR 82, Temp 98.4\u00b0F, Weight 165 lbs (down from 185 lbs)\nGeneral: Jaundiced, appears fatigued\nAbdomen: Soft, non-tender, palpable non-tender gallbladder (Courvoisier sign positive)\nSkin: Icteric, excoriations from scratching\n\nLabs (from today):\nTotal Bilirubin: 8.2 mg/dL (normal 0.3-1.2)\nDirect Bilirubin: 6.8 mg/dL\nAlkaline Phosphatase: 485 U/L (normal 30-120)\nAST: 95 U/L\nALT: 112 U/L\nCA 19-9: 850 U/mL (normal <37)\n\nASSESSMENT: Painless jaundice with palpable gallbladder (Courvoisier sign), weight loss, new-onset diabetes, and elevated CA 19-9 is pancreatic cancer until proven otherwise. Cholestatic pattern on labs. CA 19-9 markedly elevated.\n\nPLAN: CT abdomen with pancreatic protocol to evaluate for pancreatic mass. ERCP may be needed for biliary decompression and tissue diagnosis. Oncology and hepatobiliary surgery referrals. Patient counseled about concern for pancreatic malignancy."
+    },
+    "orders": [
+      {
+        "order_id": "ORD029",
+        "test_name": "CT Abdomen with Pancreatic Protocol",
+        "status": "completed",
+        "order_date": "2025-02-11",
+        "result_date": "2025-02-12"
+      },
+      {
+        "order_id": "ORD030",
+        "test_name": "ERCP with Biopsy",
+        "status": "pending",
+        "order_date": "2025-02-12",
+        "days_pending": 4,
+        "failure_reason": "ERCP scheduled but no available slots for 2 weeks - patient on waiting list for earlier cancellation"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES016",
+        "test_name": "CT Abdomen with Pancreatic Protocol",
+        "result_date": "2025-02-12",
+        "interpretation": "Abnormal",
+        "full_text": "FINDINGS: 3.5 cm hypoenhancing mass in head of pancreas causing obstruction of common bile duct and pancreatic duct (double duct sign). Mass encases superior mesenteric artery (>180 degrees). Dilated intrahepatic and extrahepatic bile ducts. Multiple enlarged peripancreatic lymph nodes. No definite liver metastases. Small amount of ascites.\n\nIMPRESSION: Pancreatic head mass consistent with pancreatic adenocarcinoma. Vascular encasement (SMA >180\u00b0) indicates locally advanced, borderline resectable or unresectable disease. Recommend tissue diagnosis via ERCP or EUS-guided biopsy. Urgent oncology and hepatobiliary surgery consultation for staging and treatment planning. Prognosis poor given locally advanced disease."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Pancreatic adenocarcinoma (locally advanced)",
+      "differential": [
+        "Cholangiocarcinoma",
+        "Ampullary carcinoma",
+        "Chronic pancreatitis with stricture"
+      ],
+      "reasoning": "Painless jaundice with palpable gallbladder (Courvoisier sign) is pathognomonic for pancreatic head cancer. New-onset diabetes in older adult can be paraneoplastic. CA 19-9 of 850 strongly supports malignancy. CT shows locally advanced disease with vascular involvement - poor prognosis. Requires urgent tissue diagnosis and multidisciplinary tumor board."
+    },
+    "ground_truth_diagnosis": "Stage III Pancreatic Adenocarcinoma (Locally Advanced, Borderline Resectable)",
+    "failure_mode": "ERCP delayed 2 weeks - tumor progressed to unresectable with liver metastases, lost window for potential surgery",
+    "ai_should_flag": [
+      "CT shows 3.5 cm pancreatic mass 'consistent with pancreatic adenocarcinoma'",
+      "Locally advanced disease with vascular involvement (SMA encasement)",
+      "Classic presentation: Courvoisier sign + jaundice + weight loss + new diabetes",
+      "Radiologist states 'prognosis poor given locally advanced disease'",
+      "ERCP ordered 4 days ago but delayed 2 weeks - every day matters for surgical candidacy"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Pancreatic adenocarcinoma",
+      "differential_diagnoses": [
+        "Cholangiocarcinoma",
+        "Gallbladder cancer",
+        "Bile duct stricture",
+        "Primary biliary cholangitis"
+      ],
+      "key_symptoms": [
+        "Painless jaundice with palpable gallbladder (Courvoisier sign)",
+        "Significant weight loss (20 lbs in 2 months)",
+        "New-onset diabetes mellitus (pancreatic endocrine dysfunction)",
+        "Markedly elevated CA 19-9 (tumor marker)",
+        "Cholestatic laboratory pattern (elevated bilirubin and alkaline phosphatase)"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "Contrast-enhanced CT abdomen with pancreas protocol",
+        "Endoscopic ultrasound with fine needle aspiration",
+        "MRCP or ERCP with biopsy",
+        "Complete blood count",
+        "Comprehensive metabolic panel",
+        "Type and screen"
+      ],
+      "reasoning": "Courvoisier sign (palpable gallbladder without stones) + painless jaundice + weight loss + elevated CA 19-9 = pancreatic head cancer until proven otherwise. CA 19-9 >100 suggests malignancy. Requires imaging evaluation - CT first, EUS for biopsy if not resectable. If unresectable, palliative stenting via ERCP.",
+      "loop_status": "open",
+      "flags": [
+        "Liver biopsy pending \u2014 hepatocellular carcinoma cannot be excluded in cirrhotic patient",
+        "AFP elevated: HCC surveillance criteria met, tissue diagnosis required"
+      ],
+      "agent_confidence": 7,
+      "agent_review_flag": false
+    }
+  },
+  {
+    "patient_id": "P015",
+    "demographics": {
+      "age": 8,
+      "sex": "M",
+      "mrn": "MRN-447293"
+    },
+    "visit_date": "2025-02-13",
+    "clinical_note": {
+      "date": "2025-02-13",
+      "provider": "Dr. Patel, Ravi",
+      "specialty": "Pediatrics",
+      "text": "SUBJECTIVE: 8-year-old male brought by mother for persistent limp and right leg pain for 4 weeks. Initially thought to be from sports injury (soccer) but hasn't improved. Pain worse at night, sometimes wakes child from sleep. Acetaminophen helps somewhat. Denies fever or recent illness. Eating and growing normally.\n\nOBJECTIVE:\nVitals: BP 102/64, HR 88, Temp 98.2\u00b0F\nMusculoskeletal: Antalgic gait favoring right leg. Tenderness over right distal femur. Firm, non-mobile mass palpable over distal femur, approximately 5 cm in size. No warmth or erythema. Range of motion of knee mildly limited by pain.\nNeurologic: Strength intact, reflexes normal\nNo lymphadenopathy\n\nASSESSMENT: 8-year-old with persistent leg pain, night pain, and palpable bone mass. Concerning features for bone tumor include age, location (distal femur), night pain, and palpable mass. Differential includes osteosarcoma (most common primary bone cancer in children), Ewing sarcoma, or benign bone lesion (osteochondroma, bone cyst). Night pain is red flag for malignancy.\n\nPLAN: X-ray right femur to evaluate for bone lesion. If abnormal, will need MRI for further characterization. Orthopedic oncology referral if imaging concerning. Parents counseled about possibility of bone tumor and need for prompt evaluation."
+    },
+    "orders": [
+      {
+        "order_id": "ORD031",
+        "test_name": "X-ray Right Femur (AP and Lateral)",
+        "status": "completed",
+        "order_date": "2025-02-13",
+        "result_date": "2025-02-13"
+      },
+      {
+        "order_id": "ORD032",
+        "test_name": "MRI Right Femur with Contrast",
+        "status": "pending",
+        "order_date": "2025-02-13",
+        "days_pending": 3,
+        "failure_reason": "Parents need to find time off work to bring child for MRI - haven't scheduled yet"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES017",
+        "test_name": "X-ray Right Femur",
+        "result_date": "2025-02-13",
+        "interpretation": "Abnormal",
+        "full_text": "FINDINGS: Aggressive-appearing lesion in distal right femur metaphysis. Mixed lytic and sclerotic bone destruction with 'sunburst' periosteal reaction and Codman triangle. Soft tissue mass extending beyond cortex. No pathologic fracture.\n\nIMPRESSION: Highly concerning for primary bone malignancy, most likely osteosarcoma given patient age, location (distal femur - most common site), and radiographic appearance. 'Sunburst' pattern is classic for osteosarcoma. Recommend urgent MRI for extent of disease and orthopedic oncology referral. Biopsy will be required for definitive diagnosis. Chest CT needed to evaluate for pulmonary metastases (osteosarcoma metastasizes to lungs)."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Osteosarcoma (primary bone cancer)",
+      "differential": [
+        "Ewing sarcoma",
+        "Osteomyelitis (less likely without fever)",
+        "Eosinophilic granuloma"
+      ],
+      "reasoning": "Sunburst periosteal reaction with Codman triangle on X-ray in distal femur of 8-year-old is pathognomonic for osteosarcoma. Age 10-20 is peak incidence, distal femur is most common site. Night pain and palpable mass are concerning features. Requires urgent MRI for surgical planning and chest CT for staging. Treatment is neoadjuvant chemotherapy followed by limb-salvage surgery."
+    },
+    "ground_truth_diagnosis": "High-Grade Osteosarcoma, Right Distal Femur",
+    "failure_mode": "MRI delayed 3+ days (still pending) because parents struggling to coordinate time off work - delay risks metastatic spread and worse outcomes",
+    "ai_should_flag": [
+      "X-ray shows 'highly concerning for primary bone malignancy, most likely osteosarcoma'",
+      "Classic radiographic features: sunburst pattern, Codman triangle, soft tissue extension",
+      "Radiologist recommends 'urgent MRI' and 'orthopedic oncology referral'",
+      "MRI ordered 3 days ago but parents haven't scheduled yet",
+      "Osteosarcoma is aggressive - delays in diagnosis worsen prognosis and surgical options"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Osteosarcoma",
+      "differential_diagnoses": [
+        "Ewing sarcoma",
+        "Benign bone tumor (osteochondroma)",
+        "Bone cyst",
+        "Stress fracture"
+      ],
+      "key_symptoms": [
+        "Persistent bone pain >4 weeks",
+        "Night pain waking from sleep",
+        "Palpable bone mass on distal femur",
+        "Age 8 years (peak incidence 10-20 years)",
+        "Limping gait"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Right femur X-ray (AP and lateral)",
+        "MRI right femur with contrast",
+        "Complete blood count",
+        "Comprehensive metabolic panel",
+        "Alkaline phosphatase (may be elevated in bone tumors)"
+      ],
+      "reasoning": "Night pain and palpable bone mass in a child are red flags for bone malignancy. Distal femur is most common site for osteosarcoma. Early detection critical as treatment involves chemotherapy followed by surgery. MRI provides detailed tissue characterization.",
+      "loop_status": "open",
+      "flags": [
+        "Progressive neurologic deficits with bowel/bladder changes: cauda equina syndrome must be excluded urgently",
+        "MRI lumbar spine pending \u2014 any further delay risks permanent neurologic injury"
+      ],
+      "agent_confidence": 8,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P016",
+    "demographics": {
+      "age": 39,
+      "sex": "F",
+      "mrn": "MRN-119845"
+    },
+    "visit_date": "2025-02-14",
+    "clinical_note": {
+      "date": "2025-02-14",
+      "provider": "Dr. Johnson, Mark",
+      "specialty": "Emergency Medicine",
+      "text": "SUBJECTIVE: 39-year-old female presents to ED with severe right-sided headache started suddenly 2 hours ago while exercising. Describes as worst headache of life, 10/10 severity. Associated with nausea, vomiting, photophobia. Denies trauma, fever, or neck stiffness. No history of migraines. Took ibuprofen at home without relief.\n\nOBJECTIVE:\nVitals: BP 168/95, HR 98, Temp 98.6\u00b0F, RR 18\nGeneral: In severe distress from pain\nNeurologic: Alert and oriented x3, no focal deficits, neck supple (no meningismus), fundoscopy deferred due to patient discomfort\nNo papilledema appreciated on limited exam\n\nASSESSMENT: Sudden-onset severe headache (thunderclap) with hypertension. Differential includes subarachnoid hemorrhage, intracerebral hemorrhage, reversible cerebral vasoconstriction syndrome (RCVS), or migraine. Subarachnoid hemorrhage must be ruled out with thunderclap onset.\n\nPLAN: Non-contrast CT head to evaluate for hemorrhage. If CT negative, will need lumbar puncture to rule out SAH (xanthochromia can be present even with negative CT). Neurology consultation. Pain control with IV medications. Blood pressure management as needed."
+    },
+    "orders": [
+      {
+        "order_id": "ORD033",
+        "test_name": "Non-Contrast CT Head",
+        "status": "completed",
+        "order_date": "2025-02-14",
+        "result_date": "2025-02-14"
+      },
+      {
+        "order_id": "ORD034",
+        "test_name": "Lumbar Puncture with CSF Analysis",
+        "status": "pending",
+        "order_date": "2025-02-14",
+        "days_pending": 0,
+        "failure_reason": "Patient's pain improved with IV medications, patient refused LP and left AMA"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES018",
+        "test_name": "Non-Contrast CT Head",
+        "result_date": "2025-02-14",
+        "interpretation": "Normal",
+        "full_text": "FINDINGS: No acute intracranial hemorrhage. No mass effect or midline shift. Ventricles normal size. No extra-axial fluid collections. Visualized paranasal sinuses clear.\n\nIMPRESSION: No acute intracranial abnormality. Normal CT head.\n\nNOTE: CT sensitivity for subarachnoid hemorrhage decreases with time. Sensitivity is 95-100% if performed within 6 hours but drops to 50% by 1 week. Given clinical concern for SAH with thunderclap headache, recommend lumbar puncture if CT performed >6 hours from symptom onset OR if high clinical suspicion persists despite negative CT. Xanthochromia (yellow CSF from RBC breakdown) develops 6-12 hours after bleed and can detect SAH missed by CT."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Subarachnoid hemorrhage (aneurysmal)",
+      "differential": [
+        "Reversible cerebral vasoconstriction syndrome (RCVS)",
+        "Sentinel headache from small aneurysmal leak",
+        "Migraine (atypical)",
+        "Cerebral venous thrombosis"
+      ],
+      "reasoning": "Thunderclap headache is SAH until proven otherwise. Negative CT does not exclude SAH - sensitivity is only 95% even within first 6 hours and decreases with time. Lumbar puncture is essential to detect xanthochromia (blood breakdown products in CSF). Approximately 5-10% of SAH patients have negative CT but positive LP."
+    },
+    "ground_truth_diagnosis": "Aneurysmal Subarachnoid Hemorrhage (Anterior Communicating Artery)",
+    "failure_mode": "Patient left AMA before LP - re-presented 3 days later with massive rebleed causing coma and death",
+    "ai_should_flag": [
+      "Thunderclap headache = subarachnoid hemorrhage until proven otherwise",
+      "Negative CT does NOT rule out SAH - sensitivity only 95% and decreases over time",
+      "Radiologist specifically notes 'recommend lumbar puncture if high clinical suspicion'",
+      "Lumbar puncture ordered but NEVER performed - patient left AMA",
+      "SAH has high rebleed rate in first 72 hours if not diagnosed and treated"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Subarachnoid hemorrhage (SAH)",
+      "differential_diagnoses": [
+        "Intracerebral hemorrhage",
+        "Reversible cerebral vasoconstriction syndrome (RCVS)",
+        "Migraine variant",
+        "Cerebral venous sinus thrombosis"
+      ],
+      "key_symptoms": [
+        "Thunderclap headache (sudden onset",
+        "maximal intensity within minutes)",
+        "Severe headache (10/10)",
+        "Hypertension (BP 168/95)",
+        "Nausea and vomiting",
+        "Photophobia",
+        "No prior headaches",
+        "Age 39 (SAH most common in 40s-60s)"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "Non-contrast CT head (immediate)",
+        "Lumbar puncture if CT negative but suspicion high",
+        "Complete blood count",
+        "Coagulation studies (PT/INR",
+        "aPTT)",
+        "Type and screen",
+        "MRI brain (if CT negative after 24h)"
+      ],
+      "reasoning": "Thunderclap headache is SAH until proven otherwise - requires immediate imaging. CT detects >90% of SAHs within first 24 hours. LP shows xanthochromia (blood breakdown products) if CT delayed or negative. RCVS also presents with thunderclap headache and recurrent episodes.",
+      "loop_status": "open",
+      "flags": [
+        "Multiple preventive screenings overdue \u2014 mammogram, colonoscopy, and bone density not yet scheduled",
+        "Follow-up labs for identified risk factors pending"
+      ],
+      "agent_confidence": 5,
+      "agent_review_flag": false
+    }
+  },
+  {
+    "patient_id": "P017",
+    "demographics": {
+      "age": 75,
+      "sex": "M",
+      "mrn": "MRN-338574"
+    },
+    "visit_date": "2025-02-15",
+    "clinical_note": {
+      "date": "2025-02-15",
+      "provider": "Dr. Lewis, Catherine",
+      "specialty": "Geriatrics",
+      "text": "SUBJECTIVE: 75-year-old male presents for increasing back pain over past 6 weeks. Describes pain as constant, aching, located in mid-thoracic spine. Pain not relieved by rest or position changes. Reports 15-pound weight loss over past 3 months. Denies leg weakness or bowel/bladder changes. Denies trauma.\n\nPMH: Prostate cancer diagnosed 8 years ago, treated with radiation therapy, PSA has been undetectable until recent rise\n\nOBJECTIVE:\nVitals: BP 138/82, HR 76, Temp 98.4\u00b0F, Weight 162 lbs (down from 177 lbs)\nSpine: Tenderness to percussion over T8-T10 vertebrae\nNeurologic: Strength 5/5 in bilateral lower extremities, sensation intact, reflexes normal, gait normal, no saddle anesthesia\nRectal: Prostate firm, nodular\n\nRecent PSA (from 2 weeks ago): 18.5 ng/mL (up from undetectable)\n\nASSESSMENT: Thoracic back pain with focal tenderness, weight loss, and rising PSA in patient with history of prostate cancer. Highly concerning for metastatic prostate cancer to spine. Must evaluate for spinal metastases and risk of pathologic fracture or cord compression.\n\nPLAN: MRI thoracic and lumbar spine to evaluate for metastatic disease and cord compression. Bone scan for evaluation of other skeletal metastases. Urology and oncology referrals. Pain control with NSAIDs, avoid narcotics if possible. Follow-up in 1 week with imaging results."
+    },
+    "orders": [
+      {
+        "order_id": "ORD035",
+        "test_name": "MRI Thoracic and Lumbar Spine with Contrast",
+        "status": "pending",
+        "order_date": "2025-02-15",
+        "days_pending": 1,
+        "failure_reason": "Scheduled for 10 days out - soonest available appointment"
+      },
+      {
+        "order_id": "ORD036",
+        "test_name": "Bone Scan (Whole Body)",
+        "status": "pending",
+        "order_date": "2025-02-15",
+        "days_pending": 1,
+        "failure_reason": "Scheduled for 2 weeks out per nuclear medicine availability"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES020",
+        "test_name": "Prostate-Specific Antigen (PSA)",
+        "result_date": "2025-02-16",
+        "interpretation": "Elevated",
+        "full_text": "Prostate-Specific Antigen (PSA): 18.5 ng/mL (normal <4.0)\n\nINTERPRETATION: Markedly elevated PSA. In context of known prostate cancer history and new back pain with focal spine tenderness, rising PSA from previously undetectable levels indicates biochemical recurrence with high likelihood of metastatic disease. Spine imaging essential to evaluate for bone metastases."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Metastatic prostate cancer with spinal metastases",
+      "differential": [
+        "Spinal compression fracture (osteoporotic)",
+        "Degenerative disc disease",
+        "Multiple myeloma",
+        "Primary spinal tumor"
+      ],
+      "reasoning": "Rising PSA from undetectable to 18.5 in patient with prior prostate cancer indicates biochemical recurrence with likely metastatic disease. Constant back pain with focal tenderness at specific vertebral level + weight loss = spinal metastases until proven otherwise. Prostate cancer commonly metastasizes to bone, especially spine. Risk of pathologic fracture and cord compression requires urgent imaging."
+    },
+    "ground_truth_diagnosis": "Metastatic Castration-Resistant Prostate Cancer with Spinal Metastases (T8-T10)",
+    "failure_mode": "MRI delayed 10 days due to scheduling - patient developed acute cord compression 5 days later requiring emergency surgery with incomplete neurologic recovery",
+    "ai_should_flag": [
+      "Rising PSA (18.5) in prostate cancer patient = biochemical recurrence, likely metastatic",
+      "Focal spine tenderness + weight loss = spinal metastases until proven otherwise",
+      "Back pain in cancer patient is oncologic emergency - requires urgent MRI",
+      "MRI ordered but delayed 10 days - patient at risk for cord compression",
+      "Prostate cancer spinal mets can cause paralysis if not treated urgently"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Metastatic prostate cancer to thoracic spine",
+      "differential_diagnoses": [
+        "Primary spinal tumor (e.g.",
+        "myeloma)",
+        "Spinal infection (osteomyelitis)",
+        "Herniated disc with radiculopathy",
+        "Compression fracture without metastasis"
+      ],
+      "key_symptoms": [
+        "Focal vertebral tenderness (T8-T10)",
+        "Progressive back pain over weeks",
+        "Significant weight loss (15 pounds)",
+        "Rising PSA after undetectable levels",
+        "History of prostate cancer",
+        "Age >70"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "MRI thoracic and lumbar spine with contrast",
+        "Technetium bone scan",
+        "Complete blood count",
+        "Comprehensive metabolic panel",
+        "CT chest",
+        "abdomen",
+        "pelvis (evaluate for visceral mets)"
+      ],
+      "reasoning": "Back pain with focal tenderness in patient with rising PSA is red flag for metastatic prostate cancer. MRI evaluates for epidural extension causing cord compression. Bone scan assesses overall skeletal burden. Early detection critical to prevent pathologic fracture and neurological compromise.",
+      "loop_status": "open",
+      "flags": [
+        "Thyroid nodule FNA biopsy results pending \u2014 malignancy cannot be excluded",
+        "TI-RADS 4 nodule: intermediate-to-high suspicion classification"
+      ],
+      "agent_confidence": 7,
+      "agent_review_flag": false
+    }
+  },
+  {
+    "patient_id": "P018",
+    "demographics": {
+      "age": 62,
+      "sex": "F",
+      "mrn": "MRN-992847"
+    },
+    "visit_date": "2025-02-15",
+    "clinical_note": {
+      "date": "2025-02-15",
+      "provider": "Dr. Robinson, James",
+      "specialty": "Hematology",
+      "text": "SUBJECTIVE: 62-year-old female referred by PCP for progressive fatigue, weakness, and bone pain over past 3 months. Reports back pain and rib pain. Two recent infections (pneumonia, UTI) requiring antibiotics. Noticed increased thirst and urination. 18-pound weight loss. Denies fever or night sweats currently.\n\nOBJECTIVE:\nVitals: BP 128/76, HR 88, Temp 98.2\u00b0F, Weight 142 lbs\nGeneral: Fatigued appearing, pale\nMusculoskeletal: Tenderness over ribs and lumbar spine\nNeurologic: Intact\n\nLabs from PCP visit:\nHemoglobin: 8.9 g/dL (low)\nCalcium: 11.8 mg/dL (high)\nCreatinine: 2.1 mg/dL (elevated, baseline 0.9)\nTotal Protein: 9.8 g/dL (high)\nAlbumin: 3.2 g/dL (low-normal)\n\nASSESSMENT: Anemia, hypercalcemia, renal insufficiency, and elevated total protein with low-normal albumin suggests paraproteinemia (monoclonal gammopathy). Combined with bone pain, recurrent infections, and weight loss, concerning for multiple myeloma. CRAB criteria (hypercalcemia, renal insufficiency, anemia, bone lesions) partially met already.\n\nPLAN: SPEP with immunofixation to detect monoclonal protein. Serum free light chains. 24-hour urine for protein electrophoresis. Skeletal survey for lytic lesions. Bone marrow biopsy if SPEP positive. Urgent evaluation given symptoms and lab abnormalities."
+    },
+    "orders": [
+      {
+        "order_id": "ORD037",
+        "test_name": "Serum Protein Electrophoresis (SPEP) with Immunofixation",
+        "status": "completed",
+        "order_date": "2025-02-15",
+        "result_date": "2025-02-17"
+      },
+      {
+        "order_id": "ORD038",
+        "test_name": "Skeletal Survey (X-rays)",
+        "status": "pending",
+        "order_date": "2025-02-15",
+        "days_pending": 1,
+        "failure_reason": "Patient needs to go to imaging center - hasn't scheduled yet"
+      },
+      {
+        "order_id": "ORD039",
+        "test_name": "Bone Marrow Biopsy",
+        "status": "pending",
+        "order_date": "2025-02-17",
+        "days_pending": 0,
+        "failure_reason": "Scheduled for 1 week out pending skeletal survey results"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES019",
+        "test_name": "SPEP with Immunofixation",
+        "result_date": "2025-02-17",
+        "interpretation": "Abnormal",
+        "full_text": "FINDINGS:\nMonoclonal IgG kappa spike measuring 4.2 g/dL in gamma region\nQuantitative IgG: 5,850 mg/dL (elevated)\nIgA: 45 mg/dL (suppressed)\nIgM: 28 mg/dL (suppressed)\n\nSerum Free Light Chains:\nKappa: 285 mg/L (normal 3.3-19.4)\nLambda: 12 mg/L (normal 5.7-26.3)\nKappa/Lambda ratio: 23.75 (normal 0.26-1.65)\n\nINTERPRETATION: Large monoclonal IgG kappa paraprotein with suppression of normal immunoglobulins and extremely elevated free light chains with abnormal kappa/lambda ratio. Findings consistent with active myeloma. Recommend bone marrow biopsy and skeletal survey to complete workup for multiple myeloma. Patient meets diagnostic criteria pending bone marrow confirmation."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Multiple myeloma",
+      "differential": [
+        "MGUS (monoclonal gammopathy of undetermined significance)",
+        "Smoldering myeloma",
+        "Waldenstrom macroglobulinemia"
+      ],
+      "reasoning": "CRAB criteria present: hypercalcemia (11.8), renal insufficiency (Cr 2.1), anemia (Hgb 8.9), and likely bone lesions (pending skeletal survey). Large M-spike (4.2 g/dL) with suppressed immunoglobulins and abnormal free light chain ratio diagnostic of symptomatic multiple myeloma. Bone marrow will show >10% plasma cells. Requires urgent treatment initiation."
+    },
+    "ground_truth_diagnosis": "IgG Kappa Multiple Myeloma (ISS Stage III)",
+    "failure_mode": "Skeletal survey delayed - patient developed pathologic rib fracture 1 week later, causing pneumothorax requiring chest tube",
+    "ai_should_flag": [
+      "SPEP shows large monoclonal protein (4.2 g/dL) diagnostic of myeloma",
+      "CRAB criteria met: hypercalcemia, renal failure, anemia, bone pain",
+      "Lab states 'findings consistent with active myeloma'",
+      "Skeletal survey ordered but patient hasn't scheduled - critical for assessing lytic lesions",
+      "Untreated myeloma causes pathologic fractures and progressive organ damage"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Multiple myeloma",
+      "differential_diagnoses": [
+        "MGUS (monoclonal gammopathy of undetermined significance)",
+        "Waldenstrom macroglobulinemia",
+        "Primary amyloidosis",
+        "Lymphoma with plasmacytosis"
+      ],
+      "key_symptoms": [
+        "Anemia (Hgb 8.9)",
+        "Hypercalcemia (calcium 11.8)",
+        "Renal insufficiency (creatinine 2.1)",
+        "Bone pain (ribs",
+        "spine)",
+        "Recurrent infections",
+        "Elevated total protein (9.8) with low albumin (3.2)",
+        "Age >60"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Serum protein electrophoresis with immunofixation",
+        "Urine protein electrophoresis",
+        "Serum free light chain assay",
+        "Complete blood count",
+        "Comprehensive metabolic panel",
+        "Lactate dehydrogenase",
+        "Beta-2 microglobulin",
+        "Skeletal survey (X-rays)",
+        "Bone marrow aspiration and biopsy"
+      ],
+      "reasoning": "Classic myeloma triad: bone pain, renal failure, hypercalcemia. Monoclonal protein in serum and urine confirms plasma cell dyscrasia. Bone marrow shows clonal plasma cells (>10%). Requires treatment as it's malignant disease.",
+      "loop_status": "open",
+      "flags": [
+        "Bone marrow biopsy pending \u2014 multiple myeloma workup incomplete",
+        "Elevated protein gap + anemia + bone pain: classic myeloma triad of findings"
+      ],
+      "agent_confidence": 8,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P019",
+    "demographics": {
+      "age": 47,
+      "sex": "F",
+      "mrn": "MRN-556748"
+    },
+    "visit_date": "2025-02-16",
+    "clinical_note": {
+      "date": "2025-02-16",
+      "provider": "Dr. Hughes, Patrick",
+      "specialty": "Endocrinology",
+      "text": "SUBJECTIVE: 47-year-old female presents for thyroid nodule evaluation. Noticed lump in neck 2 months ago. Denies difficulty swallowing, voice changes, or shortness of breath. No family history of thyroid cancer. No prior radiation exposure. Feels well otherwise.\n\nOBJECTIVE:\nVitals: BP 122/78, HR 72, Temp 98.4\u00b0F\nThyroid: 2.5 cm firm nodule in right lobe, moves with swallowing. No cervical lymphadenopathy palpable.\nENT: Vocal cords mobile and normal on indirect laryngoscopy\n\nThyroid ultrasound (from PCP):\nRight lobe: 3.2 x 2.8 x 2.5 cm hypoechoic nodule with irregular margins, microcalcifications present, taller-than-wide shape, increased vascularity. ACR TI-RADS 5 (high suspicion).\nLeft lobe: Normal\nNo pathologic lymph nodes\n\nTSH: 1.8 mIU/L (normal)\n\nASSESSMENT: Thyroid nodule with highly suspicious ultrasound features (TI-RADS 5). Microcalcifications, irregular margins, and taller-than-wide shape are concerning for papillary thyroid carcinoma. Normal TSH indicates non-functioning nodule. Requires tissue diagnosis.\n\nPLAN: Fine needle aspiration (FNA) biopsy of right thyroid nodule. If malignant, will need total thyroidectomy. Baseline thyroglobulin. Discussed findings and next steps with patient."
+    },
+    "orders": [
+      {
+        "order_id": "ORD040",
+        "test_name": "Thyroid FNA Biopsy",
+        "status": "completed",
+        "order_date": "2025-02-16",
+        "result_date": "2025-02-19"
+      },
+      {
+        "order_id": "ORD041",
+        "test_name": "Surgery Consultation (ENT)",
+        "status": "pending",
+        "order_date": "2025-02-19",
+        "days_pending": 0,
+        "failure_reason": "Referral placed but surgery scheduler called patient during work hours, patient missed call and hasn't called back"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES020",
+        "test_name": "Thyroid FNA Biopsy",
+        "result_date": "2025-02-19",
+        "interpretation": "Malignant",
+        "full_text": "SPECIMEN: Ultrasound-guided FNA, right thyroid nodule\n\nCYTOLOGY: Cellular aspirate showing papillary architecture with cells demonstrating nuclear grooves, nuclear pseudoinclusions, and overlapping nuclei. Psammoma bodies present.\n\nDIAGNOSIS: Bethesda VI - Malignant\nConsistent with Papillary Thyroid Carcinoma\n\nCOMMENT: Papillary carcinoma is confirmed. Clinical correlation recommended. Recommend surgical consultation for total thyroidectomy with central neck dissection. Molecular testing not indicated given diagnostic cytology. Excellent prognosis with appropriate surgical management."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Papillary thyroid carcinoma",
+      "differential": [
+        "Follicular variant of papillary thyroid cancer",
+        "Follicular thyroid cancer (less likely given cytology)"
+      ],
+      "reasoning": "Bethesda VI cytology (malignant) with classic features of papillary thyroid carcinoma: nuclear grooves, pseudoinclusions, psammoma bodies. TI-RADS 5 ultrasound features (microcalcifications, irregular margins) corroborate diagnosis. Requires total thyroidectomy followed by radioactive iodine ablation. Excellent long-term prognosis with proper treatment."
+    },
+    "ground_truth_diagnosis": "Papillary Thyroid Carcinoma, Classic Type",
+    "failure_mode": "Surgery consultation placed but patient missed scheduler's call and didn't follow up - 6-week delay allowed lymph node spread requiring more extensive surgery",
+    "ai_should_flag": [
+      "FNA confirms MALIGNANCY: Bethesda VI - Papillary Thyroid Carcinoma",
+      "Pathology report recommends 'total thyroidectomy with central neck dissection'",
+      "Surgery referral placed but patient hasn't scheduled appointment",
+      "While thyroid cancer is slow-growing, delays allow lymph node spread",
+      "TI-RADS 5 nodule with confirmed cancer requires surgical treatment"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Papillary thyroid carcinoma",
+      "differential_diagnoses": [
+        "Follicular adenoma",
+        "Medullary thyroid carcinoma",
+        "Benign thyroid nodule"
+      ],
+      "key_symptoms": [
+        "Large thyroid nodule (3.2 cm)",
+        "Irregular margins",
+        "Microcalcifications",
+        "Tall-to-width ratio (>0.7)",
+        "Increased vascularity on ultrasound",
+        "TSH suppressed (normal 1.8)"
+      ],
+      "urgency": "medium",
+      "tests_ordered": [
+        "Fine needle aspiration biopsy",
+        "Thyroid function tests (TSH",
+        "free T4)",
+        "Thyroglobulin level",
+        "Complete blood count",
+        "Comprehensive metabolic panel"
+      ],
+      "reasoning": "Ultrasound features highly suspicious for papillary thyroid cancer (microcalcifications, irregular margins, tall-ratio). FNA is diagnostic - if malignant, requires total thyroidectomy. TSH suppression not needed preoperatively as surgery removes entire gland.",
+      "loop_status": "open",
+      "flags": [
+        "FNA confirms papillary thyroid carcinoma (Bethesda VI \u2014 diagnostic for malignancy)",
+        "Surgery referral placed but patient missed call \u2014 appointment not yet scheduled",
+        "Lymph node metastasis risk increases with each week of surgical delay"
+      ],
+      "agent_confidence": 8,
+      "agent_review_flag": true
+    }
+  },
+  {
+    "patient_id": "P020",
+    "demographics": {
+      "age": 35,
+      "sex": "M",
+      "mrn": "MRN-773829"
+    },
+    "visit_date": "2025-02-17",
+    "clinical_note": {
+      "date": "2025-02-17",
+      "provider": "Dr. Foster, Angela",
+      "specialty": "Primary Care",
+      "text": "SUBJECTIVE: 35-year-old male presents with persistent headaches for 6 weeks. Describes headaches as worse in the morning, improves throughout the day. Associated with nausea, especially in morning. Reports visual changes - occasional blurred vision and double vision. Denies trauma. Works as software engineer, attributes symptoms initially to stress and screen time.\n\nOBJECTIVE:\nVitals: BP 158/92, HR 88, Temp 98.4\u00b0F\nNeurologic: \n- Mental status: Alert, oriented x3\n- Cranial nerves: CN VI palsy noted bilaterally (limited abduction both eyes), other CNs intact\n- Motor: 5/5 strength throughout\n- Sensory: Intact\n- Cerebellar: Mild dysmetria on finger-to-nose bilaterally\n- Fundoscopy: Bilateral papilledema with blurred disc margins\n\nASSESSMENT: Morning headaches with nausea, papilledema, and CN VI palsies concerning for increased intracranial pressure. Sixth nerve palsies are false localizing signs of elevated ICP. Differential includes brain tumor, idiopathic intracranial hypertension (less likely in male), hydrocephalus, or cerebral venous thrombosis. Papilledema requires urgent neuroimaging.\n\nPLAN: MRI brain with and without contrast to evaluate for mass lesion or hydrocephalus. Neurology referral urgently. BP elevated - may be reactive to ICP. Advised to go to ER immediately if headache suddenly worsens, vision loss, or seizure occurs. Avoid aspirin or NSAIDs until imaging complete."
+    },
+    "orders": [
+      {
+        "order_id": "ORD042",
+        "test_name": "MRI Brain with and without Contrast",
+        "status": "pending",
+        "order_date": "2025-02-17",
+        "days_pending": 1,
+        "failure_reason": "Scheduled for 1 week out - patient has work deadline and asked to reschedule for after project completion"
+      }
+    ],
+    "results": [
+      {
+        "result_id": "RES021",
+        "test_name": "Complete Metabolic Panel",
+        "result_date": "2025-02-17",
+        "interpretation": "Normal",
+        "full_text": "GLUCOSE: 98 mg/dL (normal)\nSODIUM: 140 mEq/L (normal)\nPOTASSIUM: 4.2 mEq/L (normal)\nCREATININE: 0.9 mg/dL (normal)\nCALCIUM: 9.8 mg/dL (normal)\n\nINTERPRETATION: Normal metabolic panel. Does not explain neurologic symptoms. Papilledema and cerebellar signs remain concerning for increased intracranial pressure from mass lesion. Brain MRI remains urgent and essential."
+      }
+    ],
+    "diagnostic_hypothesis": {
+      "primary": "Brain tumor (likely glioblastoma or high-grade glioma)",
+      "differential": [
+        "Brain metastases",
+        "Meningioma",
+        "Abscess",
+        "Idiopathic intracranial hypertension"
+      ],
+      "reasoning": "Morning headaches that improve during day suggest increased ICP (worse when supine overnight). Bilateral papilledema confirms elevated ICP. CN VI palsies are classic false localizing signs. Cerebellar signs (dysmetria) suggest posterior fossa involvement. In 35-year-old male, brain tumor most likely cause. Requires urgent MRI - cannot wait 1 week."
+    },
+    "ground_truth_diagnosis": "Glioblastoma (Right Frontal Lobe with Mass Effect)",
+    "failure_mode": "Patient delayed MRI by 2 weeks to finish work project - presented to ER with seizure and severe neurologic deficits from tumor hemorrhage",
+    "ai_should_flag": [
+      "CRITICAL exam: bilateral papilledema (sign of increased intracranial pressure)",
+      "CN VI palsies + cerebellar signs = brain tumor until proven otherwise",
+      "Provider notes papilledema 'requires urgent neuroimaging'",
+      "MRI ordered but patient delaying for work - brain tumors are emergencies",
+      "Morning headaches + nausea + vision changes = classic increased ICP presentation"
+    ],
+    "ai_analysis": {
+      "primary_hypothesis": "Increased intracranial pressure (papilledema)",
+      "differential_diagnoses": [
+        "Brain tumor",
+        "Hydrocephalus",
+        "Cerebral venous sinus thrombosis",
+        "Idiopathic intracranial hypertension (pseudotumor cerebri)"
+      ],
+      "key_symptoms": [
+        "Bilateral papilledema",
+        "Bilateral CN VI palsies (false localizing sign)",
+        "Morning headaches improving during day",
+        "Nausea associated with headache",
+        "Visual disturbances (blurred vision",
+        "diplopia)",
+        "Elevated blood pressure (reactive?)"
+      ],
+      "urgency": "high",
+      "tests_ordered": [
+        "MRI brain with and without gadolinium contrast",
+        "MR venography (if thrombosis suspected)",
+        "Complete blood count",
+        "Comprehensive metabolic panel",
+        "Erythrocyte sedimentation rate"
+      ],
+      "reasoning": "Papilledema indicates increased ICP. CN VI palsies occur because they have long intracranial course and are vulnerable to stretching from raised CSF pressure. Requires immediate neuroimaging to rule out structural cause (tumor, hydrocephalus). If no structural lesion found, consider IIH (more common in young obese women but can occur in men).",
+      "loop_status": "open",
+      "flags": [
+        "Bilateral papilledema + bilateral CN VI palsies + cerebellar dysmetria: mass lesion emergency",
+        "MRI delayed \u2014 patient postponing for work project despite provider's urgent recommendation",
+        "Glioblastoma: every day of diagnostic delay worsens prognosis"
+      ],
+      "agent_confidence": 10,
+      "agent_review_flag": true
+    }
+  }
+]

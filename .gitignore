@@ -1,9 +1,8 @@
 # Model weights (too large for git)
-data/
+/data/
 models/
 *.bin
 *.safetensors
-!frontend/data/patients_with_ai_final_enriched.json
 
 # Python
 __pycache__/
