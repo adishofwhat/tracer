@@ -179,7 +179,7 @@ export default function PatientDetailView({ patient: p }: Props) {
 
             <div className="p-4 border-t border-gray-100">
               <p className="text-xs font-semibold text-gray-500 uppercase">
-                Confirmed Diagnosis
+                Working Diagnosis
               </p>
               <p className="text-sm font-semibold text-green-700 mt-1">
                 {p.ground_truth_diagnosis}
