@@ -18,12 +18,12 @@ export interface AIAnalysis {
   differential_diagnoses: string[];
   key_symptoms: string[];
   urgency: UrgencyLevel;
-  tests_ordered: string[];
   reasoning: string;
   loop_status: string;
   flags: string[];
   agent_confidence: number | null;
   agent_review_flag: boolean | null;
+  tests_ordered?: string[];
 }
 
 // ── Patient Data (top-level record) ──────────────────────────────────────────

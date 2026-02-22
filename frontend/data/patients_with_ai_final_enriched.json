@@ -85,9 +85,10 @@
       "reasoning": "Postmenopausal woman with new onset bloating and early satiety requires exclusion of ovarian malignancy. CA-125 elevated in 50% of ovarian cancers but not sensitive in early stages. Ultrasound detects most ovarian tumors. If suspicious mass found, surgical staging required.",
       "loop_status": "open",
       "flags": [
-        "CA-125 critically elevated at 685 U/mL (normal <35) \u2014 highly suspicious for ovarian malignancy",
-        "Transvaginal ultrasound ordered 18 days ago \u2014 never completed",
-        "Postmenopausal woman with ascites: ovarian cancer until proven otherwise"
+        "CRITICAL CA-125 of 685 (normal <35) - highly suspicious for ovarian cancer in postmenopausal woman",
+        "Classic ovarian cancer triad: bloating, early satiety, ascites",
+        "Ultrasound ordered 18 days ago but never completed",
+        "Postmenopausal status makes ovarian cancer more likely than benign causes"
       ],
       "agent_confidence": 9,
       "agent_review_flag": true
@@ -180,9 +181,10 @@
       "reasoning": "Iron deficiency in adult male requires investigation for GI source of blood loss. Most common causes: colorectal cancer, peptic ulcer disease, angiodysplasia, gastritis. Colonoscopy essential given age and time since last screening.",
       "loop_status": "open",
       "flags": [
-        "PSA markedly elevated \u2014 urgent urology referral placed but not yet confirmed",
-        "Prostate biopsy pending \u2014 date not yet scheduled",
-        "Provider notes 'suspicious nodule on DRE consistent with malignancy'"
+        "Iron deficiency anemia in 72-year-old male mandates colonoscopy",
+        "Microcytic anemia (MCV 72) with low ferritin (8) = chronic GI blood loss",
+        "Colonoscopy ordered 14 days ago but patient never scheduled appointment",
+        "Age >50 + iron deficiency anemia = 10% risk of colorectal cancer"
       ],
       "agent_confidence": 8,
       "agent_review_flag": true
@@ -273,9 +275,11 @@
       "reasoning": "Heavy smoker with weight loss and hemoptysis requires immediate imaging evaluation for malignancy. Even if X-ray is normal, CT chest essential given high risk. Smoking cessation most important intervention.",
       "loop_status": "open",
       "flags": [
-        "CT shows 1.8 cm lung nodule in high-risk smoker \u2014 highly suspicious for malignancy",
-        "PET scan ordered but scheduling pending \u2014 critical diagnostic delay",
-        "Radiologist explicitly recommends 'urgent follow-up and tissue sampling'"
+        "ABNORMAL chest X-ray: 3.2 cm spiculated mass in right upper lobe",
+        "Radiologist specifically states 'highly suspicious for bronchogenic carcinoma'",
+        "Red flags: hemoptysis + weight loss (12 lbs) + heavy smoker (25 pack-years)",
+        "CT chest ordered 11 days ago but appointment cancelled twice",
+        "Hilar lymphadenopathy suggests locally advanced disease"
       ],
       "agent_confidence": 9,
       "agent_review_flag": true
@@ -340,7 +344,7 @@
       "Pancytopenia in child = leukemia until proven otherwise"
     ],
     "ai_analysis": {
-      "primary_hypothesis": "Immune thrombocytopenic purpura (ITP)",
+      "primary_hypothesis": "Acute leukemia (ALL vs AML) \u2014 WBC 45,800 with atypical lymphocytes",
       "differential_diagnoses": [
         "Acute lymphoblastic leukemia",
         "Aplastic anemia",
@@ -356,7 +360,7 @@
         "bone pain)",
         "Normal physical exam (no organomegaly)"
       ],
-      "urgency": "medium",
+      "urgency": "high",
       "tests_ordered": [
         "Complete blood count with differential",
         "Platelet aggregation studies",
@@ -367,8 +371,11 @@
       "reasoning": "Acute onset of petechiae and bruising in previously healthy child suggests ITP. Isolated low platelets with normal WBC and hemoglobin is classic presentation. Requires CBC to confirm. If confirmed ITP, supportive care and observation - most children recover spontaneously. Urgent if leukemia suspected (abnormal WBC, blasts).",
       "loop_status": "open",
       "flags": [
-        "Colonoscopy pending 14 days \u2014 colorectal cancer workup incomplete",
-        "Iron deficiency anemia in 68-year-old male: GI malignancy must be excluded"
+        "CRITICAL lab values: WBC 45,800 (extremely elevated), platelets 35,000 (low), anemia (Hgb 8.2)",
+        "78% lymphocytes with many 'atypical/immature' cells highly suspicious for leukemia",
+        "Lab specifically recommends 'manual review' and 'urgent hematology referral'",
+        "Peripheral smear ordered 8 days ago but never completed",
+        "Pancytopenia in child = leukemia until proven otherwise"
       ],
       "agent_confidence": 7,
       "agent_review_flag": false
@@ -447,7 +454,7 @@
         "Unestablished prenatal care",
         "Adnexal tenderness"
       ],
-      "urgency": "medium",
+      "urgency": "high",
       "tests_ordered": [
         "Quantitative serum beta-hCG",
         "Transvaginal ultrasound",
@@ -457,8 +464,11 @@
       "reasoning": "Ectopic pregnancy life-threatening emergency - must rule out in any pregnant patient with abdominal pain. Beta-hCG confirms pregnancy; ultrasound identifies location (intrauterine vs ectopic). If hCG >1500 and no IUP seen, high suspicion for ectopic requiring immediate intervention.",
       "loop_status": "open",
       "flags": [
-        "Cardiac stress test pending \u2014 ACS workup incomplete in high-risk patient",
-        "Multiple cardiac risk factors: diabetes, hypertension, active smoker, age >50"
+        "Beta-hCG 2,845 - above discriminatory zone, IUP should be visible on ultrasound",
+        "Right adnexal pain + elevated hCG + no IUP seen = ectopic pregnancy",
+        "Transvaginal ultrasound ordered 6 days ago but never completed",
+        "Lab interpretation specifically states 'ectopic pregnancy must be strongly considered'",
+        "Patient at risk for tubal rupture and life-threatening hemorrhage"
       ],
       "agent_confidence": 7,
       "agent_review_flag": false
@@ -551,7 +561,7 @@
       "Patient has foamy urine (symptom of severe proteinuria) that was dismissed"
     ],
     "ai_analysis": {
-      "primary_hypothesis": "Hypertension (uncontrolled)",
+      "primary_hypothesis": "End-stage renal disease (CKD stage 4-5) \u2014 creatinine 3.8, eGFR 16",
       "differential_diagnoses": [
         "Diabetic nephropathy (microalbuminuria)",
         "Chronic kidney disease",
@@ -560,8 +570,7 @@
       "key_symptoms": [
         "Elevated blood pressure (142/88 despite medication)",
         "Longstanding diabetes and hypertension",
-        "Foamy urine (suggests proteinuria)",
-        "Obesity (BMI 32)"
+        "Foamy urine (suggests proteinuria)"
       ],
       "urgency": "medium",
       "tests_ordered": [
@@ -572,12 +581,14 @@
         "Lipid panel",
         "Electrocardiogram"
       ],
-      "reasoning": "Uncontrolled hypertension in patient with diabetes requires dose adjustment. Foamy urine suggests proteinuria which indicates early diabetic nephropathy. Microalbuminuria warrants close monitoring of renal function. Target BP <130/80 in patients with diabetes.",
+      "reasoning": "Severely elevated creatinine (3.8) and eGFR of 16 indicates stage 4-5 CKD approaching dialysis threshold. Markedly elevated albuminuria (1,250 mg/g) with longstanding diabetes and hypertension confirms diabetic nephropathy as the etiology. Nephrology referral is urgent \u2014 eGFR <20 requires immediate planning for renal replacement therapy. Foamy urine symptom was dismissed but is a classic sign of severe proteinuria.",
       "loop_status": "open",
       "flags": [
-        "Creatinine 3.8 mg/dL \u2014 eGFR 16: stage 4-5 CKD approaching dialysis threshold",
-        "Lab report states 'immediate nephrology referral recommended'",
-        "Nephrology referral in task queue marked 'next week' \u2014 patient at risk for acute decompensation"
+        "CRITICAL kidney function: Creatinine 3.8 (normal 0.7-1.3), eGFR 16 (normal >60)",
+        "Stage 4-5 chronic kidney disease - approaching dialysis threshold",
+        "Severely elevated albuminuria: 1,250 mg/g (normal <30)",
+        "Lab explicitly states 'immediate nephrology referral recommended'",
+        "Patient has foamy urine (symptom of severe proteinuria) that was dismissed"
       ],
       "agent_confidence": 8,
       "agent_review_flag": true
@@ -668,9 +679,11 @@
       "reasoning": "Breast mass in woman over 50 requires immediate evaluation. Irregularity and fixation suggest malignancy. Imaging first step - mammogram identifies lesion location and characteristics. Ultrasound differentiates solid vs cystic. Biopsy confirms diagnosis. Early detection critical for breast cancer treatment.",
       "loop_status": "open",
       "flags": [
-        "BI-RADS 5: >95% probability of malignancy \u2014 radiologist recommends 'urgent tissue diagnosis'",
-        "Core needle biopsy pending 12 days \u2014 appointment double-booked, patient not rescheduled",
-        "Spiculated mass with microcalcifications and posterior acoustic shadowing: classic invasive breast cancer"
+        "BI-RADS 5 = highly suggestive of malignancy (>95% cancer risk)",
+        "Radiologist specifically recommends 'urgent tissue diagnosis'",
+        "Spiculated mass with microcalcifications = classic invasive breast cancer",
+        "Biopsy ordered 12 days ago but never completed",
+        "Every week of delay matters in breast cancer treatment outcomes"
       ],
       "agent_confidence": 9,
       "agent_review_flag": true
@@ -777,9 +790,11 @@
       "reasoning": "Solid testicular mass in young man requires urgent evaluation. Ultrasound differentiates solid vs cystic components. If solid mass confirmed, radical inguinal orchiectomy performed - both diagnostic and therapeutic. Excellent prognosis (>90% curable). Tumor markers help differentiate seminoma vs nonseminoma.",
       "loop_status": "open",
       "flags": [
-        "AFP 1,250 ng/mL (normal <10) + beta-hCG 850 mIU/mL: confirms non-seminomatous germ cell tumor",
-        "CT staging scan pending 9 days \u2014 metastatic staging essential for treatment planning",
-        "Delay in staging directly impacts eligibility for nerve-sparing surgery"
+        "Testicular ultrasound shows 3.8 cm mass 'highly suspicious for germ cell tumor'",
+        "CRITICAL tumor markers: AFP 1,250 (normal <10), Beta-hCG 850 (normal <5)",
+        "Radiologist recommends 'urgent urology consultation' and 'staging CT'",
+        "CT chest/abdomen/pelvis ordered 9 days ago but never scheduled",
+        "Testicular cancer in young men is highly curable but time-sensitive"
       ],
       "agent_confidence": 9,
       "agent_review_flag": true
@@ -873,7 +888,7 @@
         "Inappropriate diuretic use (hydrochlorothiazide)",
         "Elderly patient with decreased thirst mechanism"
       ],
-      "urgency": "medium",
+      "urgency": "high",
       "tests_ordered": [
         "Basic metabolic panel (sodium",
         "potassium",
@@ -886,8 +901,11 @@
       "reasoning": "Orthostatic hypotension in elderly is critical - may indicate volume depletion or autonomic dysfunction. HCTZ can cause volume depletion. Must assess for infection (UTI common cause of delirium). Labs will guide management - hold diuretics if hypovolemia suspected.",
       "loop_status": "open",
       "flags": [
-        "HbA1c 10.2% \u2014 severely uncontrolled diabetes, endocrinology referral pending",
-        "Diabetic retinal screening overdue \u2014 vision loss risk without timely evaluation"
+        "CRITICAL sodium of 118 (normal 135-145) - severe hyponatremia",
+        "Lab specifically states 'immediate medical attention required' and 'recommend hospital admission'",
+        "All patient symptoms explained by hyponatremia: confusion, weakness, orthostasis",
+        "Severe hyponatremia (<120) can cause seizures, coma, and death",
+        "Patient sent home despite critical lab - requires immediate hospitalization"
       ],
       "agent_confidence": 6,
       "agent_review_flag": false
@@ -978,9 +996,11 @@
       "reasoning": "High clinical suspicion for DVT based on Wells criteria. Prolonged travel is major VTE risk factor. Ultrasound is diagnostic test. If positive, initiate anticoagulation immediately. D-dimer can help rule out if low probability.",
       "loop_status": "open",
       "flags": [
-        "D-dimer 2,850 ng/mL (normal <500) + Wells score 5: very high DVT probability",
-        "Venous doppler ultrasound pending 5 days \u2014 DVT without anticoagulation risks fatal PE",
-        "Classic DVT presentation: unilateral swelling, warmth, tenderness post-long-haul flight"
+        "High probability DVT: Wells score 5, positive risk factors (long flight, family history)",
+        "Markedly elevated D-dimer: 2,850 (normal <500)",
+        "Classic DVT exam: unilateral swelling, warmth, tenderness, positive Homan's sign",
+        "Ultrasound ordered 5 days ago but never completed",
+        "Delay in DVT treatment increases risk of pulmonary embolism (potentially fatal)"
       ],
       "agent_confidence": 9,
       "agent_review_flag": true
@@ -1065,9 +1085,11 @@
       "reasoning": "Papilledema indicates elevated ICP which can be life-threatening if caused by mass effect. MRI essential to rule out tumor before diagnosing pseudotumor cerebri. Must exclude space-occupying lesion first.",
       "loop_status": "open",
       "flags": [
-        "Bilateral papilledema + CN VI palsy + ataxia: brain tumor until proven otherwise",
-        "MRI pending 10 days awaiting insurance authorization \u2014 life-threatening delay in pediatric patient",
-        "Provider documents 'papilledema is serious finding requiring neuroimaging urgently'"
+        "CRITICAL exam findings: papilledema (sign of increased intracranial pressure)",
+        "CN VI palsy + ataxia + morning headaches = classic brain tumor presentation",
+        "Provider notes 'papilledema is serious finding requiring neuroimaging urgently'",
+        "MRI ordered 10 days ago but delayed for insurance authorization",
+        "Brain tumors in children are time-sensitive - delay can cause permanent neurologic damage"
       ],
       "agent_confidence": 10,
       "agent_review_flag": true
@@ -1175,10 +1197,11 @@
       "reasoning": "Bladder cancer most common malignancy in US men. Risk factors: smoking, occupational exposures (aniline dyes), chronic irritation. Cystoscopy gold standard for detection. CT urography evaluates upper tracts. Cytology detects shed cells. Must exclude benign causes before treatment planning.",
       "loop_status": "open",
       "flags": [
-        "CT urography: 2.8 cm bladder mass 'highly suspicious for urothelial carcinoma'",
-        "Hydronephrosis on CT suggests muscle-invasive disease \u2014 increases risk, bladder removal likely",
-        "Urine cytology: 'high-grade urothelial carcinoma cannot be excluded'",
-        "Cystoscopy pending 7 days \u2014 standard scheduling despite confirmed suspicious mass"
+        "CT shows 2.8 cm bladder mass 'highly suspicious for urothelial carcinoma'",
+        "Hydronephrosis suggests muscle-invasive disease (worse prognosis)",
+        "Urine cytology shows atypical cells, 'high-grade carcinoma cannot be excluded'",
+        "Cystoscopy ordered 7 days ago but scheduled 3 weeks out",
+        "Painless hematuria + smoking + occupational exposure = very high bladder cancer risk"
       ],
       "agent_confidence": 9,
       "agent_review_flag": true
@@ -1270,9 +1293,11 @@
       "reasoning": "High CHA2DS2-VASc score (6) indicates need for oral anticoagulation to prevent stroke. Apixaban preferred over warfarin due to convenience and lower bleeding risk. Rate control achieved with metoprolol; may require dose adjustment if symptomatic. Cardioversion considered after 3 months of anticoagulation unless acute coronary syndrome present.",
       "loop_status": "open",
       "flags": [
-        "CHA2DS2-VASc score 6 = high stroke risk \u2014 anticoagulation prescription was cancelled due to cost",
-        "Patient currently unprotected from stroke \u2014 requires urgent medication resolution",
-        "Echocardiogram pending \u2014 left atrial thrombus not yet excluded"
+        "CHA2DS2-VASc score of 6 = very high stroke risk (~10-15% per year)",
+        "Anticoagulation (apixaban) ordered but CANCELLED due to cost concerns",
+        "Patient has not started stroke prevention medication",
+        "Multiple high-risk features: age, diabetes, heart failure, prior MI",
+        "Every day without anticoagulation increases stroke risk"
       ],
       "agent_confidence": 8,
       "agent_review_flag": true
@@ -1363,8 +1388,11 @@
       "reasoning": "Courvoisier sign (palpable gallbladder without stones) + painless jaundice + weight loss + elevated CA 19-9 = pancreatic head cancer until proven otherwise. CA 19-9 >100 suggests malignancy. Requires imaging evaluation - CT first, EUS for biopsy if not resectable. If unresectable, palliative stenting via ERCP.",
       "loop_status": "open",
       "flags": [
-        "Liver biopsy pending \u2014 hepatocellular carcinoma cannot be excluded in cirrhotic patient",
-        "AFP elevated: HCC surveillance criteria met, tissue diagnosis required"
+        "CT shows 3.5 cm pancreatic mass 'consistent with pancreatic adenocarcinoma'",
+        "Locally advanced disease with vascular involvement (SMA encasement)",
+        "Classic presentation: Courvoisier sign + jaundice + weight loss + new diabetes",
+        "Radiologist states 'prognosis poor given locally advanced disease'",
+        "ERCP ordered 4 days ago but delayed 2 weeks - every day matters for surgical candidacy"
       ],
       "agent_confidence": 7,
       "agent_review_flag": false
@@ -1454,8 +1482,11 @@
       "reasoning": "Night pain and palpable bone mass in a child are red flags for bone malignancy. Distal femur is most common site for osteosarcoma. Early detection critical as treatment involves chemotherapy followed by surgery. MRI provides detailed tissue characterization.",
       "loop_status": "open",
       "flags": [
-        "Progressive neurologic deficits with bowel/bladder changes: cauda equina syndrome must be excluded urgently",
-        "MRI lumbar spine pending \u2014 any further delay risks permanent neurologic injury"
+        "X-ray shows 'highly concerning for primary bone malignancy, most likely osteosarcoma'",
+        "Classic radiographic features: sunburst pattern, Codman triangle, soft tissue extension",
+        "Radiologist recommends 'urgent MRI' and 'orthopedic oncology referral'",
+        "MRI ordered 3 days ago but parents haven't scheduled yet",
+        "Osteosarcoma is aggressive - delays in diagnosis worsen prognosis and surgical options"
       ],
       "agent_confidence": 8,
       "agent_review_flag": true
@@ -1551,8 +1582,11 @@
       "reasoning": "Thunderclap headache is SAH until proven otherwise - requires immediate imaging. CT detects >90% of SAHs within first 24 hours. LP shows xanthochromia (blood breakdown products) if CT delayed or negative. RCVS also presents with thunderclap headache and recurrent episodes.",
       "loop_status": "open",
       "flags": [
-        "Multiple preventive screenings overdue \u2014 mammogram, colonoscopy, and bone density not yet scheduled",
-        "Follow-up labs for identified risk factors pending"
+        "Thunderclap headache = subarachnoid hemorrhage until proven otherwise",
+        "Negative CT does NOT rule out SAH - sensitivity only 95% and decreases over time",
+        "Radiologist specifically notes 'recommend lumbar puncture if high clinical suspicion'",
+        "Lumbar puncture ordered but NEVER performed - patient left AMA",
+        "SAH has high rebleed rate in first 72 hours if not diagnosed and treated"
       ],
       "agent_confidence": 5,
       "agent_review_flag": false
@@ -1648,8 +1682,11 @@
       "reasoning": "Back pain with focal tenderness in patient with rising PSA is red flag for metastatic prostate cancer. MRI evaluates for epidural extension causing cord compression. Bone scan assesses overall skeletal burden. Early detection critical to prevent pathologic fracture and neurological compromise.",
       "loop_status": "open",
       "flags": [
-        "Thyroid nodule FNA biopsy results pending \u2014 malignancy cannot be excluded",
-        "TI-RADS 4 nodule: intermediate-to-high suspicion classification"
+        "Rising PSA (18.5) in prostate cancer patient = biochemical recurrence, likely metastatic",
+        "Focal spine tenderness + weight loss = spinal metastases until proven otherwise",
+        "Back pain in cancer patient is oncologic emergency - requires urgent MRI",
+        "MRI ordered but delayed 10 days - patient at risk for cord compression",
+        "Prostate cancer spinal mets can cause paralysis if not treated urgently"
       ],
       "agent_confidence": 7,
       "agent_review_flag": false
@@ -1754,8 +1791,11 @@
       "reasoning": "Classic myeloma triad: bone pain, renal failure, hypercalcemia. Monoclonal protein in serum and urine confirms plasma cell dyscrasia. Bone marrow shows clonal plasma cells (>10%). Requires treatment as it's malignant disease.",
       "loop_status": "open",
       "flags": [
-        "Bone marrow biopsy pending \u2014 multiple myeloma workup incomplete",
-        "Elevated protein gap + anemia + bone pain: classic myeloma triad of findings"
+        "SPEP shows large monoclonal protein (4.2 g/dL) diagnostic of myeloma",
+        "CRAB criteria met: hypercalcemia, renal failure, anemia, bone pain",
+        "Lab states 'findings consistent with active myeloma'",
+        "Skeletal survey ordered but patient hasn't scheduled - critical for assessing lytic lesions",
+        "Untreated myeloma causes pathologic fractures and progressive organ damage"
       ],
       "agent_confidence": 8,
       "agent_review_flag": true
@@ -1845,9 +1885,11 @@
       "reasoning": "Ultrasound features highly suspicious for papillary thyroid cancer (microcalcifications, irregular margins, tall-ratio). FNA is diagnostic - if malignant, requires total thyroidectomy. TSH suppression not needed preoperatively as surgery removes entire gland.",
       "loop_status": "open",
       "flags": [
-        "FNA confirms papillary thyroid carcinoma (Bethesda VI \u2014 diagnostic for malignancy)",
-        "Surgery referral placed but patient missed call \u2014 appointment not yet scheduled",
-        "Lymph node metastasis risk increases with each week of surgical delay"
+        "FNA confirms MALIGNANCY: Bethesda VI - Papillary Thyroid Carcinoma",
+        "Pathology report recommends 'total thyroidectomy with central neck dissection'",
+        "Surgery referral placed but patient hasn't scheduled appointment",
+        "While thyroid cancer is slow-growing, delays allow lymph node spread",
+        "TI-RADS 5 nodule with confirmed cancer requires surgical treatment"
       ],
       "agent_confidence": 8,
       "agent_review_flag": true
@@ -1933,9 +1975,11 @@
       "reasoning": "Papilledema indicates increased ICP. CN VI palsies occur because they have long intracranial course and are vulnerable to stretching from raised CSF pressure. Requires immediate neuroimaging to rule out structural cause (tumor, hydrocephalus). If no structural lesion found, consider IIH (more common in young obese women but can occur in men).",
       "loop_status": "open",
       "flags": [
-        "Bilateral papilledema + bilateral CN VI palsies + cerebellar dysmetria: mass lesion emergency",
-        "MRI delayed \u2014 patient postponing for work project despite provider's urgent recommendation",
-        "Glioblastoma: every day of diagnostic delay worsens prognosis"
+        "CRITICAL exam: bilateral papilledema (sign of increased intracranial pressure)",
+        "CN VI palsies + cerebellar signs = brain tumor until proven otherwise",
+        "Provider notes papilledema 'requires urgent neuroimaging'",
+        "MRI ordered but patient delaying for work - brain tumors are emergencies",
+        "Morning headaches + nausea + vision changes = classic increased ICP presentation"
       ],
       "agent_confidence": 10,
       "agent_review_flag": true

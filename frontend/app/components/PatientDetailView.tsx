@@ -230,10 +230,7 @@ export default function PatientDetailView({ patient: p }: Props) {
                   Differential
                 </p>
                 <div className="flex flex-col gap-0.5 mt-1">
-                  {(Array.isArray(ai.differential_diagnoses)
-                    ? ai.differential_diagnoses
-                    : []
-                  ).map((d, i) => (
+                  {ai.differential_diagnoses.map((d, i) => (
                     <span key={i} className="text-xs text-gray-600">
                       · {d}
                     </span>
@@ -246,8 +243,7 @@ export default function PatientDetailView({ patient: p }: Props) {
                   Key Symptoms
                 </p>
                 <div className="flex flex-col gap-0.5 mt-1">
-                  {(Array.isArray(ai.key_symptoms) ? ai.key_symptoms : []).map(
-                    (s, i) => (
+                  {ai.key_symptoms.map((s, i) => (
                     <span key={i} className="text-xs text-gray-600">
                       · {s}
                     </span>
@@ -259,7 +255,7 @@ export default function PatientDetailView({ patient: p }: Props) {
                 <p className="text-xs font-semibold text-red-500 uppercase">
                   AI Alerts
                 </p>
-                {(Array.isArray(ai.flags) ? ai.flags : []).map((flag, i) => (
+                {ai.flags.map((flag, i) => (
                   <div
                     key={i}
                     className="bg-red-50 border border-red-100 rounded px-3 py-2 text-xs text-red-800 mt-1"
@@ -271,7 +267,7 @@ export default function PatientDetailView({ patient: p }: Props) {
 
               <div className="p-4 border-b border-gray-100">
                 <p className="text-xs font-semibold text-gray-500 uppercase">
-                  Clinical Reasoning
+                  Reasoning
                 </p>
                 <p className="text-xs text-gray-600 italic leading-relaxed mt-1">
                   {ai.reasoning}
