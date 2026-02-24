@@ -162,7 +162,7 @@ Key finding: every dedicated medical LLM (BioMistral, Meditron) scores **0% vali
 
 ## Impact
 
-Structured follow-up interventions reduce missed care events by 20–30% in published studies (Research Report 3, pmc.ncbi.nlm.nih.gov/articles/PMC12296817). Applying a conservative 15% improvement to diagnostic loop closure rates translates to ~119,000 serious harms prevented and ~$630M/year in avoided malpractice annually (Newman-Toker et al., BMJ Quality & Safety, 2024; Coverys, 2025).
+Structured follow-up interventions reduce missed care events by 20–30% in **[published studies](pmc.ncbi.nlm.nih.gov/articles/PMC12296817)**. Applying a conservative 15% improvement to diagnostic loop closure rates translates to ~119,000 serious harms prevented and ~$630M/year in avoided malpractice annually (Newman-Toker et al., BMJ Quality & Safety, 2024; Coverys, 2025).
 
 The 23 open loops in the demo represent exactly the failure pattern that causes these outcomes — tests ordered, results arrived, follow-up never happened. Tracer closes the loop.
 
