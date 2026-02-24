@@ -24,7 +24,6 @@ Diagnostic errors cause an estimated 795,000 deaths or permanent disabilities an
 ---
 
 ## Solution Overview
-
 ```
 Clinical Note → Fine-tuned MedGemma → Structured Hypothesis
                                               ↓
@@ -58,7 +57,9 @@ When a physician orders a test, Tracer:
 | Agent 3 | Quality checker (urgency, plausibility) | Base MedGemma |
 | Agent 4 | Confidence scorer + flag trigger | Base MedGemma |
 
-Each patient record carries `agent_confidence` (1–10) and `agent_review_flag` (boolean) surfaced prominently in the physician UI.
+Each patient record carries `agent_confidence` (1–10) and `agent_review_flag` (boolean) surfaced prominently in the physician UI. If the Confidence Scorer rates an extraction below 6/10, the output is flagged and the Quality Checker re-evaluates with an expanded validation prompt before the result reaches the physician — creating a self-correcting loop rather than a purely linear chain.
+
+**Safety & Human-in-the-Loop:** Tracer is explicitly non-autonomous. It surfaces context — it does not make decisions. All open loops are surfaced to the physician regardless of confidence score; the model cannot suppress a result. Agent 4 flags low-confidence extractions (<6/10) for manual review rather than acting on them. The physician remains the decision-maker at every step. Audit trails of AI-generated context are stored alongside the result for accountability.
 
 ### Frontend
 - **Framework:** Next.js 14, TypeScript, Tailwind CSS
@@ -84,7 +85,6 @@ The live demo includes 20 realistic patient scenarios across multiple specialtie
 ---
 
 ## Repository Structure
-
 ```
 tracer/
 ├── README.md
@@ -118,7 +118,6 @@ tracer/
 ## Setup
 
 ### Run the demo locally
-
 ```bash
 cd frontend
 npm install
@@ -163,7 +162,7 @@ Key finding: every dedicated medical LLM (BioMistral, Meditron) scores **0% vali
 
 ## Impact
 
-795,000 Americans die or are permanently disabled from diagnostic error every year. A 15% improvement in loop closure rates translates to ~119,000 serious harms prevented and ~$630M/year in avoided malpractice annually.
+Structured follow-up interventions reduce missed care events by 20–30% in published studies (Research Report 3, pmc.ncbi.nlm.nih.gov/articles/PMC12296817). Applying a conservative 15% improvement to diagnostic loop closure rates translates to ~119,000 serious harms prevented and ~$630M/year in avoided malpractice annually (Newman-Toker et al., BMJ Quality & Safety, 2024; Coverys, 2025).
 
 The 23 open loops in the demo represent exactly the failure pattern that causes these outcomes — tests ordered, results arrived, follow-up never happened. Tracer closes the loop.
 
